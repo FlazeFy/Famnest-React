@@ -22,8 +22,7 @@ const loginSchema = Yup.object({
 
 type SignUpFormValues = Yup.InferType<typeof loginSchema>
 
-interface IWelcomeBoxProps {
-}
+interface IWelcomeBoxProps {}
 
 const OrganismsWelcomeBox: React.FunctionComponent<IWelcomeBoxProps> = (props) => {
     const router = useRouter()
@@ -52,7 +51,7 @@ const OrganismsWelcomeBox: React.FunctionComponent<IWelcomeBoxProps> = (props) =
     }
 
     return (
-        <div className='flex flex-wrap text-center lg:text-start w-full'>
+        <div className='flex min-h-[90vh] flex-wrap text-center lg:text-start w-full'>
             <div className='w-full lg:w-1/2 mb-2 flex flex-col justify-between text-center bg-cover p-5 md:p-7 lg:p-10 relative'
                 style={{backgroundImage:"url('/background/background-1.jpg')"}}>
                 <AtomText type='sub-title' text='Famnest'/>

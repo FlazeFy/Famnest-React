@@ -50,7 +50,7 @@ body {
   --darkColor : #2f4858;
   --whiteColor : #fff;
   --secondaryColor : #f5e5e2;
-  --greyColor : #adadad;
+  --greyColor : #f6f6f6;
   --shadowColor : #E0E0E0;
   --radius: 0.625rem;
   --card: oklch(1 0 0);
@@ -93,19 +93,22 @@ body {
   border-radius: 20px;
   color: #FFF;
 }
+.bg-primary {
+  background: var(--darkColor);
+}
 
 /* Typography */
 h1 {
   font-weight: 700;
-  font-size: 48px;
+  font-size: 50px;
   letter-spacing: 7px;
 }
 h2 {
-  font-size: 32px;
+  font-size: 38px;
   letter-spacing: 5px;
 }
 h3 {
-  font-size: 24px;
+  font-size: 26px;
   letter-spacing: 3.5px;
 }
 h4 {
