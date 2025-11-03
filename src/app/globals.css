@@ -39,7 +39,7 @@ body {
   --spaceMini : 4px;
 
   /* Color Pallete */
-  --successBG : #00b7a2;
+  --successBG : #00c2a8;
   --dangerBG : #db5c70;
   --warningBG : #FFC352;
   --infoBG : #245dac;
@@ -95,6 +95,11 @@ body {
 }
 .bg-primary {
   background: var(--darkColor);
+  color: var(--whiteColor);
+}
+.bg-success {
+  background: var(--successBG);
+  color: var(--whiteColor) !important;
 }
 
 /* Typography */
@@ -128,16 +133,82 @@ p {
 
 /* Button */
 button {
-  padding: var(--spaceMD) var(--spaceLG) !important;
-  cursor: pointer;
-  border-radius: var(--roundedMD);
   color: var(--whiteColor);
   font-weight: 500;
   font-size: var(--textMD) !important;
 }
-
 .btn-primary {
   background: var(--darkColor);
+}
+.nav-link {
+  color: var(--darkColor);
+  border: 1.75px solid transparent;
+}
+.nav-link:hover {
+  border: 1.5px solid var(--darkColor);
+}
+button, .nav-link {
+  border-radius: var(--roundedMD);
+  cursor: pointer;
+  padding: var(--spaceMD) var(--spaceLG) !important;
+}
+
+/* Navbar */
+.menu-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 50px;
+  height: 50px;
+  padding: var(--spaceXMD) !important;
+  border-radius: 50%;
+  background: var(--darkColor);
+  color: var(--whiteColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  border: 1.75px solid var(--whiteColor);
+}
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none !important;
+  }
+}
+.menu-toggle.open {
+  background: var(--dangerBG);
+  transform: rotate(90deg);
+}
+.mobile-menu {
+  position: fixed;
+  top: 4.5rem; 
+  right: 1rem;
+  left: 1rem;
+  background-color: white;
+  border-radius: 1rem;
+  z-index: 999;
+  transition: all 0.3s ease-in-out;
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-slideDown {
+  animation: slideDown 0.25s ease-out;
+}
+@media (min-width: 768px) {
+  .mobile-menu {
+    display: none !important;
+  }
 }
 
 @theme inline {

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import AtomText from '../atoms/a_text';
 import { CardContent } from "@/components/ui/card"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel"
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
 
 interface ListFeature {
@@ -61,7 +61,7 @@ const OrganismsFeatureBox: React.FunctionComponent<IOrganismsFeatureBoxProps> = 
                     </CarouselContent>
                 </Carousel>
                 <div className="text-muted-foreground py-2 text-center text-sm">
-                    Slide {current} of {count}
+                    Feature {current} of {count}
                 </div>
             </div>
         </div>

@@ -10,7 +10,9 @@ import { Input } from "@/components/ui/input"
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
 import Swal from "sweetalert2"
 import { useRouter } from "next/navigation"
+import MoleculesNavbar from '../molecules/m_navbar';
 
+// Validation
 const loginSchema = Yup.object({
     email: Yup.string().required("Email is required").min(10).test(
         "is-gmail",
@@ -23,6 +25,13 @@ const loginSchema = Yup.object({
 type SignUpFormValues = Yup.InferType<typeof loginSchema>
 
 interface IWelcomeBoxProps {}
+
+const menuItem = [
+    { title: "Home", target: "#homeSection" },
+    { title: "About", target: "#aboutSection" },
+    { title: "FAQ", target: "#faqSection" },
+    { title: "Feedback", target: "#feedbackSection" }
+]
 
 const OrganismsWelcomeBox: React.FunctionComponent<IWelcomeBoxProps> = (props) => {
     const router = useRouter()
@@ -60,6 +69,7 @@ const OrganismsWelcomeBox: React.FunctionComponent<IWelcomeBoxProps> = (props) =
             </div>
             <div className='w-full lg:w-1/2 mb-2 flex flex-col justify-between px-0 py-10 lg:px-10 lg:py-0'>
                 <div>
+                    <MoleculesNavbar menuItem={menuItem}/>
                     <AtomText type='sub-title' text='Redefining how families plan, share, and grow together'/>
                 </div>
                 <div className='my-10 border-2 border-black p-5 rounded-2xl md:my-0 lg:my-0 shadow-lg'>
@@ -98,7 +108,7 @@ const OrganismsWelcomeBox: React.FunctionComponent<IWelcomeBoxProps> = (props) =
                 <div>
                     <div className='flex gap-2 mb-3'>
                         <AtomButton type='btn-primary' text='Give me A Tour'/>
-                        <AtomButton type='btn-primary' text='Register My Family'/>
+                        <AtomButton type='btn-primary' text='Get Mobile Version'/>
                     </div>
                     <AtomText type='content' text='Experience seamless coordination for every family member, from tasks and schedules to goals and memories. Discover how smart family management can bring balance, joy, and togetherness into everyday life.'/>
                 </div>
