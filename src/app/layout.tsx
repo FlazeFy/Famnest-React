@@ -1,3 +1,4 @@
+import MoleculeFooter from "@/components/molecules/m_footer";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
@@ -23,6 +24,7 @@ export default function RootLayout({
         className={`${poppins.variable} ${poppins.className} antialiased`}
       >
         {children}
+        <MoleculeFooter/>
       </body>
     </html>
   );
