@@ -1,6 +1,6 @@
 import AtomBreakline from "../atoms/a_breakline"
 import AtomText from "../atoms/a_text"
-import MoleculesFeedbackBox from "../molecules/m_feedbackBox"
+import MoleculesFeedbackBox from "../molecules/m_feedback_box"
 
 interface FeedbackItem {
     name: string

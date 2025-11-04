@@ -2,6 +2,7 @@ import AtomSeparator from "@/components/atoms/a_separator";
 import OrganismsContact from "@/components/organisms/o_contact";
 import OrganismsFeatureBox from "@/components/organisms/o_feature_box";
 import OrganismsFeedback from "@/components/organisms/o_feedback";
+import OrganismsUpcomingTask from "@/components/organisms/o_upcoming_task";
 import OrganismsWelcomeBox from "@/components/organisms/o_welcome_box";
 import { faLinkedin, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
@@ -79,15 +80,73 @@ export default function Home() {
     }
   ]
 
+  const taskItem = [
+    {
+      title: 'Grocery Shopping',
+      description: 'Buy fruits, vegetables, milk, and snacks for the week.',
+      planAt: '2025-11-05T10:00:00',
+      participant: [
+        { nickname: 'Linda', role: 'Mom' },
+        { nickname: 'John', role: 'Dad' },
+        { nickname: 'Richard', role: 'Son' },
+      ],
+    },
+    {
+      title: 'Family Cleaning Day',
+      description: 'Everyone helps clean the house — rooms, kitchen, and yard.',
+      planAt: '2025-11-06T09:30:00',
+      participant: [
+        { nickname: 'John', role: 'Dad' },
+        { nickname: 'Linda', role: 'Mom' },
+        { nickname: 'Clarisa', role: 'Daughter' },
+        { nickname: 'Richard', role: 'Son' },
+      ],
+    },
+    {
+      title: 'Grandma’s Birthday Celebration',
+      description: 'Prepare the cake, decorations, and birthday dinner for Grandma.',
+      planAt: '2025-11-08T18:00:00',
+      participant: [
+        { nickname: 'Linda', role: 'Mom' },
+        { nickname: 'John', role: 'Dad' },
+        { nickname: 'Clarisa', role: 'Daughter' },
+        { nickname: 'Richard', role: 'Son' },
+        { nickname: 'Robert', role: 'Uncle' },
+      ],
+    },
+    {
+      title: 'Weekend Picnic at the Park',
+      description: 'Pack food, bring the frisbee, and enjoy family time outdoors.',
+      planAt: '2025-11-09T11:00:00',
+      participant: [
+        { nickname: 'John', role: 'Dad' },
+        { nickname: 'Linda', role: 'Mom' },
+        { nickname: 'Clarisa', role: 'Daughter' },
+        { nickname: 'Richard', role: 'Son' },
+      ],
+    },
+    {
+      title: 'Monthly Family Budget Review',
+      description: 'Discuss expenses and plan next month’s savings goals.',
+      planAt: '2025-11-10T20:00:00',
+      participant: [
+        { nickname: 'John', role: 'Dad' },
+        { nickname: 'Linda', role: 'Mom' },
+      ],
+    },
+  ]
+
   return (
     <div className="flex flex-col bg-white min-h[100vh] p-5 lg:p-10">
       <OrganismsWelcomeBox/>
+      <AtomSeparator/>
+      <OrganismsUpcomingTask taskItem={taskItem} totalMember={3}/>
       <AtomSeparator/>
       <OrganismsFeatureBox feature={featureList}/>
       <AtomSeparator/>
       <OrganismsFeedback feedbackItem={feedbackItem}/>
       <AtomSeparator/>
-      <OrganismsContact contactItem={contactItem} email="flazen.edu@gmail.com" bodyEmail="Hii, Leo. I'm ..."/>
+      <OrganismsContact contactItem={contactItem} email="flazen.edu@gmail.com" bodyEmail="Hii, Richard. I'm ..."/>
     </div>
   );
 }

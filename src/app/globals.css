@@ -133,6 +133,9 @@ p {
 .text-secondary {
   color: var(--shadowColor);
 }
+.text-dark {
+  color: var(--darkColor);
+}
 
 /* Button */
 button {
@@ -142,6 +145,15 @@ button {
 }
 .btn-primary {
   background: var(--darkColor);
+}
+.btn-warning {
+  background: var(--warningBG);
+}
+.btn-success {
+  background: var(--successBG);
+}
+.btn-danger {
+  background: var(--dangerBG);
 }
 .nav-link {
   color: var(--darkColor);
