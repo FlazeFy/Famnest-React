@@ -1,5 +1,6 @@
 import AtomSeparator from "@/components/atoms/a_separator";
 import OrganismsFeatureBox from "@/components/organisms/o_feature_box";
+import OrganismsFeedback from "@/components/organisms/o_feedback";
 import OrganismsWelcomeBox from "@/components/organisms/o_welcome_box";
 
 export default function Home() {
@@ -34,12 +35,34 @@ export default function Home() {
     }
   ]  
 
+  const feedbackItem = [
+    {
+      name: 'Jhon Doe',
+      role: 'Product Manager',
+      image: '/mock/profile_pic.png',
+      feedback: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    },
+    {
+      name: 'Adam Albert',
+      role: 'Creative Manager',
+      image: '/mock/profile_pic.png',
+      feedback: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    },
+    {
+      name: 'Richard Kyle',
+      role: 'Marketing Manager',
+      image: '/mock/profile_pic.png',
+      feedback: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    }
+  ]
+
   return (
     <div className="flex flex-col bg-white min-h[100vh] p-5 lg:p-10">
       <OrganismsWelcomeBox/>
       <AtomSeparator/>
       <OrganismsFeatureBox feature={featureList}/>
       <AtomSeparator/>
+      <OrganismsFeedback feedbackItem={feedbackItem}/>
     </div>
   );
 }
