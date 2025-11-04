@@ -1,7 +1,11 @@
 import AtomSeparator from "@/components/atoms/a_separator";
+import OrganismsContact from "@/components/organisms/o_contact";
 import OrganismsFeatureBox from "@/components/organisms/o_feature_box";
 import OrganismsFeedback from "@/components/organisms/o_feedback";
 import OrganismsWelcomeBox from "@/components/organisms/o_welcome_box";
+import { faLinkedin, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Home() {
   const featureList = [
@@ -35,6 +39,25 @@ export default function Home() {
     }
   ]  
 
+  const contactItem = [
+    {
+      title: <span className="flex gap-2"><FontAwesomeIcon icon={faLinkedin} height={20} width={20}/> LinkedIn</span>,
+      url: "https://www.linkedin.com/in/leonardho-rante-sitanggang/"
+    },
+    {
+      title: <span className="flex gap-2"><FontAwesomeIcon icon={faGithub} height={20} width={20}/> Github</span>,
+      url: "https://github.com/FlazeFy"
+    },
+    {
+      title: <span className="flex gap-2"><FontAwesomeIcon icon={faInstagram} height={20} width={20}/> Instagram</span>,
+      url: "https://www.instagram.com/leonardhorante_08/"
+    },
+    {
+      title: <span className="flex gap-2"><FontAwesomeIcon icon={faGlobe} height={20} width={20}/> Personal Website</span>,
+      url: "https://www.leonardhors.com/"
+    }
+  ]
+
   const feedbackItem = [
     {
       name: 'Jhon Doe',
@@ -63,6 +86,8 @@ export default function Home() {
       <OrganismsFeatureBox feature={featureList}/>
       <AtomSeparator/>
       <OrganismsFeedback feedbackItem={feedbackItem}/>
+      <AtomSeparator/>
+      <OrganismsContact contactItem={contactItem} email="flazen.edu@gmail.com" bodyEmail="Hii, Leo. I'm ..."/>
     </div>
   );
 }

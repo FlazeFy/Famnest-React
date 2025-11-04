@@ -120,7 +120,7 @@ h4 {
   font-size: 20px;
   letter-spacing: 1.5px;
 }
-h1, h2, h3 {
+h1, h2 {
   text-transform: uppercase;
   line-height: 100%;
 }
@@ -154,6 +154,10 @@ button, .nav-link {
   border-radius: var(--roundedMD);
   cursor: pointer;
   padding: var(--spaceMD) var(--spaceLG) !important;
+}
+.btn-link {
+  color: var(--successBG); 
+  font-weight: 500;
 }
 
 /* Navbar */

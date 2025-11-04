@@ -4,12 +4,15 @@ interface AtomButton {
     type: string
     text: any
     extraClass?: string
+    url?: string
     onClick?: () => void
 }
 
-const AtomButton: React.FC<AtomButton> = ({ type, text, extraClass = '', onClick }) => {
+const AtomButton: React.FC<AtomButton> = ({ type, text, extraClass = '', onClick, url }) => {
     if (type === 'btn-primary') {
         return <button className={`${type} ${extraClass}`} onClick={onClick}>{text}</button>
+    } else if(type === 'btn-link'){
+        return <a className={`${type} ${extraClass}`} href={url}>{text}</a>
     } else {
         return <></>
     }
