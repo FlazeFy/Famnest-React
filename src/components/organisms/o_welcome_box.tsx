@@ -5,9 +5,17 @@ import AtomText from '../atoms/a_text';
 import MoleculesNavbar from '../molecules/m_navbar';
 import OrganismsDashboard from './o_dashboard';
 import OrganismsLoginBox from './o_login_box';
+import OrganismsPinnedChartBox from './o_pinned_chart_box';
+
+interface PinnedChartData {
+    title: string
+    data: any
+    type: string
+}
 
 interface IWelcomeBoxProps {
     isSignedIn: boolean
+    pinnedChartData?: PinnedChartData[]
 }
 
 const menuItem = [
@@ -17,7 +25,7 @@ const menuItem = [
     { title: "Feedback", target: "#feedbackSection" }
 ]
 
-const OrganismsWelcomeBox: React.FunctionComponent<IWelcomeBoxProps> = ({isSignedIn}) => {
+const OrganismsWelcomeBox: React.FunctionComponent<IWelcomeBoxProps> = ({isSignedIn, pinnedChartData}) => {
     return (
         <div className='flex min-h-[90vh] flex-wrap text-center lg:text-start w-full'>
             <div className='w-full lg:w-1/2 mb-2 flex flex-col justify-between text-center bg-cover p-5 md:p-7 lg:p-10 relative'
@@ -34,7 +42,10 @@ const OrganismsWelcomeBox: React.FunctionComponent<IWelcomeBoxProps> = ({isSigne
                     }
                 </div>
                 {
-                    isSignedIn ? <OrganismsDashboard/> : <OrganismsLoginBox/>
+                    isSignedIn ? <>
+                        <OrganismsPinnedChartBox pinnedChartData={pinnedChartData}/>
+                        <OrganismsDashboard/>
+                    </> : <OrganismsLoginBox/>
                 }
                 {
                     !isSignedIn && (
