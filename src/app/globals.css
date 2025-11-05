@@ -91,7 +91,7 @@ body {
   background-size: cover;
   background-position: center;
   border-radius: 20px;
-  color: #FFF;
+  color: var(--whiteColor);
 }
 .bg-primary {
   background: var(--darkColor);
@@ -135,6 +135,30 @@ p {
 }
 .text-dark {
   color: var(--darkColor);
+}
+
+/* Dashbox */
+.dashbox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--spaceLG);
+  border-radius: var(--roundedLG);
+  background: rgb(245, 245, 245);
+}
+
+ul {
+  list-style: none;
+  padding-left: 1.2em;
+}
+ul li::before {
+  content: "•";
+  color: var(--darkColor);
+  display: inline-block;
+  width: 0.75em;
+  margin-left: -1em;
 }
 
 /* Button */

@@ -1,0 +1,70 @@
+import * as React from 'react';
+import AtomText from '../atoms/a_text';
+
+interface IOrganismsDashboardProps {
+}
+
+const OrganismsDashboard: React.FunctionComponent<IOrganismsDashboardProps> = (props) => {
+    return (
+        <div className='flex flex-wrap'>  
+            <div className="w-full md:w-full lg:w-1/2 p-1">
+                <div className='dashbox'>
+                    <AtomText type='content' text='Task Progress'/>
+                    <ul>
+                        <li><b>2/4</b> Robert</li>
+                        <li><b>3/5</b> Leo</li>
+                        <li><b>2/4</b> Budi</li>
+                    </ul>
+                </div>
+            </div>
+            <div className="w-full md:w-full lg:w-1/2 p-1">
+                <div className='dashbox'>
+                    <AtomText type='content' text='Reminder'/>
+                    <ul>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                    </ul>
+                </div>
+            </div>
+            <div className="w-full sm:w-full md:w-1/2 lg:w-1/3 p-1">
+                <div className='dashbox'>
+                    <AtomText type='content' text='Sleep Time'/>
+                    <AtomText type='content-title' text='11:00 PM - 04:00 AM'/>
+                </div>
+            </div>
+            <div className="w-full sm:w-full md:w-1/2 lg:w-1/3 p-1">
+                <div className='dashbox'>
+                    <AtomText type='content' text='Family Budget'/>
+                    <AtomText type='content-title' text='Rp. 1.000K'/>
+                </div>
+            </div>
+            <div className="w-full sm:w-full md:w-1/2 lg:w-1/3 p-1">
+                <div className='dashbox'>
+                    <AtomText type='content' text='Family Member'/>
+                    <AtomText type='content-title' text='3'/>
+                </div>
+            </div>
+            <div className="w-full sm:w-full md:w-1/2 lg:w-1/3 p-1">
+                <div className='dashbox'>
+                    <AtomText type='content' text='Next Activity'/>
+                    <AtomText type='content-title' text='Cleaning House'/>
+                </div>
+            </div>
+            <div className="w-full sm:w-full md:w-1/2 lg:w-1/3 p-1">
+                <div className='dashbox'>
+                    <AtomText type='content' text='Need Attention'/>
+                    <AtomText type='content-title' text='Robert (Son)'/>
+                </div>
+            </div>
+            <div className="w-full sm:w-full md:w-1/2 lg:w-1/3 p-1">
+                <div className='dashbox'>
+                    <AtomText type='content' text='Next Meal'/>
+                    <AtomText type='content-title' text='Meatball'/>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default OrganismsDashboard;
