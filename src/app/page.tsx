@@ -8,6 +8,7 @@ import OrganismsWelcomeBox from "@/components/organisms/o_welcome_box";
 import { faLinkedin, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import OrganismsFAQBox from "@/components/organisms/o_faq_box";
 
 export default function Home() {
   const featureList = [
@@ -175,6 +176,12 @@ export default function Home() {
     }
   ]
 
+  const faqItem = [
+    { question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?", answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+    { question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?", answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
+    { question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?", answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." }
+  ]
+
   const isSignedIn = true
 
   return (
@@ -188,6 +195,8 @@ export default function Home() {
       <OrganismsFeedback feedbackItem={feedbackItem}/>
       <AtomSeparator/>
       <OrganismsQuestionBox/>
+      <AtomSeparator/>
+      <OrganismsFAQBox faqItem={faqItem}/>
       <AtomSeparator/>
       <OrganismsContact contactItem={contactItem} email="flazen.edu@gmail.com" bodyEmail="Hii, Richard. I'm ..."/>
     </div>
