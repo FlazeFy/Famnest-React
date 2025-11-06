@@ -15,7 +15,7 @@ interface OrganismsFeedbackProps {
 
 const OrganismsFeedback: React.FC<OrganismsFeedbackProps> = ({ feedbackItem }) => {
     return (
-        <div className='py-30 -mx-4 my-3 p-8 lg:p-20 bg-primary text-center rounded-2xl'>
+        <div className='py-30 -mx-4 my-3 p-8 lg:p-20 bg-primary text-center rounded-2xl' id="feedbackSection">
             <AtomText type='title' text='What they thinks?' />
             <AtomBreakline length={1}/>
             <AtomText type='content' text="Here's some feedback from our beloved users"/>

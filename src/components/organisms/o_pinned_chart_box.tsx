@@ -1,6 +1,5 @@
 "use client"
 import * as React from 'react';
-import AtomText from '../atoms/a_text';
 import { CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"

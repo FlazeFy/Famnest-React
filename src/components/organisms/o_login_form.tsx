@@ -21,10 +21,10 @@ const loginSchema = Yup.object({
 
 type SignUpFormValues = Yup.InferType<typeof loginSchema>
 
-interface IOrganismsLoginBoxProps {
+interface IOrganismsLoginFormProps {
 }
 
-const OrganismsLoginBox: React.FunctionComponent<IOrganismsLoginBoxProps> = (props) => {
+const OrganismsLoginForm: React.FunctionComponent<IOrganismsLoginFormProps> = (props) => {
     const router = useRouter()
 
     const form = useForm<SignUpFormValues>({ resolver: yupResolver(loginSchema), defaultValues: { email: "", password: "" }})
@@ -87,4 +87,4 @@ const OrganismsLoginBox: React.FunctionComponent<IOrganismsLoginBoxProps> = (pro
     );
 };
 
-export default OrganismsLoginBox;
+export default OrganismsLoginForm;

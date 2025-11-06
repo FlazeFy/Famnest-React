@@ -1,5 +1,6 @@
 import AtomSeparator from "@/components/atoms/a_separator";
 import OrganismsContact from "@/components/organisms/o_contact";
+import OrganismsQuestionBox from "@/components/organisms/o_question_form";
 import OrganismsFeatureBox from "@/components/organisms/o_feature_box";
 import OrganismsFeedback from "@/components/organisms/o_feedback";
 import OrganismsUpcomingTask from "@/components/organisms/o_upcoming_task";
@@ -185,6 +186,8 @@ export default function Home() {
       <OrganismsFeatureBox feature={featureList}/>
       <AtomSeparator/>
       <OrganismsFeedback feedbackItem={feedbackItem}/>
+      <AtomSeparator/>
+      <OrganismsQuestionBox/>
       <AtomSeparator/>
       <OrganismsContact contactItem={contactItem} email="flazen.edu@gmail.com" bodyEmail="Hii, Richard. I'm ..."/>
     </div>
