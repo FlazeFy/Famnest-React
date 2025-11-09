@@ -5,7 +5,7 @@ import AtomButton from '../atoms/a_button'
 import AtomText from '../atoms/a_text'
 
 interface ContactItem {
-    title: string
+    title: any
     url: string
 }
 

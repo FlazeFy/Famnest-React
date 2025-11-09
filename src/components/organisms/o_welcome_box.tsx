@@ -36,7 +36,7 @@ const OrganismsWelcomeBox: React.FunctionComponent<IWelcomeBoxProps> = ({isSigne
             </div>
             <div className='w-full lg:w-1/2 mb-2 flex flex-col justify-between px-0 py-10 lg:px-10 lg:py-0'>
                 <div>
-                    <MoleculesNavbar menuItem={menuItem}/>
+                    <MoleculesNavbar menuItem={menuItem} isSignedIn={isSignedIn} isLanding={true}/>
                     {
                         !isSignedIn && <AtomText type='sub-title' text='Redefining how families plan, share, and grow together'/>
                     }

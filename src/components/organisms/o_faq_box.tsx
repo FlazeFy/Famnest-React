@@ -17,7 +17,7 @@ const OrganismsFAQBox: React.FC<OrganismsFAQBoxProps> = ({ faqItem }) => {
     const [activeIndex, setActiveIndex] = useState(0)
 
     return (
-        <div className="bg-white p-8 lg:p-20" id="skillSection">
+        <div className="bg-white p-8 lg:p-20" id="faqSection">
             <div className='flex flex-wrap -mx-4'>
                 <div className="w-full md:w-1/2 px-4">
                     {
