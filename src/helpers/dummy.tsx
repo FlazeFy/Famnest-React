@@ -58,3 +58,41 @@ export const taskItem = [
         isFinished: true,
     },
 ]
+
+export const memberItem = [
+    {
+        fullname: "Alice Johnson",
+        gender: "Female",
+        nickname: "Ali",
+        profilePic: null,
+        bornAt: "1990-05-12"
+    },
+    {
+        fullname: "Robert Smith",
+        gender: "Male",
+        nickname: "Rob",
+        profilePic: "/mock/profile_pic.png",
+        bornAt: "1985-09-23"
+    },
+    {
+        fullname: "Emily Davis",
+        gender: "Female",
+        nickname: "Em",
+        profilePic: null,
+        bornAt: "1998-03-15"
+    },
+    {
+        fullname: "John Carter",
+        gender: "Male",
+        nickname: "Johnny",
+        profilePic: "/mock/profile_pic.png",
+        bornAt: "2000-07-30"
+    },
+    {
+        fullname: "Sophia Brown",
+        gender: "Female",
+        nickname: "Sophie",
+        profilePic: null,
+        bornAt: "1995-11-08"
+    }
+]

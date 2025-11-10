@@ -22,3 +22,12 @@ export interface MoneyFlowItem {
     createdAt: string
     createdBy: string
 }
+
+// Family Member
+export interface FamilyMemberShortInfo {
+    fullname: string
+    gender: string
+    nickname: string
+    profilePic?: string
+    bornAt: string
+}
