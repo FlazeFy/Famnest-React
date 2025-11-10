@@ -93,14 +93,17 @@ html {
   background-size: cover;
   background-position: center;
   border-radius: 20px;
-  color: var(--whiteColor);
 }
 .bg-primary {
   background: var(--darkColor);
-  color: var(--whiteColor);
 }
 .bg-success {
   background: var(--successBG);
+}
+.bg-danger {
+  background: var(--dangerBG);
+}
+.bg-cover, .bg-primary, .bg-success, .bg-danger {
   color: var(--whiteColor) !important;
 }
 
@@ -149,6 +152,30 @@ p {
   padding: var(--spaceLG);
   border-radius: var(--roundedLG);
   background: rgb(245, 245, 245);
+}
+
+/* Moneybox */
+.moneybox {
+  position: relative;
+  width: 100%;
+  border-radius: var(--roundedLG); 
+  margin-bottom: var(--spaceSM);
+  color: var(--darkColor); 
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: var(--spaceMD);
+}
+.moneybox:hover {
+  background: var(--greyColor);
+}
+
+@media (min-width: 768px) {
+  .moneybox {
+    padding: 0.875rem; /* 3.5 * 0.25rem = 0.875rem */
+  }
 }
 
 ul {
