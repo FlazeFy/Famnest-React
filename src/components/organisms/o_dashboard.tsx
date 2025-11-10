@@ -1,5 +1,6 @@
 import * as React from 'react';
 import AtomText from '../atoms/a_text';
+import OrganismsEditSleepTimeDialog from './o_edit_sleep_time_dialog';
 
 interface IOrganismsDashboardProps {
 }
@@ -28,10 +29,7 @@ const OrganismsDashboard: React.FunctionComponent<IOrganismsDashboardProps> = (p
                 </div>
             </div>
             <div className="w-full sm:w-full md:w-1/2 lg:w-1/3 p-1">
-                <div className='dashbox'>
-                    <AtomText type='content' text='Sleep Time'/>
-                    <AtomText type='content-title' text='11:00 PM - 04:00 AM'/>
-                </div>
+                <OrganismsEditSleepTimeDialog/>
             </div>
             <div className="w-full sm:w-full md:w-1/2 lg:w-1/3 p-1">
                 <div className='dashbox'>
