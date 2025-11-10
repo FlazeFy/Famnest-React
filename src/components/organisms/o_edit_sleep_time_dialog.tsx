@@ -15,7 +15,7 @@ const OrganismsEditSleepTimeDialog: React.FunctionComponent<IOrganismsEditSleepT
         <Dialog>
             <form>
                 <DialogTrigger asChild>
-                    <div className='dashbox'>
+                    <div className='dashbox cursor-pointer'>
                         <AtomText type='content' text='Sleep Time'/>
                         <AtomText type='content-title' text='11:00 PM - 04:00 AM'/>
                     </div>
@@ -28,24 +28,26 @@ const OrganismsEditSleepTimeDialog: React.FunctionComponent<IOrganismsEditSleepT
                     <div className="grid gap-4">
                         <div className="grid gap-3">
                             <Label>Set Active</Label>
-                            <RadioGroup defaultValue="on" className="flex gap-4">
-                            <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="on" id="on" />
-                                <Label htmlFor="on">On</Label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="off" id="off" />
-                                <Label htmlFor="off">Off</Label>
-                            </div>
+                            <RadioGroup defaultValue="on" className="flex gap-2">
+                                <div className="flex items-center space-x-2">
+                                    <RadioGroupItem value="on" id="on" />
+                                    <Label htmlFor="on">On</Label>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                    <RadioGroupItem value="off" id="off" />
+                                    <Label htmlFor="off">Off</Label>
+                                </div>
                             </RadioGroup>
                         </div>
-                        <div className="grid gap-3">
-                            <Label htmlFor="start-time">Start Time</Label>
-                            <Input id="start-time" type="time" name="start_time" />
-                        </div>
-                        <div className="grid gap-3">
-                            <Label htmlFor="end-time">End Time</Label>
-                            <Input id="end-time" type="time" name="end_time" />
+                        <div className="grid grid-cols-2 gap-3">
+                            <div className="flex flex-col gap-2">
+                                <Label htmlFor="start-time">Start Time</Label>
+                                <Input id="start-time" type="time" name="start_time" />
+                            </div>
+                            <div className="flex flex-col gap-2">
+                                <Label htmlFor="end-time">End Time</Label>
+                                <Input id="end-time" type="time" name="end_time" />
+                            </div>
                         </div>
                     </div>
                     <DialogFooter>
