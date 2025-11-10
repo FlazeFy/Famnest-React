@@ -6,19 +6,10 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import MoleculesMoneyFlowBox from '../molecules/m_money_flow_box';
 import { numberFormat } from '@/helpers/math';
-
-interface LastMoneyFlowItem {
-    title: string
-    description?: string
-    category: string
-    amount: number
-    tags?: string[]
-    createdAt: string
-    createdBy: string
-}
+import { MoneyFlowItem } from '@/helpers/variable';
 
 interface IOrganismsLastMoneyFlowProps {
-    lastMoneyItem: LastMoneyFlowItem[]
+    lastMoneyItem: MoneyFlowItem[]
 }
 
 const OrganismsLastMoneyFlow: React.FunctionComponent<IOrganismsLastMoneyFlowProps> = ({ lastMoneyItem }) => {
@@ -30,8 +21,8 @@ const OrganismsLastMoneyFlow: React.FunctionComponent<IOrganismsLastMoneyFlowPro
             <AtomText type="sub-title" text="Here's some list of you and your family money flow" />
             <div className="flex flex-wrap w-full mt-5">
                 <div className="w-full md:w-1/2 flex mb-5 gap-2">
-                    <AtomButton type='btn-primary' text={<span className="flex gap-2"><FontAwesomeIcon icon={faMinus} height={20} width={20}/> {totalSpending}</span>}/>
-                    <AtomButton type='btn-primary' text={<span className="flex gap-2"><FontAwesomeIcon icon={faPlus} height={20} width={20}/> {totalIncome}</span>}/>
+                    <AtomButton type='btn-primary' extraClass='border-2 border-white' text={<span className="flex gap-2"><FontAwesomeIcon icon={faMinus} height={20} width={20}/> {totalSpending}</span>}/>
+                    <AtomButton type='btn-primary' extraClass='border-2 border-white' text={<span className="flex gap-2"><FontAwesomeIcon icon={faPlus} height={20} width={20}/> {totalIncome}</span>}/>
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col">
                     <Input type="text" placeholder="Search money flow..." />

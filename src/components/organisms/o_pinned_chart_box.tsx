@@ -37,7 +37,7 @@ const OrganismsPinnedChartBox: React.FunctionComponent<IOrganismsPinnedChartBoxP
                     Autoplay({
                         delay: 7500,
                     }),
-                ]} className="w-full rounded-2xl p-5 bg-primary text-white">
+                ]} className="w-full rounded-2xl p-5 pb-10 bg-primary text-white">
                 <CarouselContent className="w-full">
                     {
                         pinnedChartData.map((dt: any, idx: number) => (

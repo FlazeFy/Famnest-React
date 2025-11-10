@@ -142,39 +142,40 @@ p {
   color: var(--darkColor);
 }
 
-/* Dashbox */
+/* Context Box */
 .dashbox {
-  width: 100%;
   height: 100%;
-  display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: var(--spaceLG);
-  border-radius: var(--roundedLG);
-  background: rgb(245, 245, 245);
+  background: var(--greyColor);
 }
 
-/* Moneybox */
-.moneybox {
+.moneybox, .taskbox {
   position: relative;
-  width: 100%;
-  border-radius: var(--roundedLG); 
   margin-bottom: var(--spaceSM);
   color: var(--darkColor); 
-  display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
   padding: var(--spaceMD);
+  background: var(--whiteColor);
 }
-.moneybox:hover {
+
+.dashbox, .moneybox, .taskbox {
+  width: 100%;
+  border-radius: var(--roundedLG); 
+  display: flex;
+}
+
+.moneybox:hover, .taskbox:hover {
   background: var(--greyColor);
 }
 
 @media (min-width: 768px) {
-  .moneybox {
-    padding: 0.875rem; /* 3.5 * 0.25rem = 0.875rem */
+  .moneybox, .taskbox {
+    padding: 0.875rem;
   }
 }
 

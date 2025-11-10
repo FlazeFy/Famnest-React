@@ -9,6 +9,7 @@ import { faLinkedin, faGithub, faInstagram } from '@fortawesome/free-brands-svg-
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import OrganismsFAQBox from "@/components/organisms/o_faq_box";
+import { taskItem } from "@/helpers/dummy";
 
 export default function Home() {
   const featureList = [
@@ -80,62 +81,6 @@ export default function Home() {
       image: '/mock/profile_pic.png',
       feedback: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
     }
-  ]
-
-  const taskItem = [
-    {
-      title: 'Grocery Shopping',
-      description: 'Buy fruits, vegetables, milk, and snacks for the week.',
-      planAt: '2025-11-05T10:00:00',
-      participant: [
-        { nickname: 'Linda', role: 'Mom' },
-        { nickname: 'John', role: 'Dad' },
-        { nickname: 'Richard', role: 'Son' },
-      ],
-    },
-    {
-      title: 'Family Cleaning Day',
-      description: 'Everyone helps clean the house — rooms, kitchen, and yard.',
-      planAt: '2025-11-06T09:30:00',
-      participant: [
-        { nickname: 'John', role: 'Dad' },
-        { nickname: 'Linda', role: 'Mom' },
-        { nickname: 'Clarisa', role: 'Daughter' },
-        { nickname: 'Richard', role: 'Son' },
-      ],
-    },
-    {
-      title: 'Grandma’s Birthday Celebration',
-      description: 'Prepare the cake, decorations, and birthday dinner for Grandma.',
-      planAt: '2025-11-08T18:00:00',
-      participant: [
-        { nickname: 'Linda', role: 'Mom' },
-        { nickname: 'John', role: 'Dad' },
-        { nickname: 'Clarisa', role: 'Daughter' },
-        { nickname: 'Richard', role: 'Son' },
-        { nickname: 'Robert', role: 'Uncle' },
-      ],
-    },
-    {
-      title: 'Weekend Picnic at the Park',
-      description: 'Pack food, bring the frisbee, and enjoy family time outdoors.',
-      planAt: '2025-11-09T11:00:00',
-      participant: [
-        { nickname: 'John', role: 'Dad' },
-        { nickname: 'Linda', role: 'Mom' },
-        { nickname: 'Clarisa', role: 'Daughter' },
-        { nickname: 'Richard', role: 'Son' },
-      ],
-    },
-    {
-      title: 'Monthly Family Budget Review',
-      description: 'Discuss expenses and plan next month’s savings goals.',
-      planAt: '2025-11-10T20:00:00',
-      participant: [
-        { nickname: 'John', role: 'Dad' },
-        { nickname: 'Linda', role: 'Mom' },
-      ],
-    },
   ]
 
   const pinnedChart = [

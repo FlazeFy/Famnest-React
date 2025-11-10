@@ -3,20 +3,9 @@ import AtomButton from '../atoms/a_button'
 import AtomText from '../atoms/a_text'
 import { faTrash, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { TaskItem } from '@/helpers/variable';
 
-interface Participant {
-    nickname: string
-    role: string
-}
-
-interface MoleculesTaskBoxProps {
-    title: string
-    description?: string
-    planAt: string
-    participant: Participant[]
-}
-
-const MoleculesTaskBox: React.FC<MoleculesTaskBoxProps> = ({ title, description, planAt, participant }) => {
+const MoleculesTaskBox: React.FC<TaskItem> = ({ title, description, planAt, participant, isFinished }) => {
     const formatDate = (dateString: string, typeReturn: "day" | "hour"): string => {
         const date = new Date(dateString);
     
@@ -43,7 +32,7 @@ const MoleculesTaskBox: React.FC<MoleculesTaskBoxProps> = ({ title, description,
     const hour = formatDate(planAt, "hour")
     
     return (
-        <div className="relative bg-white w-full rounded-2xl mb-2.5 p-3 md:p-3.5 text-dark flex flex-wrap items-center justify-between">
+        <div className="taskbox">
             <div className="flex flex-wrap items-center gap-2">
                 <div className="flex flex-wrap items-center gap-x-2 text-center bg-primary px-2 py-1 rounded-xl min-w-[90px]">
                     <AtomText type="content" text={day} extraClass='font-bold'/>
@@ -56,7 +45,9 @@ const MoleculesTaskBox: React.FC<MoleculesTaskBoxProps> = ({ title, description,
             </div>
             <div className="flex items-center gap-2 mt-2 md:mt-0">
                 <AtomButton type="btn-danger" text={<FontAwesomeIcon icon={faTrash} height={15} width={15}/>}/>
-                <AtomButton type="btn-success" text={<FontAwesomeIcon icon={faCheck} height={15} width={15} />}/>
+                {
+                    !isFinished ? <AtomButton type="btn-success" text={<FontAwesomeIcon icon={faCheck} height={15} width={15} />}/> : <></>
+                }
             </div>
         </div>
     )

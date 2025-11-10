@@ -1,6 +1,7 @@
 import OrganismsDashboard from "@/components/organisms/o_dashboard";
-import OrganismsLastMoneyFlow from "@/components/organisms/o_last_money_flow";
+import OrganismsDashboardListCarousel from "@/components/organisms/o_dashboard_list_carousel";
 import OrganismsPinnedChartBox from "@/components/organisms/o_pinned_chart_box";
+import { taskItem } from "@/helpers/dummy";
 
 export default function FamilyPage() {
     const pinnedChartData = [
@@ -41,7 +42,7 @@ export default function FamilyPage() {
         }
     ]
 
-    const moneyFlowItem = [
+    const lastMoneyItem = [
         {
             title: 'Grocery Shopping',
             description: 'Buy fruits and milk.',
@@ -96,7 +97,7 @@ export default function FamilyPage() {
                 <OrganismsDashboard/>
             </div>
             <div className='w-full lg:w-1/2 mb-2 flex flex-col justify-between px-0 py-10 lg:px-10 lg:py-0'>
-                <OrganismsLastMoneyFlow lastMoneyItem={moneyFlowItem}/>
+                <OrganismsDashboardListCarousel taskItem={taskItem} lastMoneyItem={lastMoneyItem}/>
             </div>
         </div>
     );
