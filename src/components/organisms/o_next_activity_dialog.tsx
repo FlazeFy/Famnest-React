@@ -16,7 +16,7 @@ const OrganismsNextActivityDialog: React.FunctionComponent<TaskItem> = ({title, 
                         <AtomText type='content-title' text='Cleaning House'/>
                     </div>
                 </DialogTrigger>
-                <DialogContent className="sm:max-w-[425px]">
+                <DialogContent className="sm:max-w-[720px]">
                     <DialogHeader>
                         <DialogTitle>Next Activity</DialogTitle>
                     </DialogHeader>

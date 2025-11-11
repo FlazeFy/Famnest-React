@@ -31,3 +31,14 @@ export interface FamilyMemberShortInfo {
     profilePic?: string
     bornAt: string
 }
+
+export interface FamilyNeededAttention {
+    fullname: string
+    gender: string
+    nickname: string
+    profilePic?: string
+    bornAt: string
+    reason_category: string
+    priority: string
+    reason_description?: string 
+}

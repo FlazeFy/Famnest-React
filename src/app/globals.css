@@ -97,6 +97,9 @@ html {
 .bg-primary {
   background: var(--darkColor);
 }
+.bg-warning {
+  background: var(--warningBG);
+}
 .bg-success {
   background: var(--successBG);
 }
@@ -147,10 +150,13 @@ p {
   height: 100%;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+.dashbox, .familymemberbox, .familyattentionbox {
   padding: var(--spaceLG);
   background: var(--greyColor);
 }
-
+ 
 .moneybox, .taskbox {
   position: relative;
   margin-bottom: var(--spaceSM);
@@ -165,20 +171,23 @@ p {
 
 .familymemberbox {
   text-align: center;
+}
+
+.familymemberbox, .familyattentionbox {
   cursor: pointer;
 }
 
-.dashbox, .moneybox, .taskbox, .familymemberbox {
+.dashbox, .moneybox, .taskbox, .familymemberbox, .familyattentionbox {
   width: 100%;
   border-radius: var(--roundedLG); 
   display: flex;
 }
 
-.moneybox:hover, .taskbox:hover {
+.moneybox:hover, .taskbox:hover, .familyattentionbox:hover {
   background: var(--greyColor);
 }
 
-.familymemberbox:hover {
+.familymemberbox:hover, .familyattentionbox:hover {
   transform: scale(1.05);
 }
 
@@ -188,6 +197,26 @@ p {
   border-radius: var(--roundedLG);
   font-weight: 500;
   color: var(--whiteColor);
+}
+
+.familyattentionbox {
+  display: flex;         
+  flex-direction: row;    
+  align-items: center;   
+  justify-content: flex-start;
+  position: relative;
+  margin-bottom: var(--spaceLG);
+}
+.familyattentionbox .tag-holder {
+  position: absolute;
+  top: calc(-1 * var(--spaceLG));
+  right: var(--spaceMD);
+}
+.familyattentionbox .tag-holder .chip {
+  font-size: var(--textSM);
+  font-weight: 600;
+  display: inline-block;
+  margin-right: var(--spaceXXSM);
 }
 
 @media (min-width: 768px) {
@@ -446,6 +475,6 @@ button[data-slot="carousel-previous"], button[data-slot="carousel-next"] {
   }
 }
 
-.menu-toggle, .mobile-menu, .familymemberbox {
+.menu-toggle, .mobile-menu, .familymemberbox, .familyattentionbox {
   transition: all 0.3s ease-in-out;
 }

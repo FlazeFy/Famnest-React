@@ -1,8 +1,9 @@
-import { taskItem } from '@/helpers/dummy';
+import { memberNeedAttentionItem, taskItem } from '@/helpers/dummy';
 import Link from 'next/link';
 import * as React from 'react';
 import AtomText from '../atoms/a_text';
 import OrganismsEditSleepTimeDialog from './o_edit_sleep_time_dialog';
+import OrganismsNeedAttentionDialog from './o_need_attention_dialog';
 import OrganismsNextActivityDialog from './o_next_activity_dialog';
 
 interface IOrganismsDashboardProps {
@@ -52,10 +53,7 @@ const OrganismsDashboard: React.FunctionComponent<IOrganismsDashboardProps> = (p
                 <OrganismsNextActivityDialog title={taskItem[0].title} description={taskItem[0].description} planAt={taskItem[0].planAt} participant={taskItem[0].participant} isFinished={taskItem[0].isFinished}/>
             </div>
             <div className="w-full sm:w-full md:w-1/2 lg:w-1/3 p-1">
-                <div className='dashbox'>
-                    <AtomText type='content' text='Need Attention'/>
-                    <AtomText type='content-title' text='Robert (Son)'/>
-                </div>
+                <OrganismsNeedAttentionDialog familyNeededAttentionList={memberNeedAttentionItem}/>
             </div>
             <div className="w-full sm:w-full md:w-1/2 lg:w-1/3 p-1">
                 <div className='dashbox'>

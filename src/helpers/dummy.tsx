@@ -96,3 +96,26 @@ export const memberItem = [
         bornAt: "1995-11-08"
     }
 ]
+
+export const memberNeedAttentionItem = [
+    {
+        fullname: "Alice Johnson",
+        gender: "Female",
+        nickname: "Ali",
+        profilePic: null,
+        bornAt: "1990-05-12",
+        reason_category: "Sick",
+        reason_description: "Treatment in hospital",
+        priority: "High"
+    },
+    {
+        fullname: "Robert Smith",
+        gender: "Male",
+        nickname: "Rob",
+        profilePic: "/mock/profile_pic.png",
+        bornAt: "1985-09-23",
+        reason_category: "Elderly",
+        reason_description: null,
+        priority: "Medium"
+    },
+]
