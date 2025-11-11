@@ -50,16 +50,18 @@ const OrganismsDashboard: React.FunctionComponent<IOrganismsDashboardProps> = (p
                 </Link>
             </div>
             <div className="w-full sm:w-full md:w-1/2 lg:w-1/3 p-1">
-                <OrganismsNextActivityDialog title={taskItem[0].title} description={taskItem[0].description} dueDate={taskItem[0].dueDate} participant={taskItem[0].participant} isFinished={taskItem[0].isFinished}/>
+                <OrganismsNextActivityDialog title={taskItem[0].title} description={taskItem[0].description} dueDate={taskItem[0].dueDate} participant={taskItem[0].participant} isFinished={taskItem[0].isFinished} startDate={taskItem[0].startDate}/>
             </div>
             <div className="w-full sm:w-full md:w-1/2 lg:w-1/3 p-1">
                 <OrganismsNeedAttentionDialog familyNeededAttentionList={memberNeedAttentionItem}/>
             </div>
             <div className="w-full sm:w-full md:w-1/2 lg:w-1/3 p-1">
-                <div className='dashbox'>
-                    <AtomText type='content' text='Next Meal'/>
-                    <AtomText type='content-title' text='Meatball'/>
-                </div>
+                <Link href='/family/meal'>
+                    <div className='dashbox'>
+                        <AtomText type='content' text='Next Meal'/>
+                        <AtomText type='content-title' text='Meatball'/>
+                    </div>
+                </Link>
             </div>
         </div>
     );

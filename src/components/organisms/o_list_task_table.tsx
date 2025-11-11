@@ -31,7 +31,7 @@ const OrganismsListTaskTable: React.FunctionComponent<IOrganismsListTaskTablePro
                     <TableHead>Actions</TableHead>
                 </TableRow>
             </TableHeader>
-            <TableBody>
+            <TableBody className='text-start'>
                 {
                     listTask.map((dt, index) => (
                         <TableRow key={index}>
@@ -40,6 +40,16 @@ const OrganismsListTaskTable: React.FunctionComponent<IOrganismsListTaskTablePro
                                 <AtomText text={dt.description} type='content'/>
                             </TableCell>
                             <TableCell>
+                                <AtomText text={`<b>Start Date</b>`} type='content'/>
+                                {
+                                    new Date(dt.startDate).toLocaleString("en-US", {
+                                        day: "2-digit",
+                                        month: "short",
+                                        year: "numeric",
+                                        hour: "2-digit",
+                                        minute: "2-digit",
+                                    })
+                                }
                                 <AtomText text={`<b>Due Date</b>`} type='content'/>
                                 {
                                     new Date(dt.dueDate).toLocaleString("en-US", {

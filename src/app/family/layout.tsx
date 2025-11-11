@@ -15,6 +15,7 @@ export default function FamilyLayout({ children }: Readonly<{ children: React.Re
         { title: "Calendar", target: "/family/calendar" },
         { title: "Budget & Saving", target: "/family/budget" },
         { title: "Member", target: "/family/member" },
+        { title: "Meal", target: "/family/meal" },
         { title: "Inventory", target: "/family/inventory" },
         { title: "Vehicle", target: "/family/vehicle" },
         { title: "My Profile", target: "/profile" },
@@ -22,7 +23,7 @@ export default function FamilyLayout({ children }: Readonly<{ children: React.Re
 
     return (
         <div className="min-h-screen pt-5 px-5">
-            <MoleculesNavbar menuItem={menuItem} isLanding={false}/>
+            <MoleculesNavbar menuItem={menuItem} isLanding={false} isSignedIn={false}/>
             {children}
         </div>
     );

@@ -7,6 +7,7 @@ export interface TaskParticipant {
 export interface TaskItem {
     title: string
     description: string
+    startDate: string
     dueDate: string
     isFinished: boolean
     participant: TaskParticipant[]
@@ -41,4 +42,13 @@ export interface FamilyNeededAttention {
     reason_category: string
     priority: string
     reason_description?: string 
+}
+
+// Meal
+export interface MealItem {
+    mealName: string
+    mealTime: string
+    mealDesc?: string
+    mealPrepareBy: string[],
+    mealDay: string
 }
