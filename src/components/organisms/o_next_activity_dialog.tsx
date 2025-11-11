@@ -6,7 +6,7 @@ import * as React from 'react';
 import AtomText from "../atoms/a_text";
 import MoleculesTaskBox from "../molecules/m_task_box"
 
-const OrganismsNextActivityDialog: React.FunctionComponent<TaskItem> = ({title, description, planAt, participant,isFinished}) => {
+const OrganismsNextActivityDialog: React.FunctionComponent<TaskItem> = ({title, description, dueDate, participant,isFinished}) => {
     return (
         <Dialog>
             <form>
@@ -22,7 +22,7 @@ const OrganismsNextActivityDialog: React.FunctionComponent<TaskItem> = ({title, 
                     </DialogHeader>
                     <div className="grid gap-4">
                         <Link href={'/family/task?next=true'}>
-                            <MoleculesTaskBox title={title} description={description} planAt={planAt} participant={participant} isFinished={isFinished}/>
+                            <MoleculesTaskBox title={title} description={description} dueDate={dueDate} participant={participant} isFinished={isFinished}/>
                         </Link>
                     </div>
                     <DialogFooter>

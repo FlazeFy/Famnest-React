@@ -2,7 +2,7 @@ export const taskItem = [
     {
         title: 'Grocery Shopping',
         description: 'Buy fruits, vegetables, milk, and snacks for the week.',
-        planAt: '2025-11-05T10:00:00',
+        dueDate: '2025-11-05T10:00:00',
         isFinished: true,
         participant: [
             { nickname: 'Linda', role: 'Mom' },
@@ -13,7 +13,7 @@ export const taskItem = [
     {
         title: 'Family Cleaning Day',
         description: 'Everyone helps clean the house — rooms, kitchen, and yard.',
-        planAt: '2025-11-06T09:30:00',
+        dueDate: '2025-11-06T09:30:00',
         participant: [
             { nickname: 'John', role: 'Dad' },
             { nickname: 'Linda', role: 'Mom' },
@@ -25,7 +25,7 @@ export const taskItem = [
     {
         title: "Grandma's Birthday Celebration",
         description: 'Prepare the cake, decorations, and birthday dinner for Grandma.',
-        planAt: '2025-11-08T18:00:00',
+        dueDate: '2025-11-08T18:00:00',
         participant: [
             { nickname: 'Linda', role: 'Mom' },
             { nickname: 'John', role: 'Dad' },
@@ -38,7 +38,7 @@ export const taskItem = [
     {
         title: 'Weekend Picnic at the Park',
         description: 'Pack food, bring the frisbee, and enjoy family time outdoors.',
-        planAt: '2025-11-09T11:00:00',
+        dueDate: '2025-11-09T11:00:00',
         participant: [
             { nickname: 'John', role: 'Dad' },
             { nickname: 'Linda', role: 'Mom' },
@@ -50,7 +50,7 @@ export const taskItem = [
     {
         title: 'Monthly Family Budget Review',
         description: 'Discuss expenses and plan next month’s savings goals.',
-        planAt: '2025-11-10T20:00:00',
+        dueDate: '2025-11-10T20:00:00',
         participant: [
             { nickname: 'John', role: 'Dad' },
             { nickname: 'Linda', role: 'Mom' },

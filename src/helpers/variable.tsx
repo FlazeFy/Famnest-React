@@ -7,7 +7,7 @@ export interface TaskParticipant {
 export interface TaskItem {
     title: string
     description: string
-    planAt: string
+    dueDate: string
     isFinished: boolean
     participant: TaskParticipant[]
 }

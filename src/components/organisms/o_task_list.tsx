@@ -31,7 +31,7 @@ const OrganismsTaskList: React.FunctionComponent<IOrganismsTaskListProps> = ({ t
             <div className='mt-5 items-end text-start'>
                 {
                     taskItem.map((dt, idx) => (
-                        <MoleculesTaskBox key={idx} title={dt.title} description={dt.description} planAt={dt.planAt} participant={dt.participant} isFinished={dt.isFinished}/>
+                        <MoleculesTaskBox key={idx} title={dt.title} description={dt.description} dueDate={dt.dueDate} participant={dt.participant} isFinished={dt.isFinished}/>
                     ))
                 }
             </div>

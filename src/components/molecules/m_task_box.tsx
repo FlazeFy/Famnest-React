@@ -5,7 +5,7 @@ import { faTrash, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { TaskItem } from '@/helpers/variable';
 
-const MoleculesTaskBox: React.FC<TaskItem> = ({ title, description, planAt, participant, isFinished }) => {
+const MoleculesTaskBox: React.FC<TaskItem> = ({ title, description, dueDate, participant, isFinished }) => {
     const formatDate = (dateString: string, typeReturn: "day" | "hour"): string => {
         const date = new Date(dateString);
     
@@ -28,8 +28,8 @@ const MoleculesTaskBox: React.FC<TaskItem> = ({ title, description, planAt, part
         throw new Error("Invalid typeReturn. Use 'day' or 'hour'")
     }
 
-    const day = formatDate(planAt, "day")
-    const hour = formatDate(planAt, "hour")
+    const day = formatDate(dueDate, "day")
+    const hour = formatDate(dueDate, "hour")
     
     return (
         <div className="taskbox">
