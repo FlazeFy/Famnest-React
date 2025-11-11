@@ -9,7 +9,7 @@ interface IMoleculesNotFoundBoxProps {
 
 const MoleculesNotFoundBox: React.FunctionComponent<IMoleculesNotFoundBoxProps> = ({title}) => {
     return (
-        <div className="container bg-gray-100 mt-2 rounded-xl p-2 italic">
+        <div className="container bg-gray-100 mt-2 rounded-xl p-2 italic text-center">
             <AtomText type='subtitle' text={<><FontAwesomeIcon icon={faTriangleExclamation}/> Warning</>}/>
             <AtomText type='content' text={title}/>
         </div>

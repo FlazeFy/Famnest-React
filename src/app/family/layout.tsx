@@ -13,7 +13,7 @@ export default function FamilyLayout({ children }: Readonly<{ children: React.Re
         { title: "Dashboard", target: "/family" },
         { title: "Task", target: "/family/task" },
         { title: "Calendar", target: "/family/calendar" },
-        { title: "Budget & Saving", target: "/family/budget" },
+        { title: "Money Flow", target: "/family/money_flow" },
         { title: "Member", target: "/family/member" },
         { title: "Meal", target: "/family/meal" },
         { title: "Inventory", target: "/family/inventory" },
