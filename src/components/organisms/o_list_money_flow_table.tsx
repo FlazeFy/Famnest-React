@@ -3,11 +3,12 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge"
 import { MoneyFlowItem } from '@/helpers/variable';
 import AtomText from '../atoms/a_text';
-import { Button } from '../ui/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import { numberFormat } from '@/helpers/math';
 import MoleculesNotFoundBox from '../molecules/m_not_found_box';
+import OrganismsConfirmationDeleteDialog from './o_confirmation_delete_dialog';
+import AtomButton from '../atoms/a_button';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 interface IOrganismsListMoneyFlowTableProps {
     listMoneyFlow: MoneyFlowItem[]
@@ -57,9 +58,7 @@ const OrganismsListMoneyFlowTable: React.FunctionComponent<IOrganismsListMoneyFl
                                 <AtomText text={dt.createdAt} type='content'/>
                             </TableCell>
                             <TableCell>
-                                <Button>
-                                    <FontAwesomeIcon icon={faCircleInfo} height={20} width={20}/>
-                                </Button>
+                                <OrganismsConfirmationDeleteDialog context={`${dt.title} Money Flow`} buttonTrigger={<AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash} height={15}/>}/>} url='/'/>
                             </TableCell>
                         </TableRow>
                     ))

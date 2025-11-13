@@ -5,7 +5,11 @@ import { faTrash, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { TaskItem } from '@/helpers/variable';
 
-const MoleculesTaskBox: React.FC<TaskItem> = ({ title, description, dueDate, participant, isFinished }) => {
+interface IMoleculesTaskBoxProps {
+    deleteItemComponent: any
+}
+
+const MoleculesTaskBox: React.FC<TaskItem & IMoleculesTaskBoxProps> = ({ title, description, dueDate, participant, isFinished, deleteItemComponent }) => {
     const formatDate = (dateString: string, typeReturn: "day" | "hour"): string => {
         const date = new Date(dateString);
     
@@ -44,7 +48,7 @@ const MoleculesTaskBox: React.FC<TaskItem> = ({ title, description, dueDate, par
                 </div>
             </div>
             <div className="flex items-center gap-2 mt-2 md:mt-0">
-                <AtomButton type="btn-danger" text={<FontAwesomeIcon icon={faTrash} height={15} width={15}/>}/>
+                {deleteItemComponent(title)}
                 {
                     !isFinished ? <AtomButton type="btn-success" text={<FontAwesomeIcon icon={faCheck} height={15} width={15} />}/> : <></>
                 }

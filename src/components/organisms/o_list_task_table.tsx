@@ -3,9 +3,10 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge"
 import { TaskItem } from '@/helpers/variable';
 import AtomText from '../atoms/a_text';
-import { Button } from '../ui/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import OrganismsConfirmationDeleteDialog from './o_confirmation_delete_dialog';
+import AtomButton from '../atoms/a_button';
 
 interface IOrganismsListTaskTableProps {
     listTask: TaskItem[]
@@ -68,9 +69,7 @@ const OrganismsListTaskTable: React.FunctionComponent<IOrganismsListTaskTablePro
                                 </div>
                             </TableCell>
                             <TableCell>
-                                <Button>
-                                    <FontAwesomeIcon icon={faCircleInfo} height={20} width={20}/>
-                                </Button>
+                                <OrganismsConfirmationDeleteDialog context={`${dt.title} Task`} buttonTrigger={<AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash} height={15}/>}/>} url='/'/>
                             </TableCell>
                         </TableRow>
                     ))

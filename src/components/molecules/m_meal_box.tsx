@@ -7,9 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface IMoleculesMealBoxProps {
     isReadOnly?: boolean
+    deleteItemComponent: any
 }
 
-const MoleculesMealBox: React.FunctionComponent<MealItem & IMoleculesMealBoxProps> = ({mealDesc, mealName, mealPrepareBy, isReadOnly = true}) => {
+const MoleculesMealBox: React.FunctionComponent<MealItem & IMoleculesMealBoxProps> = ({mealDesc, mealName, mealPrepareBy, isReadOnly = true, deleteItemComponent}) => {
     return (
         <div className={`mealbox ${isReadOnly && 'readonly'}`}>
             <div>
@@ -21,7 +22,7 @@ const MoleculesMealBox: React.FunctionComponent<MealItem & IMoleculesMealBoxProp
                 !isReadOnly ? (
                     <div className='flex gap-2'>
                         <AtomButton type='btn-warning' text={<FontAwesomeIcon icon={faPenToSquare}/>}/>
-                        <AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash}/>}/>
+                        {deleteItemComponent(mealName)}
                     </div>
                 ) : <></>
             }

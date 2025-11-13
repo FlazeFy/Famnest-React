@@ -2,11 +2,11 @@ import * as React from 'react';
 import AtomButton from '../atoms/a_button';
 import AtomText from '../atoms/a_text';
 import { Input } from '../ui/input';
-import { faCheck, faHourglassStart } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faHourglassStart, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import MoleculesTaskBox from '../molecules/m_task_box';
 import { TaskItem } from '@/helpers/variable';
-
+import OrganismsConfirmationDeleteDialog from './o_confirmation_delete_dialog';
 
 interface IOrganismsTaskListProps {
     taskItem: TaskItem[]
@@ -31,7 +31,9 @@ const OrganismsTaskList: React.FunctionComponent<IOrganismsTaskListProps> = ({ t
             <div className='mt-5 items-end text-start'>
                 {
                     taskItem.map((dt, idx) => (
-                        <MoleculesTaskBox key={idx} title={dt.title} description={dt.description} dueDate={dt.dueDate} participant={dt.participant} isFinished={dt.isFinished}/>
+                        <MoleculesTaskBox key={idx} title={dt.title} description={dt.description} dueDate={dt.dueDate} participant={dt.participant} isFinished={dt.isFinished} startDate={dt.startDate} deleteItemComponent={
+                            (title:string) => <OrganismsConfirmationDeleteDialog context={`${title} Task`} buttonTrigger={<AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash}/>}/>} url='/'/>
+                        }/>
                     ))
                 }
             </div>
