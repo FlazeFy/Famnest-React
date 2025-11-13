@@ -191,6 +191,22 @@ p {
   transform: scale(1.05);
 }
 
+.mealbox {
+  padding: var(--spaceMD);
+  margin-bottom: var(--spaceMini);
+  border-radius: var(--roundedLG);
+}
+.mealbox.readonly {
+  padding: 0;
+}
+.mealbox:not(.readonly) {
+  display: flex;
+  justify-content: space-between;
+}
+.mealbox:not(.readonly):hover {
+  background: var(--greyColor);
+}
+
 .chip {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   padding: var(--spaceSM) var(--spaceMD);
@@ -475,6 +491,6 @@ button[data-slot="carousel-previous"], button[data-slot="carousel-next"] {
   }
 }
 
-.menu-toggle, .mobile-menu, .familymemberbox, .familyattentionbox {
+.menu-toggle, .mobile-menu, .familymemberbox, .familyattentionbox, .mealbox {
   transition: all 0.3s ease-in-out;
 }

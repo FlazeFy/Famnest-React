@@ -6,6 +6,7 @@ import { CardContent } from '@/components/ui/card';
 import MoleculesDayMealBox from '../molecules/m_day_meal_box';
 import { MealItem } from '@/helpers/variable';
 import AtomText from '../atoms/a_text';
+import OrganismsManageMealByTimeDayDialog from './o_manage_meal_dialog';
 
 const days = [
   'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
@@ -42,7 +43,11 @@ const OrganismsMealScheduleCarousel: React.FunctionComponent<IOrganismsMealSched
                                 {
                                     days.map(day => (
                                         <div key={day} className="flex-1 min-w-[12%] h-full">
-                                            <MoleculesDayMealBox dayName={day} mealItem={mealItem} />
+                                            <MoleculesDayMealBox dayName={day} mealItem={mealItem} dayLabelAndManageButton={
+                                                (dayName, time) => (
+                                                    <OrganismsManageMealByTimeDayDialog dayName={dayName} time={time} mealItem={mealItem}/>
+                                                )
+                                            }/>
                                         </div>
                                     ))
                                 }
@@ -57,7 +62,11 @@ const OrganismsMealScheduleCarousel: React.FunctionComponent<IOrganismsMealSched
                                 {
                                     days.slice(i * 3, i * 3 + 3).map(day => (
                                         <div key={day} className="flex-1 min-w-[28%] h-full">
-                                            <MoleculesDayMealBox dayName={day} mealItem={mealItem} />
+                                            <MoleculesDayMealBox dayName={day} mealItem={mealItem} dayLabelAndManageButton={
+                                                (dayName, time) => (
+                                                    <OrganismsManageMealByTimeDayDialog dayName={dayName} time={time} mealItem={mealItem}/>
+                                                )
+                                            }/>
                                         </div>
                                     ))
                                 }
@@ -71,7 +80,11 @@ const OrganismsMealScheduleCarousel: React.FunctionComponent<IOrganismsMealSched
                             <CarouselItem key={day} className="block md:hidden">
                                 <CardContent>
                                     <div className="flex justify-center">
-                                        <MoleculesDayMealBox dayName={day} mealItem={mealItem} />
+                                        <MoleculesDayMealBox dayName={day} mealItem={mealItem} dayLabelAndManageButton={
+                                            (dayName, time) => (
+                                                <OrganismsManageMealByTimeDayDialog dayName={dayName} time={time} mealItem={mealItem}/>
+                                            )
+                                        }/>
                                     </div>
                                 </CardContent>
                             </CarouselItem>
