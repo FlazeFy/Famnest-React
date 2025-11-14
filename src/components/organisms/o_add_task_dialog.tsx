@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { familyRecommendedTaskParticipant } from "@/helpers/dummy";
+import { familyRecommendedTaskParticipant, sampleTags } from "@/helpers/dummy";
 import * as React from 'react';
 import AtomText from "../atoms/a_text"
 import MoleculesMultipleComboxBox from "../molecules/m_multiple_combobox"
@@ -16,7 +16,7 @@ const OrganismsAddTaskDialog: React.FunctionComponent<IOrganismsAddTaskDialogPro
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <div className='flex flex-col justify-center text-center bg-cover rounded-b-4xl md:rounded-r-4xl md:rounded-none p-10 lg:p-15 cursor-pointer' style={{backgroundImage:"linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/background/background-4.jpg')"}}>
+                <div className='flex flex-col justify-center text-center bg-cover rounded-b-4xl md:rounded-r-4xl md:rounded-none p-10 lg:p-15 cursor-pointer btn-image' style={{backgroundImage:"linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/background/background-4.jpg')"}}>
                     <AtomText type='sub-title' text='Add Task / Event' />
                     <hr className='my-5'/>
                     <AtomText type='content-title' text='Set your daily task, deadline, and who will participate' />
@@ -41,12 +41,7 @@ const OrganismsAddTaskDialog: React.FunctionComponent<IOrganismsAddTaskDialogPro
                             { title: "Bob <b>(Brother)</b>", value:"4" },
                         ]}/>
                         <Label htmlFor="task_tags" className="mb-2">Tags</Label>
-                        <MoleculesMultipleComboxBox context="Task Tags" extraClass="mb-4" options={[
-                            { title: "#Cleaning", value:"cleaning" },
-                            { title: "#Repairing", value:"repairing" },
-                            { title: "#Shopping", value:"shopping" },
-                            { title: "#Learning", value:"learning" },
-                        ]}/>
+                        <MoleculesMultipleComboxBox context="Task Tags" extraClass="mb-4" options={sampleTags}/>
                     </div>
                     <div>
                         <OrganismsRecommendedFamilyMemberList familyRecommendedTaskParticipant={familyRecommendedTaskParticipant}/>

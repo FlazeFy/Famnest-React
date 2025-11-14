@@ -23,7 +23,7 @@ const MoleculesRecommendedFamilyMemberBox: React.FunctionComponent<FamilyRecomme
                 </div>
                 <div className='text-end'>
                     <AtomText type='content' text={`<b>Matched Score</b>`}/>
-                    <AtomText type='content' text={`${matchedScore} / 100`} extraClass='text-secondary italic'/>
+                    <Badge variant='outline' className={matchedScore > 75 ? 'bg-success' : matchedScore > 50 ? 'bg-warning' : 'bg-danger'}>{`${matchedScore} / 100`}</Badge>  
                 </div>
             </div>
             <div className='flex flex-wrap gap-x-1'>

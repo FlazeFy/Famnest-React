@@ -244,3 +244,10 @@ export const familyRecommendedTaskParticipant = [
         averageSleepTimePerWeek: 58
     }
 ]
+
+export const sampleTags = [
+    { title: "#Cleaning", value:"cleaning" },
+    { title: "#Repairing", value:"repairing" },
+    { title: "#Shopping", value:"shopping" },
+    { title: "#Learning", value:"learning" },
+]

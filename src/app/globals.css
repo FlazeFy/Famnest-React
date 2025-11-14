@@ -208,7 +208,6 @@ p {
 }
 
 .chip {
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   padding: var(--spaceSM) var(--spaceMD);
   border-radius: var(--roundedLG);
   font-weight: 500;
@@ -286,6 +285,9 @@ button, .nav-link {
 .btn-link {
   color: var(--successBG); 
   font-weight: 500;
+}
+.btn-image:hover {
+  transform: scale(1.025);
 }
 
 /* Carousel */
@@ -491,6 +493,9 @@ button[data-slot="carousel-previous"], button[data-slot="carousel-next"] {
   }
 }
 
-.menu-toggle, .mobile-menu, .familymemberbox, .familyattentionbox, .mealbox {
+.menu-toggle, .mobile-menu, .familymemberbox, .familyattentionbox, .mealbox, .btn-image {
   transition: all 0.3s ease-in-out;
+}
+.chip, .btn-image:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
