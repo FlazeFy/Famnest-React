@@ -9,6 +9,7 @@ import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import OrganismsConfirmationDeleteDialog from './o_confirmation_delete_dialog';
 import AtomButton from '../atoms/a_button';
+import OrganismsAddMealDialog from './o_add_meal_dialog';
 
 interface IOrganismsManageMealByTimeDayDialogProps {
     time: string
@@ -48,9 +49,7 @@ const OrganismsManageMealByTimeDayDialog: React.FunctionComponent<IOrganismsMana
                     }
                 </div>
                 <DialogFooter>
-                    <DialogClose asChild>
-                        <Button variant="outline" className="bg-primary"><FontAwesomeIcon icon={faPlus}/> Add Meal</Button>
-                    </DialogClose>
+                    <OrganismsAddMealDialog dayName={dayName} time={time}/>
                 </DialogFooter>
             </DialogContent>
         </Dialog>
