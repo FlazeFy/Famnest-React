@@ -14,9 +14,10 @@ interface OptionItem {
 interface IMoleculesMultipleComboxBoxProps {
     context: string
     options: OptionItem[]
+    extraClass?: string
 }
 
-const MoleculesMultipleComboxBox: React.FunctionComponent<IMoleculesMultipleComboxBoxProps> = ({context, options}) => {
+const MoleculesMultipleComboxBox: React.FunctionComponent<IMoleculesMultipleComboxBoxProps> = ({context, options, extraClass}) => {
     const [open, setOpen] = React.useState(false);
     const [selected, setSelected] = React.useState<string[]>([]);
 
@@ -33,7 +34,7 @@ const MoleculesMultipleComboxBox: React.FunctionComponent<IMoleculesMultipleComb
     return (
         <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
-                <Button variant="outline" role="combobox" className="w-full justify-between text-dark">
+                <Button variant="outline" role="combobox" className={`w-full justify-between text-dark ${extraClass}`}>
                 {
                     selected.length === 0 ? (`Select ${context}`) : ( <span className="text-left" dangerouslySetInnerHTML={{ __html: selectedHtml }}/>)
                 }

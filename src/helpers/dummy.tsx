@@ -196,3 +196,51 @@ export const lastMoneyItem = [
         createdBy: 'Richard',
     }
 ]
+
+export const familyRecommendedTaskParticipant = [
+    {
+        fullname: "Johnathan Doe",
+        gender: "Male",
+        role: "Dad",
+        bornAt: "1978-04-15",
+        taskTagHistory: [
+            { tagName: "Cleaning", total: 12 },
+            { tagName: "Cooking", total: 5 },
+            { tagName: "Gardening", total: 8 }
+        ],
+        matchedScore: 87,
+        averageTaskPerWeek: 4.2,
+        averageEventPerWeek: 1.1,
+        averageSleepTimePerWeek: 49
+    },
+    {
+        fullname: "Clarisa Doe",
+        gender: "Female",
+        role: "Mom",
+        bornAt: "1981-09-22",
+        taskTagHistory: [
+            { tagName: "Cooking", total: 20 },
+            { tagName: "Laundry", total: 14 },
+            { tagName: "Shopping", total: 9 }
+        ],
+        matchedScore: 92,
+        averageTaskPerWeek: 5.7,
+        averageEventPerWeek: 2.3,
+        averageSleepTimePerWeek: 52
+    },
+    {
+        fullname: "Bob Doe",
+        gender: "Male",
+        role: "Brother",
+        bornAt: "2010-06-03",
+        taskTagHistory: [
+            { tagName: "Pet Care", total: 6 },
+            { tagName: "Dishwashing", total: 10 },
+            { tagName: "Trash Disposal", total: 15 }
+        ],
+        matchedScore: 74,
+        averageTaskPerWeek: 3.1,
+        averageEventPerWeek: 0.5,
+        averageSleepTimePerWeek: 58
+    }
+]

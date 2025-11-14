@@ -44,6 +44,23 @@ export interface FamilyNeededAttention {
     reason_description?: string 
 }
 
+export interface FamilyMemberTaskTagHistory {
+    tagName: string 
+    total: number
+}
+
+export interface FamilyRecommendedTaskParticipant {
+    fullname: string
+    gender: string
+    role: string
+    bornAt: string
+    taskTagHistory: FamilyMemberTaskTagHistory[]
+    matchedScore: number
+    averageTaskPerWeek: number 
+    averageEventPerWeek: number 
+    averageSleepTimePerWeek: number 
+}
+
 // Meal
 export interface MealItem {
     mealName: string

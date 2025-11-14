@@ -2,13 +2,12 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { faPlus } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { familyRecommendedTaskParticipant } from "@/helpers/dummy";
 import * as React from 'react';
-import AtomBreakline from "../atoms/a_breakline";
 import AtomText from "../atoms/a_text"
 import MoleculesMultipleComboxBox from "../molecules/m_multiple_combobox"
 import { Textarea } from "../ui/textarea"
+import OrganismsRecommendedFamilyMemberList from "./o_recommended_family_member_list";
 
 interface IOrganismsAddTaskDialogProps {
 }
@@ -29,21 +28,28 @@ const OrganismsAddTaskDialog: React.FunctionComponent<IOrganismsAddTaskDialogPro
                     <DialogDescription>We can analyze who is the best person to contribute or help with a task based on their personal tasks and personal information.</DialogDescription>
                 </DialogHeader>
                 <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="flex flex-wrap gap-y-3">
-                        <Label htmlFor="task_title">Task Title</Label>
-                        <Input id="task_title" type="text" name="task_title" />
-                        <Label htmlFor="task_desc">Description</Label>
-                        <Textarea id="task_desc" name="task_desc"></Textarea>
-                        <Label htmlFor="task_participants">Participant</Label>
-                        <MoleculesMultipleComboxBox context="Family Member" options={[
+                    <div>
+                        <Label htmlFor="task_title" className="mb-2">Task Title</Label>
+                        <Input id="task_title" type="text" name="task_title" className="mb-4"/>
+                        <Label htmlFor="task_desc" className="mb-2">Description</Label>
+                        <Textarea id="task_desc" name="task_desc" className="mb-4"></Textarea>
+                        <Label htmlFor="task_participants" className="mb-2">Participant</Label>
+                        <MoleculesMultipleComboxBox context="Family Member" extraClass="mb-4" options={[
                             { title: "Jhon <b>(Dad)</b>", value:"1" },
                             { title: "You", value:"2" },
                             { title: "Clarisa <b>(Mom)</b>", value:"3" },
                             { title: "Bob <b>(Brother)</b>", value:"4" },
                         ]}/>
+                        <Label htmlFor="task_tags" className="mb-2">Tags</Label>
+                        <MoleculesMultipleComboxBox context="Task Tags" extraClass="mb-4" options={[
+                            { title: "#Cleaning", value:"cleaning" },
+                            { title: "#Repairing", value:"repairing" },
+                            { title: "#Shopping", value:"shopping" },
+                            { title: "#Learning", value:"learning" },
+                        ]}/>
                     </div>
                     <div>
-
+                        <OrganismsRecommendedFamilyMemberList familyRecommendedTaskParticipant={familyRecommendedTaskParticipant}/>
                     </div>
                 </div>
                 <DialogFooter>
