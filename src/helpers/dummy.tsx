@@ -251,3 +251,9 @@ export const sampleTags = [
     { title: "#Shopping", value:"shopping" },
     { title: "#Learning", value:"learning" },
 ]
+
+export const listMoneyFlowTag = [
+    { tagName: "Food & Groceries", totalUsed: 12, totalSpending: 1500000, totalIncome: 0, averageSpending: 125000, averageIncome: 0 },
+    { tagName: "Salary", totalUsed: 1, totalSpending: 0, totalIncome: 5000000, averageSpending: 0, averageIncome: 5000000 },
+    { tagName: "Entertainment", totalUsed: 5, totalSpending: 600000, totalIncome: 0, averageSpending: 120000, averageIncome: 0 }
+]

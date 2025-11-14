@@ -7,7 +7,8 @@ import AtomText from "../atoms/a_text"
 import MoleculesMultipleComboxBox from "../molecules/m_multiple_combobox"
 import { Textarea } from "../ui/textarea"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { sampleTags } from "@/helpers/dummy";
+import { listMoneyFlowTag, sampleTags } from "@/helpers/dummy";
+import OrganismsMoneyFlowTagTable from "./o_money_flow_tag_table";
 
 interface IOrganismsAddMoneyFlowDialogProps {
 }
@@ -58,7 +59,7 @@ const OrganismsAddMoneyFlowDialog: React.FunctionComponent<IOrganismsAddMoneyFlo
                         <MoleculesMultipleComboxBox context="Tags" extraClass="mb-4" options={sampleTags}/>
                     </div>
                     <div>
-                        
+                        <OrganismsMoneyFlowTagTable listMoneyFlowTag={listMoneyFlowTag}/>
                     </div>
                 </div>
                 <DialogFooter>

@@ -24,6 +24,15 @@ export interface MoneyFlowItem {
     createdBy: string
 }
 
+export interface MoneyFlowTag {
+    tagName: string
+    totalUsed: number
+    totalSpending: number
+    totalIncome: number
+    averageSpending: number
+    averageIncome: number
+}
+
 // Family Member
 export interface FamilyMemberShortInfo {
     fullname: string
