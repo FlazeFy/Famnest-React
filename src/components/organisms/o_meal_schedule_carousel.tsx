@@ -7,6 +7,7 @@ import MoleculesDayMealBox from '../molecules/m_day_meal_box';
 import { MealItem } from '@/helpers/variable';
 import AtomText from '../atoms/a_text';
 import OrganismsManageMealByTimeDayDialog from './o_manage_meal_dialog';
+import OrganismsLastMealBox from './o_last_meal_box';
 
 const days = [
   'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
@@ -35,7 +36,14 @@ const OrganismsMealScheduleCarousel: React.FunctionComponent<IOrganismsMealSched
                     Autoplay({ delay: 7500 }),
                 ]}
                 className="w-full rounded-2xl p-5 pb-10 bg-primary min-h-[85vh]">
-                <AtomText type="sub-title" text="Here's the weekly schedule for your meal" extraClass='mb-5'/>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-3'>
+                    <div>
+                        <AtomText type="sub-title" text="Here's the weekly schedule for your meal"/>
+                    </div>
+                    <div>
+                        <OrganismsLastMealBox mealItem={mealItem.slice(0,3)}/>
+                    </div>
+                </div>
                 <CarouselContent>
                     <CarouselItem className="hidden lg:block">
                         <CardContent>
