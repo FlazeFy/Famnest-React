@@ -1,12 +1,12 @@
 import React from 'react'
 import AtomButton from '../atoms/a_button'
 import AtomText from '../atoms/a_text'
-import { faTrash, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { TaskItem } from '@/helpers/variable';
 
 interface IMoleculesTaskBoxProps {
-    deleteItemComponent: any
+    deleteItemComponent?: any
 }
 
 const MoleculesTaskBox: React.FC<TaskItem & IMoleculesTaskBoxProps> = ({ title, description, dueDate, participant, isFinished, deleteItemComponent }) => {
@@ -48,10 +48,8 @@ const MoleculesTaskBox: React.FC<TaskItem & IMoleculesTaskBoxProps> = ({ title, 
                 </div>
             </div>
             <div className="flex items-center gap-2 mt-2 md:mt-0">
-                {deleteItemComponent(title)}
-                {
-                    !isFinished ? <AtomButton type="btn-success" text={<FontAwesomeIcon icon={faCheck} height={15} width={15} />}/> : <></>
-                }
+                { deleteItemComponent && deleteItemComponent(title) }
+                { !isFinished ? <AtomButton type="btn-success" text={<FontAwesomeIcon icon={faCheck} height={15} width={15} />}/> : <></> }
             </div>
         </div>
     )

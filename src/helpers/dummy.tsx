@@ -257,3 +257,99 @@ export const listMoneyFlowTag = [
     { tagName: "Salary", totalUsed: 1, totalSpending: 0, totalIncome: 5000000, averageSpending: 0, averageIncome: 5000000 },
     { tagName: "Entertainment", totalUsed: 5, totalSpending: 600000, totalIncome: 0, averageSpending: 120000, averageIncome: 0 }
 ]
+
+export const familyTaskSchedule = [
+    {
+        title: "Family Breakfast",
+        description: "Prepare and enjoy breakfast together.",
+        participant: [
+            { nickname: "John (Dad)", role: "Cook" },
+            { nickname: "Maria (Mom)", role: "Assistant" },
+            { nickname: "You", role: "Table Setter" }
+        ],
+        taskDay: "Monday",
+        startHour: "07:00",
+        endHour: "07:45"
+    },
+    {
+        title: "Family Lunch",
+        description: "Prepare and enjoy lunch together.",
+        participant: [
+            { nickname: "Maria (Mom)", role: "Assistant" },
+            { nickname: "You", role: "Table Setter" }
+        ],
+        taskDay: "Monday",
+        startHour: "12:00",
+        endHour: "13:30"
+    },
+    {
+        title: "Homework Assistance",
+        description: "Helping with school homework in the evening.",
+        participant: [
+            { nickname: "Maria (Mom)", role: "Tutor" },
+            { nickname: "You", role: "Support" }
+        ],
+        taskDay: "Tuesday",
+        startHour: "18:00",
+        endHour: "19:00"
+    },
+    {
+        title: "Grocery Shopping",
+        description: "Weekly grocery shopping trip.",
+        participant: [
+            { nickname: "John (Dad)", role: "Driver" },
+            { nickname: "Maria (Mom)", role: "Planner" }
+        ],
+        taskDay: "Wednesday",
+        startHour: "17:00",
+        endHour: "18:30"
+    },
+    {
+        title: "Family Movie Night",
+        description: "Watching a movie together at home.",
+        participant: [
+            { nickname: "You", role: "Movie Selector" },
+            { nickname: "Maria (Mom)", role: "Snack Maker" },
+            { nickname: "John (Dad)", role: "Setup" }
+        ],
+        taskDay: "Thursday",
+        startHour: "20:00",
+        endHour: "22:00"
+    },
+    {
+        title: "House Cleaning",
+        description: "Cleaning the house as a family.",
+        participant: [
+            { nickname: "Maria (Mom)", role: "Coordinator" },
+            { nickname: "John (Dad)", role: "Floor Cleaning" },
+            { nickname: "You", role: "Dusting" }
+        ],
+        taskDay: "Saturday",
+        startHour: "09:00",
+        endHour: "11:00"
+    },
+    {
+        title: "Family Lunch Out",
+        description: "Eating lunch at a restaurant together.",
+        participant: [
+            { nickname: "John (Dad)", role: "Driver" },
+            { nickname: "Maria (Mom)", role: "Restaurant Picker" },
+            { nickname: "You", role: "Companion" }
+        ],
+        taskDay: "Sunday",
+        startHour: "12:00",
+        endHour: "13:30"
+    },
+    {
+        title: "Evening Walk",
+        description: "Walking around the neighborhood after sunset.",
+        participant: [
+            { nickname: "Maria (Mom)", role: "Leader" },
+            { nickname: "John (Dad)", role: "Steps Counter" },
+            { nickname: "You", role: "Companion" }
+        ],
+        taskDay: "Friday",
+        startHour: "18:30",
+        endHour: "19:15"
+    }
+];

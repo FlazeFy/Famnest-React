@@ -22,7 +22,7 @@ const OrganismsNextActivityDialog: React.FunctionComponent<TaskItem> = ({title, 
                     </DialogHeader>
                     <div className="grid gap-4">
                         <Link href={'/family/task?next=true'}>
-                            <MoleculesTaskBox title={title} description={description} dueDate={dueDate} participant={participant} isFinished={isFinished} startDate={""} deleteItemComponent={false}/>
+                            <MoleculesTaskBox title={title} description={description} dueDate={dueDate} participant={participant} isFinished={isFinished} startDate={""}/>
                         </Link>
                     </div>
                     <DialogFooter>

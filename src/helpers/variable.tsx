@@ -13,6 +13,15 @@ export interface TaskItem {
     participant: TaskParticipant[]
 }
 
+export interface TaskScheduleItem {
+    title: string
+    description: string
+    participant: TaskParticipant[]
+    taskDay: string
+    startHour: string
+    endHour: string
+}
+
 // Money
 export interface MoneyFlowItem {
     title: string
