@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Button } from '../ui/button';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import AtomBreakline from '../atoms/a_breakline';
 import { MealItem } from '@/helpers/variable';
 import MoleculesNotFoundBox from '../molecules/m_not_found_box';
 import MoleculesMealBox from '../molecules/m_meal_box';
-import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import OrganismsConfirmationDeleteDialog from './o_confirmation_delete_dialog';
 import AtomButton from '../atoms/a_button';
 import OrganismsAddMealDialog from './o_add_meal_dialog';
+import OrganismsEditMealDialog from './o_edit_meal_dialog';
 
 interface IOrganismsManageMealByTimeDayDialogProps {
     time: string
@@ -40,6 +40,8 @@ const OrganismsManageMealByTimeDayDialog: React.FunctionComponent<IOrganismsMana
                                         (mealName: string) => <OrganismsConfirmationDeleteDialog context={`${mealName} Meal`} url='/' buttonTrigger={
                                             <AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash}/>}/>
                                         }/>
+                                    } updateItemComponent={
+                                        (mealName: string, mealDesc: string, mealPrepareBy: string[], mealTime: string, mealDay: string) => <OrganismsEditMealDialog mealName={mealName} mealDesc={mealDesc} mealPrepareBy={mealPrepareBy} mealTime={time} mealDay={dayName}/> 
                                     }/>)
                                 }
                             </div>

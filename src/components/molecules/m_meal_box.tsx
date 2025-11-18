@@ -1,16 +1,14 @@
 import * as React from 'react';
 import AtomText from '../atoms/a_text';
 import { MealItem } from '@/helpers/variable';
-import AtomButton from '../atoms/a_button';
-import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface IMoleculesMealBoxProps {
     isReadOnly?: boolean
     deleteItemComponent: any
+    updateItemComponent: any
 }
 
-const MoleculesMealBox: React.FunctionComponent<MealItem & IMoleculesMealBoxProps> = ({mealDesc, mealName, mealPrepareBy, isReadOnly = true, deleteItemComponent}) => {
+const MoleculesMealBox: React.FunctionComponent<MealItem & IMoleculesMealBoxProps> = ({mealDesc, mealName, mealPrepareBy, isReadOnly = true, deleteItemComponent, updateItemComponent}) => {
     return (
         <div className={`mealbox ${isReadOnly && 'readonly'}`}>
             <div>
@@ -21,7 +19,7 @@ const MoleculesMealBox: React.FunctionComponent<MealItem & IMoleculesMealBoxProp
             {
                 !isReadOnly ? (
                     <div className='flex gap-2'>
-                        <AtomButton type='btn-warning' text={<FontAwesomeIcon icon={faPenToSquare}/>}/>
+                        {updateItemComponent(mealName, mealDesc, mealPrepareBy)}
                         {deleteItemComponent(mealName)}
                     </div>
                 ) : <></>

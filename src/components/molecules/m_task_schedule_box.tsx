@@ -1,7 +1,7 @@
 import * as React from 'react';
 import AtomText from '../atoms/a_text';
 import { TaskScheduleItem } from '@/helpers/variable';
-import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from '../ui/button';
 import OrganismsConfirmationDeleteDialog from '../organisms/o_confirmation_delete_dialog';

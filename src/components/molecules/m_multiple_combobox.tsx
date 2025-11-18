@@ -9,6 +9,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 interface OptionItem {
     title: string
     value: string
+    checked?: boolean
 }
 
 interface IMoleculesMultipleComboxBoxProps {
@@ -18,8 +19,10 @@ interface IMoleculesMultipleComboxBoxProps {
 }
 
 const MoleculesMultipleComboxBox: React.FunctionComponent<IMoleculesMultipleComboxBoxProps> = ({context, options, extraClass}) => {
-    const [open, setOpen] = React.useState(false);
-    const [selected, setSelected] = React.useState<string[]>([]);
+    const [open, setOpen] = React.useState(false)
+    const [selected, setSelected] = React.useState<string[]>(
+        options.filter(opt => opt.checked).map(opt => opt.value)
+    )
 
     const toggleSelect = (value: string) => {
         setSelected((prev) =>
