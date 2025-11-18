@@ -8,9 +8,10 @@ import MoleculesTaskScheduleBox from './m_task_schedule_box';
 interface IMoleculesDayTaskBoxProps {
     dayName: string
     taskItem: TaskScheduleItem[]
+    addTaskScheduleDialog: React.ReactNode
 }
 
-const MoleculesDayTaskBox: React.FunctionComponent<IMoleculesDayTaskBoxProps> = ({dayName, taskItem}) => {
+const MoleculesDayTaskBox: React.FunctionComponent<IMoleculesDayTaskBoxProps> = ({dayName, taskItem, addTaskScheduleDialog}) => {
     const filteredTasks = taskItem.filter(item => item.taskDay === dayName)
 
     return (
@@ -45,9 +46,10 @@ const MoleculesDayTaskBox: React.FunctionComponent<IMoleculesDayTaskBoxProps> = 
                         }
                     </div>
                 ) : (
-                    <MoleculesNotFoundBox title="No task found" />
+                    <MoleculesNotFoundBox title="No schedule found" />
                 )
             }
+            <div className='mt-3'>{addTaskScheduleDialog}</div>
         </div>
     );
 };

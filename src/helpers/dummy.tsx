@@ -339,17 +339,5 @@ export const familyTaskSchedule = [
         taskDay: "Sunday",
         startHour: "12:00",
         endHour: "13:30"
-    },
-    {
-        title: "Evening Walk",
-        description: "Walking around the neighborhood after sunset.",
-        participant: [
-            { nickname: "Maria (Mom)", role: "Leader" },
-            { nickname: "John (Dad)", role: "Steps Counter" },
-            { nickname: "You", role: "Companion" }
-        ],
-        taskDay: "Friday",
-        startHour: "18:30",
-        endHour: "19:15"
     }
 ];
