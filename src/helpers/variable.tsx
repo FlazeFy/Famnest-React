@@ -79,6 +79,22 @@ export interface FamilyRecommendedTaskParticipant {
     averageSleepTimePerWeek: number 
 }
 
+export interface DayTimeMealAssigned {
+    day: string
+    time: string
+}
+
+export interface FamilyRecommendedMealPrepared {
+    fullname: string
+    gender: string
+    role: string
+    bornAt: string
+    listAssignedMeal: string[]
+    listAssignedDayTime: DayTimeMealAssigned[]
+    totalMealPrep: number
+    averageScore: number 
+}
+
 // Meal
 export interface MealItem {
     mealName: string

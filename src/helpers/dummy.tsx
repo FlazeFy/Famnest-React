@@ -330,6 +330,63 @@ export const familyTaskSchedule = [
     }
 ];
 
+export interface DayTimeMealAssigned {
+    day: string
+    time: string
+}
+
+export interface FamilyRecommendedMealPrepared {
+    fullname: string
+    gender: string
+    role: string
+    bornAt: string
+    listAssignedMeal: string[]
+    listAssignedDayTime: DayTimeMealAssigned[]
+    totalMealPrep: number
+    averageScore: number 
+}
+
+export const familyRecommendedMealPrepared = [
+    {
+        fullname: 'You',
+        gender: 'Male',
+        role: 'Son',
+        bornAt: "2010-06-03",
+        listAssignedMeal: ['Nasi Goreng','Omelette'],
+        listAssignedDayTime: [
+            { day: 'Sunday', time: 'Lunch'},
+            { day: 'Monday', time: 'Dinner'}
+        ],
+        totalMealPrep: 10,
+        averageScore: 4.75 
+    },
+    {
+        fullname: 'Maria',
+        gender: 'Female',
+        role: 'Mom',
+        bornAt: "1979-02-19",
+        listAssignedMeal: ['Nasi Goreng','Omelette','Orange Juice'],
+        listAssignedDayTime: [
+            { day: 'Tuesday', time: 'Breakfast'},
+            { day: 'Wednesday', time: 'Breakfast'},
+            { day: 'Thursday', time: 'Breakfast'}
+        ],
+        totalMealPrep: 20,
+        averageScore: 4.95 
+    },
+    {
+        fullname: 'Jhon',
+        gender: 'Male',
+        role: 'Dad',
+        bornAt: "1978-04-15",
+        listAssignedMeal: ['Bread Toast'],
+        listAssignedDayTime: [
+            { day: 'Saturday', time: 'Lunch'},
+        ],
+        totalMealPrep: 3,
+        averageScore: 4.5 
+    }
+]
 
 export const sampleTags = [
     { title: "#Cleaning", value:"cleaning" },
