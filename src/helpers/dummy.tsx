@@ -245,18 +245,6 @@ export const familyRecommendedTaskParticipant = [
     }
 ]
 
-export const sampleTags = [
-    { title: "#Cleaning", value:"cleaning" },
-    { title: "#Repairing", value:"repairing" },
-    { title: "#Shopping", value:"shopping" },
-    { title: "#Learning", value:"learning" },
-]
-
-export const listMoneyFlowTag = [
-    { tagName: "Food & Groceries", totalUsed: 12, totalSpending: 1500000, totalIncome: 0, averageSpending: 125000, averageIncome: 0 },
-    { tagName: "Salary", totalUsed: 1, totalSpending: 0, totalIncome: 5000000, averageSpending: 0, averageIncome: 5000000 },
-    { tagName: "Entertainment", totalUsed: 5, totalSpending: 600000, totalIncome: 0, averageSpending: 120000, averageIncome: 0 }
-]
 
 export const familyTaskSchedule = [
     {
@@ -341,3 +329,53 @@ export const familyTaskSchedule = [
         endHour: "13:30"
     }
 ];
+
+
+export const sampleTags = [
+    { title: "#Cleaning", value:"cleaning" },
+    { title: "#Repairing", value:"repairing" },
+    { title: "#Shopping", value:"shopping" },
+    { title: "#Learning", value:"learning" },
+]
+
+// Money
+export const listMoneyFlowTag = [
+    { tagName: "Food & Groceries", totalUsed: 12, totalSpending: 1500000, totalIncome: 0, averageSpending: 125000, averageIncome: 0 },
+    { tagName: "Salary", totalUsed: 1, totalSpending: 0, totalIncome: 5000000, averageSpending: 0, averageIncome: 5000000 },
+    { tagName: "Entertainment", totalUsed: 5, totalSpending: 600000, totalIncome: 0, averageSpending: 120000, averageIncome: 0 }
+]
+
+export const listSpendingWeekly = [
+    {
+      name: "You",
+      data: [45000, 38000, 52000, 60000, 55000, 48000, 50000],
+    },
+    {
+      name: "Jhon (Dad)",
+      data: [80000, 75000, 90000, 85000, 88000, 92000, 87000],
+    },
+    {
+      name: "Maria (Mom)",
+      data: [60000, 58000, 63000, 65000, 67000, 62000, 64000],
+    },
+]
+
+export const listIncomeMonthly = [
+    {
+        name: "You",
+        data: [5500000, 5600000, 5800000, 5900000, 6000000, 6200000, 6300000, 6400000, 6500000, 6600000, 6700000, 7000000],
+    },
+    {
+        name: "Jhon (Dad)",
+        data: [9000000, 9000000, 9100000, 9200000, 9300000, 9400000, 9500000, 9600000, 9600000, 9700000, 9800000, 10000000],
+    },
+    {
+        name: "Maria (Mom)",
+        data: [4500000, 4550000, 4600000, 4700000, 4800000, 4900000, 4950000, 5000000, 5050000, 5100000, 5200000, 5300000],
+    },
+]
+
+// Day Name
+export const dayName = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+// Month Name
+export const monthName = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]

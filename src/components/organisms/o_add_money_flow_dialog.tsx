@@ -34,7 +34,7 @@ const OrganismsAddMoneyFlowDialog: React.FunctionComponent<IOrganismsAddMoneyFlo
                         <Input id="money_flow_title" type="text" name="money_flow_title" className="mb-4"/>
                         <Label htmlFor="money_flow_desc" className="mb-2">Description</Label>
                         <Textarea id="money_flow_desc" name="money_flow_desc" className="mb-4"></Textarea>
-                        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 flex flex-wrap gap-x-2">
+                        <div className="grid-cols-1 sm:grid-cols-1 md:grid-cols-2 flex flex-wrap gap-x-2">
                             <div>
                                 <Label htmlFor="money_flow_category" className="mb-2">Category</Label>
                                 <Select>
