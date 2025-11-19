@@ -1,5 +1,15 @@
 import { MealItem } from "./variable"
 
+export const myProfile = {
+    username: 'flazefy',
+    bio: 'Lorem ipsum',
+    email: 'flazen.edu@gmail.com',
+    phone: '08123456789',
+    telegram: '123456789',
+    createdAt: '2025-11-05T08:00:00',
+    updatedAt: '2025-12-05T12:00:00',
+}
+
 export const taskItem = [
     {
         title: 'Grocery Shopping',
@@ -432,6 +442,11 @@ export const listIncomeMonthly = [
         name: "Clarisa (Mom)",
         data: [4500000, 4550000, 4600000, 4700000, 4800000, 4900000, 4950000, 5000000, 5050000, 5100000, 5200000, 5300000],
     },
+]
+
+export const moneyFlowComparison = [
+    { context: 'Income', total: 24000000 },
+    { context: 'Spending', total: 15000000 }
 ]
 
 // Day Name

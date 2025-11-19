@@ -5,7 +5,8 @@ import Autoplay from 'embla-carousel-autoplay';
 import { CardContent } from '@/components/ui/card';
 import AtomText from '../atoms/a_text';
 import OrganismsMultiLineChart from './o_multi_line_chart';
-import { dayName, listIncomeMonthly, listSpendingWeekly, monthName } from '@/helpers/dummy';
+import { dayName, listIncomeMonthly, listSpendingWeekly, moneyFlowComparison, monthName } from '@/helpers/dummy';
+import OrganismsPieChart from './o_pie_chart';
 
 interface IOrganismsPeriodicFamilyMemberMoneyFlowCarouselProps {
 }
@@ -37,6 +38,9 @@ const OrganismsPeriodicFamilyMemberMoneyFlowCarousel: React.FunctionComponent<IO
                                 <div className="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-6">
                                     <div className='bg-white shadow-xl rounded-2xl'>
                                         <OrganismsMultiLineChart title='Weekly Spending' categories={dayName} series={listSpendingWeekly}/>
+                                    </div>
+                                    <div className='bg-white shadow-xl rounded-2xl py-5 my-5'>
+                                        <OrganismsPieChart title='Spending vs Income Comparison' data={moneyFlowComparison}/>
                                     </div>
                                 </div>
                                 <div className="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-6">

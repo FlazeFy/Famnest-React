@@ -1,3 +1,13 @@
+export interface MyProfile {
+    username: string
+    bio: string
+    email: string
+    phone: string
+    telegram: string
+    createdAt: string
+    updatedAt: string
+}
+
 // Task
 export interface TaskParticipant {
     nickname: string
