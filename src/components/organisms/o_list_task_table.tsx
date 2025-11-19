@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import OrganismsConfirmationDeleteDialog from './o_confirmation_delete_dialog';
 import AtomButton from '../atoms/a_button';
+import OrganismsEditTaskDialog from './o_edit_task_dialog';
 
 interface IOrganismsListTaskTableProps {
     listTask: TaskItem[]
@@ -60,15 +61,27 @@ const OrganismsListTaskTable: React.FunctionComponent<IOrganismsListTaskTablePro
                                 </Badge>
                             </TableCell>
                             <TableCell>
-                                <div className="flex flex-wrap gap-2">
+                                <AtomText text='<b>Participant</b>' type='content'/>
+                                <div className="flex flex-wrap gap-2 my-1">
                                     {
                                         dt.participant.map((p, i) => (
                                             <Badge key={i} variant="outline">{p.nickname} ({p.role})</Badge>
                                         ))
                                     }
                                 </div>
+                                <AtomText text='<b>Tags</b>' type='content'/>
+                                <div className="flex flex-wrap gap-2 mt-1">
+                                    {
+                                        dt.tags ? dt.tags?.map((tag, i) => (
+                                            <Badge key={i} variant="outline">#{tag}</Badge>
+                                        )) 
+                                        :
+                                        <AtomText text='<i>- No Tags Attached -</i>' type='content'/>
+                                    }
+                                </div>
                             </TableCell>
-                            <TableCell>
+                            <TableCell className='flex gap-2'>
+                                <OrganismsEditTaskDialog title={dt.title} description={dt.description} startDate={dt.startDate} dueDate={dt.dueDate} isFinished={dt.isFinished} participant={dt.participant} tags={dt.tags}/>
                                 <OrganismsConfirmationDeleteDialog context={`${dt.title} Task`} buttonTrigger={<AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash} height={15}/>}/>} url='/'/>
                             </TableCell>
                         </TableRow>

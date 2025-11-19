@@ -8,10 +8,11 @@ export const taskItem = [
         dueDate: '2025-11-05T10:00:00',
         isFinished: true,
         participant: [
-            { nickname: 'Linda', role: 'Mom' },
+            { nickname: 'Clarisa', role: 'Mom' },
             { nickname: 'John', role: 'Dad' },
-            { nickname: 'Richard', role: 'Son' },
+            { nickname: 'You', role: 'Son' },
         ],
+        tags: ['Shopping','Home Essentials']
     },
     {
         title: 'Family Cleaning Day',
@@ -20,9 +21,9 @@ export const taskItem = [
         dueDate: '2025-11-05T09:30:00',
         participant: [
             { nickname: 'John', role: 'Dad' },
-            { nickname: 'Linda', role: 'Mom' },
-            { nickname: 'Clarisa', role: 'Daughter' },
-            { nickname: 'Richard', role: 'Son' },
+            { nickname: 'Bob', role: 'Brother' },
+            { nickname: 'Clarisa', role: 'Mom' },
+            { nickname: 'You', role: 'Son' },
         ],
         isFinished: false
     },
@@ -32,13 +33,11 @@ export const taskItem = [
         startDate: '2025-11-08T15:00:00',
         dueDate: '2025-11-08T18:00:00',
         participant: [
-            { nickname: 'Linda', role: 'Mom' },
-            { nickname: 'John', role: 'Dad' },
-            { nickname: 'Clarisa', role: 'Daughter' },
-            { nickname: 'Richard', role: 'Son' },
-            { nickname: 'Robert', role: 'Uncle' },
+            { nickname: 'Clarisa', role: 'Mom' },
+            { nickname: 'You', role: 'Son' }
         ],
         isFinished: false,
+        tags: ['Party']
     },
     {
         title: 'Weekend Picnic at the Park',
@@ -47,9 +46,9 @@ export const taskItem = [
         dueDate: '2025-11-09T10:00:00',
         participant: [
             { nickname: 'John', role: 'Dad' },
-            { nickname: 'Linda', role: 'Mom' },
-            { nickname: 'Clarisa', role: 'Daughter' },
-            { nickname: 'Richard', role: 'Son' },
+            { nickname: 'Bob', role: 'Brother' },
+            { nickname: 'Clarisa', role: 'Mom' },
+            { nickname: 'You', role: 'Son' },
         ],
         isFinished: true,
     },
@@ -60,9 +59,10 @@ export const taskItem = [
         dueDate: '2025-11-10T20:00:00',
         participant: [
             { nickname: 'John', role: 'Dad' },
-            { nickname: 'Linda', role: 'Mom' },
+            { nickname: 'Clarisa', role: 'Mom' },
         ],
         isFinished: true,
+        tags:['Meeting']
     },
 ]
 
@@ -389,10 +389,10 @@ export const familyRecommendedMealPrepared = [
 ]
 
 export const sampleTags = [
-    { title: "#Cleaning", value:"cleaning" },
-    { title: "#Repairing", value:"repairing" },
-    { title: "#Shopping", value:"shopping" },
-    { title: "#Learning", value:"learning" },
+    { title: "#Shopping", value:"Shopping" },
+    { title: "#Home Essentials", value:"Home Essentials" },
+    { title: "#Meeting", value:"Meeting" },
+    { title: "#Party", value:"Party" },
 ]
 
 // Money

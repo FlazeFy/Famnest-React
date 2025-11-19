@@ -9,12 +9,9 @@ import AtomBreakline from "../atoms/a_breakline";
 import MoleculesMultipleComboxBox from "../molecules/m_multiple_combobox"
 import { Textarea } from "../ui/textarea"
 import { MealItem } from "@/helpers/variable"
+import { isInclude } from "@/helpers/converter"
 
 const OrganismsEditMealDialog: React.FunctionComponent<MealItem> = ({ mealTime, mealDay, mealName, mealPrepareBy, mealDesc }) => {
-    const isInclude = (arr: string[], target: string) => {
-        return arr?.some((dt) => dt === target)
-    }
-    
     return (
         <Dialog>
             <DialogTrigger asChild>

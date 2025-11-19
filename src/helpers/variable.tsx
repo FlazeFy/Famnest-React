@@ -10,6 +10,7 @@ export interface TaskItem {
     startDate: string
     dueDate: string
     isFinished: boolean
+    tags?: string[]
     participant: TaskParticipant[]
 }
 
