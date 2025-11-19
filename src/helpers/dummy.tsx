@@ -251,8 +251,8 @@ export const familyTaskSchedule = [
         title: "Family Breakfast",
         description: "Prepare and enjoy breakfast together.",
         participant: [
-            { nickname: "John (Dad)", role: "Cook" },
-            { nickname: "Maria (Mom)", role: "Assistant" },
+            { nickname: "John", role: "Cook" },
+            { nickname: "Clarisa", role: "Assistant" },
             { nickname: "You", role: "Table Setter" }
         ],
         taskDay: "Monday",
@@ -263,7 +263,7 @@ export const familyTaskSchedule = [
         title: "Family Lunch",
         description: "Prepare and enjoy lunch together.",
         participant: [
-            { nickname: "Maria (Mom)", role: "Assistant" },
+            { nickname: "Clarisa", role: "Assistant" },
             { nickname: "You", role: "Table Setter" }
         ],
         taskDay: "Monday",
@@ -274,7 +274,7 @@ export const familyTaskSchedule = [
         title: "Homework Assistance",
         description: "Helping with school homework in the evening.",
         participant: [
-            { nickname: "Maria (Mom)", role: "Tutor" },
+            { nickname: "Clarisa", role: "Tutor" },
             { nickname: "You", role: "Support" }
         ],
         taskDay: "Tuesday",
@@ -285,20 +285,21 @@ export const familyTaskSchedule = [
         title: "Grocery Shopping",
         description: "Weekly grocery shopping trip.",
         participant: [
-            { nickname: "John (Dad)", role: "Driver" },
-            { nickname: "Maria (Mom)", role: "Planner" }
+            { nickname: "John", role: "Driver" },
+            { nickname: "Clarisa", role: "Planner" }
         ],
         taskDay: "Wednesday",
         startHour: "17:00",
-        endHour: "18:30"
+        endHour: "18:30",
+        tags: ['Shopping','Home Essentials']
     },
     {
         title: "Family Movie Night",
         description: "Watching a movie together at home.",
         participant: [
             { nickname: "You", role: "Movie Selector" },
-            { nickname: "Maria (Mom)", role: "Snack Maker" },
-            { nickname: "John (Dad)", role: "Setup" }
+            { nickname: "Clarisa", role: "Snack Maker" },
+            { nickname: "John", role: "Setup" }
         ],
         taskDay: "Thursday",
         startHour: "20:00",
@@ -308,8 +309,8 @@ export const familyTaskSchedule = [
         title: "House Cleaning",
         description: "Cleaning the house as a family.",
         participant: [
-            { nickname: "Maria (Mom)", role: "Coordinator" },
-            { nickname: "John (Dad)", role: "Floor Cleaning" },
+            { nickname: "Clarisa", role: "Coordinator" },
+            { nickname: "John", role: "Floor Cleaning" },
             { nickname: "You", role: "Dusting" }
         ],
         taskDay: "Saturday",
@@ -320,13 +321,14 @@ export const familyTaskSchedule = [
         title: "Family Lunch Out",
         description: "Eating lunch at a restaurant together.",
         participant: [
-            { nickname: "John (Dad)", role: "Driver" },
-            { nickname: "Maria (Mom)", role: "Restaurant Picker" },
+            { nickname: "John", role: "Driver" },
+            { nickname: "Clarisa", role: "Restaurant Picker" },
             { nickname: "You", role: "Companion" }
         ],
         taskDay: "Sunday",
         startHour: "12:00",
-        endHour: "13:30"
+        endHour: "13:30",
+        tags: ['Party']
     }
 ];
 
@@ -361,7 +363,7 @@ export const familyRecommendedMealPrepared = [
         averageScore: 4.75 
     },
     {
-        fullname: 'Maria',
+        fullname: 'Clarisa',
         gender: 'Female',
         role: 'Mom',
         bornAt: "1979-02-19",
@@ -412,7 +414,7 @@ export const listSpendingWeekly = [
       data: [80000, 75000, 90000, 85000, 88000, 92000, 87000],
     },
     {
-      name: "Maria (Mom)",
+      name: "Clarisa (Mom)",
       data: [60000, 58000, 63000, 65000, 67000, 62000, 64000],
     },
 ]
@@ -427,7 +429,7 @@ export const listIncomeMonthly = [
         data: [9000000, 9000000, 9100000, 9200000, 9300000, 9400000, 9500000, 9600000, 9600000, 9700000, 9800000, 10000000],
     },
     {
-        name: "Maria (Mom)",
+        name: "Clarisa (Mom)",
         data: [4500000, 4550000, 4600000, 4700000, 4800000, 4900000, 4950000, 5000000, 5050000, 5100000, 5200000, 5300000],
     },
 ]

@@ -29,7 +29,7 @@ const MoleculesDayMealBox: React.FunctionComponent<IMoleculesDayMealBoxProps> = 
                                 meals.length > 0 ? (
                                     <div className='mt-2 space-y-3'>
                                         {
-                                            meals.map((dt, idx) => <MoleculesMealBox key={idx} mealDay={dt.mealDay} mealName={dt.mealName} mealPrepareBy={dt.mealPrepareBy} mealTime={dt.mealTime} mealDesc={dt.mealDesc} deleteItemComponent={false}/>)
+                                            meals.map((dt, idx) => <MoleculesMealBox key={idx} mealDay={dt.mealDay} mealName={dt.mealName} mealPrepareBy={dt.mealPrepareBy} mealTime={dt.mealTime} mealDesc={dt.mealDesc} deleteItemComponent={false} updateItemComponent={undefined}/>)
                                         }
                                     </div>
                                 ) : (

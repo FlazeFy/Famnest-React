@@ -9,9 +9,10 @@ interface IMoleculesDayTaskBoxProps {
     dayName: string
     taskItem: TaskScheduleItem[]
     addTaskScheduleDialog: React.ReactNode
+    editTaskScheduleDialog: (taskItem: TaskScheduleItem) => React.ReactNode
 }
 
-const MoleculesDayTaskBox: React.FunctionComponent<IMoleculesDayTaskBoxProps> = ({dayName, taskItem, addTaskScheduleDialog}) => {
+const MoleculesDayTaskBox: React.FunctionComponent<IMoleculesDayTaskBoxProps> = ({dayName, taskItem, addTaskScheduleDialog, editTaskScheduleDialog}) => {
     const filteredTasks = taskItem.filter(item => item.taskDay === dayName)
 
     return (
@@ -33,11 +34,10 @@ const MoleculesDayTaskBox: React.FunctionComponent<IMoleculesDayTaskBoxProps> = 
                             ).map(([time, tasks], idx) => (
                                 <div key={idx}>
                                     <Badge variant='outline' className='bg-success px-3 py-1 font-bold'>{time}</Badge>
-
                                     <div className="space-y-3">
                                         {
                                             tasks.map((dt, i) => (
-                                                <MoleculesTaskScheduleBox key={i} title={dt.title} description={dt.description} participant={dt.participant} taskDay={dt.taskDay} startHour={dt.startHour} endHour={dt.endHour}/>
+                                                <MoleculesTaskScheduleBox key={i} title={dt.title} description={dt.description} participant={dt.participant} taskDay={dt.taskDay} startHour={dt.startHour} endHour={dt.endHour} editTaskScheduleDialog={editTaskScheduleDialog(dt)}/>
                                             ))
                                         }
                                     </div>

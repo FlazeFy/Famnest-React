@@ -7,10 +7,10 @@ import { Button } from '../ui/button';
 import OrganismsConfirmationDeleteDialog from '../organisms/o_confirmation_delete_dialog';
 
 interface IMoleculesTaskScheduleBoxProps {
-    editTaskScheduleDialog: React.ReactNode
+    editTaskScheduleDialog: any
 }
 
-const MoleculesTaskScheduleBox: React.FunctionComponent<TaskScheduleItem & IMoleculesTaskScheduleBoxProps> = ({description, title, participant, startHour, endHour}) => {
+const MoleculesTaskScheduleBox: React.FunctionComponent<TaskScheduleItem & IMoleculesTaskScheduleBoxProps> = ({description, title, participant, startHour, endHour, editTaskScheduleDialog}) => {
     return (
         <div className='mealbox cursor-pointer hover:bg-gray-50 transform hover:scale-[1.05] hover:shadow-xl group flex-wrap' style={{marginBottom:"15px", padding:"5px"}}>
             <div>
@@ -18,8 +18,9 @@ const MoleculesTaskScheduleBox: React.FunctionComponent<TaskScheduleItem & IMole
                     {description && <p className='italic text-gray-500'>{description}</p>}
                 <AtomText type='content' text={`Participatet: ${participant.map(p => p.nickname).join(', ')}`} extraClass="text-gray-400"/>
             </div>
-            <div className='gap-2 m-2 hidden opacity-0 group-hover:opacity-100 group-hover:block transition-opacity duration-300'>
+            <div className='gap-2 m-2 hidden opacity-0 group-hover:opacity-100 group-hover:block transition-opacity duration-300 mx-auto'>
                 <OrganismsConfirmationDeleteDialog context={`task schedule ${title}`} url='/' buttonTrigger={<Button className='bg-danger px-0'><FontAwesomeIcon icon={faTrash}/></Button>}/>
+                {editTaskScheduleDialog}
             </div>
         </div>
     );

@@ -4,19 +4,20 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Autoplay from 'embla-carousel-autoplay';
 import { CardContent } from '@/components/ui/card';
 import MoleculesDayTaskBox from '../molecules/m_day_task_box';
-import { TaskScheduleItem } from '@/helpers/variable';
+import { TaskItem, TaskScheduleItem } from '@/helpers/variable';
 import AtomText from '../atoms/a_text';
 import OrganismsAddTaskScheduleDialog from './o_add_task_schedule_dialog';
+import OrganismsEditTaskScheduleDialog from './o_edit_task_schedule_dialog';
 
 const days = [
   'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
 ]
 
 interface IOrganismsTaskScheduleCarouselProps {
-    taskItem: TaskScheduleItem[]
+    taskItems: TaskScheduleItem[]
 }
 
-const OrganismsTaskScheduleCarousel: React.FunctionComponent<IOrganismsTaskScheduleCarouselProps> = ({taskItem}) => {
+const OrganismsTaskScheduleCarousel: React.FunctionComponent<IOrganismsTaskScheduleCarouselProps> = ({taskItems}) => {
     const [api, setApi] = React.useState<CarouselApi>()
     const [current, setCurrent] = React.useState(0)
     const [count, setCount] = React.useState(0)
@@ -43,7 +44,7 @@ const OrganismsTaskScheduleCarousel: React.FunctionComponent<IOrganismsTaskSched
                                 {
                                     days.map(day => (
                                         <div key={day} className="flex-1 min-w-[12%] h-full">
-                                            <MoleculesDayTaskBox dayName={day} taskItem={taskItem} addTaskScheduleDialog={<OrganismsAddTaskScheduleDialog/>}/>
+                                            <MoleculesDayTaskBox dayName={day} taskItem={taskItems} addTaskScheduleDialog={<OrganismsAddTaskScheduleDialog/>} editTaskScheduleDialog={(taskItem: TaskScheduleItem) => <OrganismsEditTaskScheduleDialog taskItem={taskItem}/>}/>
                                         </div>
                                     ))
                                 }
@@ -58,7 +59,7 @@ const OrganismsTaskScheduleCarousel: React.FunctionComponent<IOrganismsTaskSched
                                 {
                                     days.slice(i * 3, i * 3 + 3).map(day => (
                                         <div key={day} className="flex-1 min-w-[28%] h-full">
-                                            <MoleculesDayTaskBox dayName={day} taskItem={taskItem} addTaskScheduleDialog={<OrganismsAddTaskScheduleDialog/>}/>
+                                            <MoleculesDayTaskBox dayName={day} taskItem={taskItems} addTaskScheduleDialog={<OrganismsAddTaskScheduleDialog/>} editTaskScheduleDialog={(taskItem: TaskScheduleItem) => <OrganismsEditTaskScheduleDialog taskItem={taskItem}/>}/>
                                         </div>
                                     ))
                                 }
@@ -72,7 +73,7 @@ const OrganismsTaskScheduleCarousel: React.FunctionComponent<IOrganismsTaskSched
                             <CarouselItem key={day} className="block md:hidden">
                                 <CardContent>
                                     <div className="flex justify-center">
-                                        <MoleculesDayTaskBox dayName={day} taskItem={taskItem} addTaskScheduleDialog={<OrganismsAddTaskScheduleDialog/>}/>
+                                        <MoleculesDayTaskBox dayName={day} taskItem={taskItems} addTaskScheduleDialog={<OrganismsAddTaskScheduleDialog/>} editTaskScheduleDialog={(taskItem: TaskScheduleItem) => <OrganismsEditTaskScheduleDialog taskItem={taskItem}/>}/>
                                     </div>
                                 </CardContent>
                             </CarouselItem>

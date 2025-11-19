@@ -21,6 +21,7 @@ export interface TaskScheduleItem {
     taskDay: string
     startHour: string
     endHour: string
+    tags?: string[]
 }
 
 // Money
