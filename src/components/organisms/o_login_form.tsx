@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input"
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
 import Swal from "sweetalert2"
 import { useRouter } from "next/navigation"
+import { loginRepo } from '@/repositories/r_auth';
+import useAuthStore from '@/store/s_auth';
 
 // Validation
 const loginSchema = Yup.object({
@@ -19,26 +21,40 @@ const loginSchema = Yup.object({
     password: Yup.string().required("Password is required").min(6),
 })
 
-type SignUpFormValues = Yup.InferType<typeof loginSchema>
+type LoginFormValues = Yup.InferType<typeof loginSchema>
 
-interface IOrganismsLoginFormProps {
-}
+interface IOrganismsLoginFormProps {}
 
 const OrganismsLoginForm: React.FunctionComponent<IOrganismsLoginFormProps> = (props) => {
     const router = useRouter()
+    const { onLoginStore } = useAuthStore()
+    const form = useForm<LoginFormValues>({ resolver: yupResolver(loginSchema), defaultValues: { email: "", password: "" }})
 
-    const form = useForm<SignUpFormValues>({ resolver: yupResolver(loginSchema), defaultValues: { email: "", password: "" }})
-
-    const onSubmit = async (values: SignUpFormValues) => {
+    const onSubmit = async (values: LoginFormValues) => {
         try {
+            // Call repository for login
+            const res = await loginRepo({
+                email: values.email,
+                password: values.password,
+            })
+
             Swal.fire({
                 icon: "success",
                 title: "Done",
-                text: `Welcome ...!`,
+                text: `Welcome ${res.name}!`,
                 confirmButtonText: "Explore now!",
                 allowOutsideClick: false,
                 allowEscapeKey: false,
             }).then((result:any) => {
+                // Store local data
+                localStorage.setItem('token_key', res.token)
+                onLoginStore({
+                    email: res.email,
+                    name: res.name,
+                    role: res.role,
+                })
+
+                // Navigate
                 router.push("/")
             })
         } catch (err: any) {

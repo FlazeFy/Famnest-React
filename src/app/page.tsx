@@ -106,7 +106,7 @@ export default function Home() {
     { question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?", answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." }
   ]
 
-  const isSignedIn = true
+  const isSignedIn = false
 
   return (
     <div className="flex flex-col bg-white min-h[100vh] p-5 lg:p-10">
