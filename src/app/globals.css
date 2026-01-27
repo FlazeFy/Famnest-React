@@ -554,3 +554,7 @@ button[data-slot="carousel-previous"], button[data-slot="carousel-next"] {
 .apexcharts-legend-text, .apexcharts-tooltip {
   font-weight: 500 !important;
 }
+
+.react-loading-skeleton {
+  border-radius: var(--roundedLG) !important;
+}

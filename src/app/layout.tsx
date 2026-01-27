@@ -2,6 +2,7 @@ import MoleculeFooter from "@/components/molecules/m_footer";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import "react-loading-skeleton/dist/skeleton.css"
 
 const poppins = Poppins({
   subsets: ['latin'],

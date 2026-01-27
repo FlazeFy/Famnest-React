@@ -62,27 +62,6 @@ export default function Home() {
     }
   ]
 
-  const feedbackItem = [
-    {
-      name: 'Jhon Doe',
-      role: 'Product Manager',
-      image: '/mock/profile_pic.png',
-      feedback: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    },
-    {
-      name: 'Adam Albert',
-      role: 'Creative Manager',
-      image: '/mock/profile_pic.png',
-      feedback: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    },
-    {
-      name: 'Richard Kyle',
-      role: 'Marketing Manager',
-      image: '/mock/profile_pic.png',
-      feedback: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    }
-  ]
-
   const pinnedChart = [
     {
       title : 'Total Daily Task For Last Week',
@@ -137,7 +116,7 @@ export default function Home() {
       <AtomSeparator/>
       <OrganismsFeatureBox feature={featureList}/>
       <AtomSeparator/>
-      <OrganismsFeedback feedbackItem={feedbackItem}/>
+      <OrganismsFeedback/>
       <AtomSeparator/>
       <OrganismsQuestionBox/>
       <AtomSeparator/>

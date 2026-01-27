@@ -26,9 +26,7 @@ const MoleculesMultipleComboxBox: React.FunctionComponent<IMoleculesMultipleComb
 
     const toggleSelect = (value: string) => {
         setSelected((prev) =>
-        prev.includes(value)
-            ? prev.filter((v) => v !== value)
-            : [...prev, value]
+            prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
         );
     };
 

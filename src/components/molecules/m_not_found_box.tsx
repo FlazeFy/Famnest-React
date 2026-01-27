@@ -5,15 +5,16 @@ import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 interface IMoleculesNotFoundBoxProps {
     title: string
+    style: any
 }
 
-const MoleculesNotFoundBox: React.FunctionComponent<IMoleculesNotFoundBoxProps> = ({title}) => {
-    return (
-        <div className="container bg-gray-100 mt-2 rounded-xl p-2 italic text-center">
-            <AtomText type='subtitle' text={<><FontAwesomeIcon icon={faTriangleExclamation}/> Warning</>}/>
+const MoleculesNotFoundBox: React.FunctionComponent<IMoleculesNotFoundBoxProps> = ({ title, style }) => {
+    return (    
+        <div className="container bg-red-100 mt-2 rounded-xl py-10 w-full mx-auto flex flex-col items-center justify-center text-center" style={style}>
+            <AtomText type='content-title' text={<><FontAwesomeIcon icon={faTriangleExclamation}/> Warning</>}/>
             <AtomText type='content' text={title}/>
         </div>
     )
-};
+}
 
-export default MoleculesNotFoundBox;
+export default MoleculesNotFoundBox
