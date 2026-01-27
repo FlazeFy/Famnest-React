@@ -9,6 +9,8 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from '@/components/ui/textarea';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
 import Swal from "sweetalert2"
+import { createQuestionRepo } from '@/repositories/r_question';
+import { consumeErrorAPI } from '@/helpers/message';
 
 // Validation
 const questionSchema = Yup.object({
@@ -22,28 +24,30 @@ const questionSchema = Yup.object({
 
 type SignUpFormValues = Yup.InferType<typeof questionSchema>
 
-interface IOrganismsQuestionBoxProps {
-}
+interface IOrganismsQuestionBoxProps {}
 
 const OrganismsQuestionBox: React.FunctionComponent<IOrganismsQuestionBoxProps> = (props) => {  
     const form = useForm<SignUpFormValues>({ resolver: yupResolver(questionSchema), defaultValues: { email: "", question: "" }})
 
     const onSubmit = async (values: SignUpFormValues) => {
         try {
+            const message = await createQuestionRepo({
+                email: values.email,
+                question: values.question,
+            })
+    
             Swal.fire({
                 icon: "success",
                 title: "Done",
-                text: `Question sended!`,
+                text: message,
                 confirmButtonText: "Continue explore!",
                 allowOutsideClick: false,
                 allowEscapeKey: false,
             })
+    
+            form.reset()
         } catch (err: any) {
-            Swal.fire({
-                icon: "error",
-                title: "I'm sorry",
-                text: err.response.data.message,
-            })
+            consumeErrorAPI(err)
         }
     }
     

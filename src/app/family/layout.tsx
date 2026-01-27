@@ -1,4 +1,3 @@
-import MoleculeFooter from "@/components/molecules/m_footer";
 import MoleculesNavbar from "@/components/molecules/m_navbar";
 import type { Metadata } from "next";
 import "./../globals.css";
@@ -18,7 +17,7 @@ export default function FamilyLayout({ children }: Readonly<{ children: React.Re
         { title: "Meal", target: "/family/meal" },
         { title: "Inventory", target: "/family/inventory" },
         { title: "Vehicle", target: "/family/vehicle" },
-        { title: "My Profile", target: "/profile" },
+        { title: "My Profile", target: "/family/profile" },
     ]
 
     return (
