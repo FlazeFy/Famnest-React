@@ -30,7 +30,7 @@ const OrganismsFeedback: React.FC<OrganismsFeedbackProps> = () => {
     }, [])
 
     if (loading) return <Skeleton style={{height:"400px"}}/>
-    if (!error) return <MoleculesNotFoundBox title="No enough data to show" style={{height:"400px"}}/>
+    if (error) return <MoleculesNotFoundBox title="No enough data to show" style={{height:"400px"}}/>
 
     return (
         <div className='py-30 -mx-4 my-3 p-8 lg:p-20 bg-primary text-center rounded-2xl' id="feedbackSection">

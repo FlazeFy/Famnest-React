@@ -6,8 +6,17 @@ export interface CreateQuestionPayload {
     email: string
     question: string
 }
-
 export const createQuestionRepo = async (payload: CreateQuestionPayload): Promise<string> => {
     const { data } = await apiCall.post(MODULE_URL, payload)
     return data.message
+}
+
+export interface FAQBoxItem {
+    question: string
+    answer: string
+}
+export const getQuestionRandomRepo = async (): Promise<FAQBoxItem[]> => {
+    const { data } = await apiCall.get(`${MODULE_URL}/random`)
+
+    return data.data
 }
