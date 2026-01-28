@@ -1,3 +1,4 @@
+"use client"
 import AtomSeparator from "@/components/atoms/a_separator";
 import OrganismsContact from "@/components/organisms/o_contact";
 import OrganismsQuestionBox from "@/components/organisms/o_question_form";
@@ -10,6 +11,7 @@ import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import OrganismsFAQBox from "@/components/organisms/o_faq_box";
 import { taskItem } from "@/helpers/dummy";
+import useAuthStore from "@/store/s_auth";
 
 export default function Home() {
   const featureList = [
@@ -100,17 +102,11 @@ export default function Home() {
     }
   ]
 
-  const faqItem = [
-    { question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?", answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
-    { question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?", answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
-    { question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?", answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." }
-  ]
-
-  const isSignedIn = false
+  const { email } = useAuthStore()
 
   return (
     <div className="flex flex-col bg-white min-h[100vh] p-5 lg:p-10">
-      <OrganismsWelcomeBox isSignedIn={isSignedIn} pinnedChartData={pinnedChart}/>
+      <OrganismsWelcomeBox isSignedIn={email ? true : false} pinnedChartData={pinnedChart}/>
       <AtomSeparator/>
       <OrganismsUpcomingTask taskItem={taskItem} totalMember={3}/>
       <AtomSeparator/>
@@ -120,7 +116,7 @@ export default function Home() {
       <AtomSeparator/>
       <OrganismsQuestionBox/>
       <AtomSeparator/>
-      <OrganismsFAQBox faqItem={faqItem}/>
+      <OrganismsFAQBox/>
       <AtomSeparator/>
       <OrganismsContact contactItem={contactItem} email="flazen.edu@gmail.com" bodyEmail="Hii, Richard. I'm ..."/>
     </div>

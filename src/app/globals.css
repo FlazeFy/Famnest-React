@@ -270,6 +270,16 @@ button {
 .btn-danger {
   background: var(--dangerBG);
 }
+nav {
+  position: sticky;
+  top: 0;
+  padding: var(--spaceLG);
+  width: 100%;
+  border-radius: 0 0 var(--roundedLG) var(--roundedLG);
+  background: var(--whiteColor);
+  z-index: 999;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
 .nav-link {
   color: var(--darkColor);
   border: 1.75px solid transparent;
@@ -283,8 +293,9 @@ button, .nav-link {
   padding: var(--spaceMD) var(--spaceLG) !important;
 }
 .btn-link {
-  color: var(--successBG); 
-  font-weight: 500;
+  color: var(--darkColor); 
+  font-weight: 600;
+  font-size: var(--textXMD) !important;
 }
 .btn-image:hover {
   transform: scale(1.025);

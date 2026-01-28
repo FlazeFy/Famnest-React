@@ -1,10 +1,15 @@
 'use client'
 import React, { useState } from 'react'
+import Link from "next/link"
+import AtomButton from "../atoms/a_button"
+import { usePathname } from 'next/navigation'
+import useAuthStore from '@/store/s_auth'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface MenuItem { 
     title: string 
     target: string 
-
 }
 interface MoleculesNavbarProps { 
     menuItem: MenuItem[] 
@@ -13,22 +18,40 @@ interface MoleculesNavbarProps {
 }
 
 const MoleculesNavbar: React.FC<MoleculesNavbarProps> = ({ menuItem, isSignedIn, isLanding }) => {
+    const pathname = usePathname()
+    const { email } = useAuthStore()
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <nav className="flex justify-between items-center pb-10 w-full">
-            <div className="hidden md:flex">
+        <nav className="flex justify-between items-center pb-10 w-full" style={ pathname === '/' ? { border:"none", boxShadow:"none", padding:"0", marginBottom:"var(--spaceMD)", position:"relative" } : {} }>
+            <div className="hidden md:flex gap-2">
                 {
                     menuItem.map((dt, idx) => 
-                        <a key={idx} className="nav-link rounded-full px-3 py-2 mr-2" href={dt.target}>{dt.title}</a>
+                        <Link key={idx} href={dt.target}>
+                            <AtomButton type='btn-link' extraClass="hidden md:flex items-center" text={dt.title}/>
+                        </Link>
                     )
                 }
             </div>
             {
                 isLanding ?
-                    <a className="hidden md:flex items-center nav-link bg-success" href={ isSignedIn ? '/family' : '/register' }>{ isSignedIn ? 'Manage Family' : 'Register My Family' }</a>
+                    <Link href={ isSignedIn ? '/family' : '/register' }>
+                        <AtomButton type='btn-success' extraClass="hidden md:flex items-center" text={ isSignedIn ? 'Manage Family' : 'Register My Family' }/>
+                    </Link>
                 :
-                    <a className="nav-link rounded-full px-3 py-2 mr-2 font-bold" href='/'>Famnest</a>
+                    <div className='inline-flex gap-2'>
+                        <Link href={'/profile'}>
+                            <AtomButton type='btn-primary' text={
+                                <span className="inline-flex items-center gap-2">
+                                    <FontAwesomeIcon icon={faUser}/><span className='hidden md:flex'> {email}</span>
+                                </span>
+                            }/>
+                        </Link>
+                        <Link href={'/'}>
+                            <AtomButton type='btn-success' text={'Famnest'}/>
+                        </Link>
+                    </div>
+                    
             }
             <button className={`menu-toggle block md:hidden ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)}>
                 <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

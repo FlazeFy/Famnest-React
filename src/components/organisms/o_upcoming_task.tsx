@@ -1,10 +1,11 @@
 import AtomButton from "../atoms/a_button"
 import AtomText from "../atoms/a_text"
-import { faUsers, faCloud, faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { faUsers, faCloud, faCalendar, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Input } from "@/components/ui/input"
 import MoleculesTaskBox from "../molecules/m_task_box";
 import { TaskItem } from "@/helpers/variable";
+import Link from "next/link";
 
 interface OrganismsUpcomingTaskProps {
     taskItem: TaskItem[]
@@ -15,6 +16,9 @@ const OrganismsUpcomingTask: React.FC<OrganismsUpcomingTaskProps> = ({ taskItem,
     return (
         <div className="min-h-[90vh] flex-wrap text-center lg:text-start w-full rounded-2xl text-white bg-cover items-start p-5 pt-10 lg:p-10 lg:pt-20" style={{backgroundImage:"url('/background/background-2.jpg')"}}>
             <div className="flex mb-5 gap-2">
+                <Link href={'/family/task'}>
+                    <AtomButton type='btn-success' text={<span className="flex gap-2"><FontAwesomeIcon icon={faArrowRight} height={20} width={20}/> See More</span>}/>
+                </Link>
                 <AtomButton type='btn-primary' text={<span className="flex gap-2"><FontAwesomeIcon icon={faUsers} height={20} width={20}/> {totalMember} Member</span>}/>
                 <AtomButton type='btn-primary' text={<span className="flex gap-2"><FontAwesomeIcon icon={faCloud} height={20} width={20}/> Sunny</span>}/>
                 <AtomButton type='btn-primary' text={<span className="flex gap-2"><FontAwesomeIcon icon={faCalendar} height={20} width={20}/> Wednesday</span>}/>

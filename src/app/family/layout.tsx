@@ -21,9 +21,11 @@ export default function FamilyLayout({ children }: Readonly<{ children: React.Re
     ]
 
     return (
-        <div className="min-h-screen pt-5 px-5">
+        <div className="min-h-screen pt-0 px-5">
             <MoleculesNavbar menuItem={menuItem} isLanding={false} isSignedIn={false}/>
-            {children}
+            <div className="mt-5">
+                {children}
+            </div>
         </div>
     );
 }
