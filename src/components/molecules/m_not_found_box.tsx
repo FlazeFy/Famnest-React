@@ -5,7 +5,7 @@ import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 interface IMoleculesNotFoundBoxProps {
     title: string
-    style: any
+    style?: any
 }
 
 const MoleculesNotFoundBox: React.FunctionComponent<IMoleculesNotFoundBoxProps> = ({ title, style }) => {

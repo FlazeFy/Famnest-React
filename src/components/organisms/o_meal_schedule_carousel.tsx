@@ -1,33 +1,50 @@
 'use client'
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import { CardContent } from '@/components/ui/card';
 import MoleculesDayMealBox from '../molecules/m_day_meal_box';
-import { MealItem } from '@/helpers/variable';
 import AtomText from '../atoms/a_text';
 import OrganismsManageMealByTimeDayDialog from './o_manage_meal_dialog';
 import OrganismsLastMealBox from './o_last_meal_box';
+import { getAllMeal, MealItem } from '@/repositories/r_meal';
+import Skeleton from 'react-loading-skeleton';
+import MoleculesNotFoundBox from '../molecules/m_not_found_box';
 
-const days = [
-  'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
-]
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
 
-interface IOrganismsMealScheduleCarouselProps {
-    mealItem: MealItem[]
-}
+interface IOrganismsMealScheduleCarouselProps { }
 
-const OrganismsMealScheduleCarousel: React.FunctionComponent<IOrganismsMealScheduleCarouselProps> = ({mealItem}) => {
-    const [api, setApi] = React.useState<CarouselApi>()
-    const [current, setCurrent] = React.useState(0)
-    const [count, setCount] = React.useState(0)
+const OrganismsMealScheduleCarousel: React.FunctionComponent<IOrganismsMealScheduleCarouselProps> = () => {
+    const [api, setApi] = useState<CarouselApi>()
+    const [current, setCurrent] = useState(0)
+    const [count, setCount] = useState(0)
+    const [mealItem, setMealItem] = useState<MealItem[]>([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
 
-    React.useEffect(() => {
+    useEffect(() => {
+        const fetchMeal = async () => {
+            try {
+                const data = await getAllMeal()
+                setMealItem(data)
+            } catch (err: any) {
+                setError(err?.response?.data?.message || "Something went wrong")
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        fetchMeal()
+
         if (!api) return
         setCount(api.scrollSnapList().length)
         setCurrent(api.selectedScrollSnap() + 1)
         api.on('select', () => setCurrent(api.selectedScrollSnap() + 1))
     }, [api])
+
+    if (loading) return <Skeleton style={{height:"400px"}}/>
+    if (error) return <MoleculesNotFoundBox title="No enough data to show" style={{height:"400px"}}/>
 
     return (
         <div className="w-full h-full flex flex-col justify-start text-center lg:text-left">

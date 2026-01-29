@@ -1,5 +1,3 @@
-import { MealItem } from "./variable"
-
 export const myProfile = {
     username: 'flazefy',
     bio: 'Lorem ipsum',
@@ -135,27 +133,6 @@ export const memberNeedAttentionItem = [
         reason_description: null,
         priority: "Medium"
     },
-]
-
-export const mealItem: MealItem[] = [
-    { mealName: "Omelette", mealTime: "Breakfast", mealDesc: "Light and fluffy", mealPrepareBy: ["You"], mealDay: "Monday" },
-    { mealName: "Orange Juice", mealTime: "Breakfast", mealDesc: "Sweet", mealPrepareBy: ["Jhon"], mealDay: "Monday" },
-    { mealName: "Nasi Goreng", mealTime: "Lunch", mealDesc: "Fried rice with egg", mealPrepareBy: ["Clarisa"], mealDay: "Monday" },
-    { mealName: "Soup Ayam", mealTime: "Dinner", mealDesc: "Chicken soup", mealPrepareBy: ["Jhon"], mealDay: "Monday" },
-    { mealName: "Pancakes", mealTime: "Breakfast", mealDesc: "Served with honey", mealPrepareBy: ["You"], mealDay: "Tuesday" },
-    { mealName: "Steak", mealTime: "Dinner", mealDesc: "Medium rare", mealPrepareBy: ["Jhon"], mealDay: "Tuesday" },
-    { mealName: "Bread Toast", mealTime: "Breakfast", mealPrepareBy: ["You"], mealDay: "Wednesday" },
-    { mealName: "Grilled Fish", mealTime: "Dinner", mealDesc: "Served with lemon", mealPrepareBy: ["Jhon"], mealDay: "Wednesday" },
-    { mealName: "Cereal", mealTime: "Breakfast", mealPrepareBy: ["You"], mealDay: "Thursday" },
-    { mealName: "Orange Juice", mealDesc: "Sweet", mealTime: "Breakfast", mealPrepareBy: ["Jhon"], mealDay: "Thursday" },
-    { mealName: "Fried Chicken", mealTime: "Lunch", mealDesc: "Crispy and juicy", mealPrepareBy: ["Clarisa"], mealDay: "Thursday" },
-    { mealName: "Salad", mealTime: "Dinner", mealPrepareBy: ["You"], mealDay: "Thursday" },
-    { mealName: "Smoothie Bowl", mealTime: "Breakfast", mealDesc: "Mixed fruits", mealPrepareBy: ["You"], mealDay: "Friday" },
-    { mealName: "Burger", mealTime: "Lunch", mealPrepareBy: ["Jhon","Bob"], mealDay: "Friday" },
-    { mealName: "Fried Egg", mealTime: "Breakfast", mealPrepareBy: ["You"], mealDay: "Saturday" },
-    { mealName: "Ramen", mealTime: "Lunch", mealPrepareBy: ["Clarisa","Bob"], mealDay: "Saturday" },
-    { mealName: "Sushi", mealTime: "Dinner", mealDesc: "Fresh salmon", mealPrepareBy: ["Jhon"], mealDay: "Saturday" },
-    { mealName: "Salad", mealTime: "Dinner", mealDesc: "Fresh salad", mealPrepareBy: ["Clarisa"], mealDay: "Saturday" },
 ]
 
 // Money Flow

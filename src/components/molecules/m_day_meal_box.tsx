@@ -1,4 +1,4 @@
-import { MealItem } from '@/helpers/variable';
+import { MealItem } from '@/repositories/r_meal';
 import * as React from 'react';
 import AtomText from '../atoms/a_text';
 import MoleculesMealBox from './m_meal_box';
@@ -11,8 +11,8 @@ interface IMoleculesDayMealBoxProps {
 }
 
 const MoleculesDayMealBox: React.FunctionComponent<IMoleculesDayMealBoxProps> = ({dayName, mealItem, dayLabelAndManageButton}) => {
-    const filteredMeals = mealItem.filter(item => item.mealDay === dayName)
-    const mealTimes = ["Breakfast", "Lunch", "Dinner"]
+    const filteredMeals = mealItem.filter(item => item.meal_day === dayName)
+    const mealTimes = ["breakfast", "lunch", "dinner"]
 
     return (
         <div className='text-center bg-white rounded-2xl text-dark py-5 h-full w-full'>
@@ -20,7 +20,7 @@ const MoleculesDayMealBox: React.FunctionComponent<IMoleculesDayMealBoxProps> = 
             <hr className='my-3 h-full'></hr>
             {
                 mealTimes.map(time => {
-                    const meals = filteredMeals.filter(m => m.mealTime === time)
+                    const meals = filteredMeals.filter(m => m.meal_time === time)
                     return (
                         <div key={time} className="mb-5 px-5">
                             {dayLabelAndManageButton(dayName, time)}
@@ -29,7 +29,7 @@ const MoleculesDayMealBox: React.FunctionComponent<IMoleculesDayMealBoxProps> = 
                                 meals.length > 0 ? (
                                     <div className='mt-2 space-y-3'>
                                         {
-                                            meals.map((dt, idx) => <MoleculesMealBox key={idx} mealDay={dt.mealDay} mealName={dt.mealName} mealPrepareBy={dt.mealPrepareBy} mealTime={dt.mealTime} mealDesc={dt.mealDesc} deleteItemComponent={false} updateItemComponent={undefined}/>)
+                                            meals.map((dt, idx) => <MoleculesMealBox key={idx} id={dt.id} meal_day={dt.meal_day} meal_name={dt.meal_name} prepare_by={dt.prepare_by} meal_time={dt.meal_time} meal_desc={dt.meal_desc} deleteItemComponent={false} updateItemComponent={undefined}/>)
                                         }
                                     </div>
                                 ) : (

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import AtomBreakline from '../atoms/a_breakline';
-import { MealItem } from '@/helpers/variable';
 import MoleculesNotFoundBox from '../molecules/m_not_found_box';
 import MoleculesMealBox from '../molecules/m_meal_box';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -10,6 +9,7 @@ import OrganismsConfirmationDeleteDialog from './o_confirmation_delete_dialog';
 import AtomButton from '../atoms/a_button';
 import OrganismsAddMealDialog from './o_add_meal_dialog';
 import OrganismsEditMealDialog from './o_edit_meal_dialog';
+import { MealItem } from '@/repositories/r_meal';
 
 interface IOrganismsManageMealByTimeDayDialogProps {
     time: string
@@ -18,8 +18,8 @@ interface IOrganismsManageMealByTimeDayDialogProps {
 }
 
 const OrganismsManageMealByTimeDayDialog: React.FunctionComponent<IOrganismsManageMealByTimeDayDialogProps> = ({time, dayName, mealItem}) => {
-    const filteredMeals = mealItem.filter(item => item.mealDay === dayName)
-    const meals = filteredMeals.filter(m => m.mealTime === time)
+    const filteredMeals = mealItem.filter(item => item.meal_day === dayName)
+    const meals = filteredMeals.filter(m => m.meal_time === time)
 
     return (
         <Dialog>
@@ -36,7 +36,7 @@ const OrganismsManageMealByTimeDayDialog: React.FunctionComponent<IOrganismsMana
                         meals.length > 0 ? (
                             <div className='mt-2 space-y-3'>
                                 {
-                                    meals.map((dt, idx) => <MoleculesMealBox key={idx} mealDay={dt.mealDay} mealName={dt.mealName} mealPrepareBy={dt.mealPrepareBy} mealTime={dt.mealTime} mealDesc={dt.mealDesc} isReadOnly={false} deleteItemComponent={
+                                    meals.map((dt, idx) => <MoleculesMealBox id={dt.id} key={idx} meal_day={dt.meal_day} meal_name={dt.meal_name} prepare_by={dt.prepare_by} meal_time={dt.meal_time} meal_desc={dt.meal_desc ?? '- No description -'} isReadOnly={false} deleteItemComponent={
                                         (mealName: string) => <OrganismsConfirmationDeleteDialog context={`${mealName} Meal`} url='/' buttonTrigger={
                                             <AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash}/>}/>
                                         }/>

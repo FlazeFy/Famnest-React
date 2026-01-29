@@ -106,12 +106,3 @@ export interface FamilyRecommendedMealPrepared {
     totalMealPrep: number
     averageScore: number 
 }
-
-// Meal
-export interface MealItem {
-    mealName: string
-    mealTime: string
-    mealDesc?: string
-    mealPrepareBy: string[],
-    mealDay: string
-}
