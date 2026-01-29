@@ -1,7 +1,6 @@
 import AtomText from "@/components/atoms/a_text";
 import OrganismsAddTaskDialog from "@/components/organisms/o_add_task_dialog";
 import OrganismsListTaskTable from "@/components/organisms/o_list_task_table";
-import { taskItem } from "@/helpers/dummy";
 import Link from "next/link";
 
 export default function TaskPage() {
@@ -17,7 +16,7 @@ export default function TaskPage() {
                     </div>
                 </Link>
             </div>
-            <OrganismsListTaskTable listTask={taskItem}/>
+            <OrganismsListTaskTable/>
         </div>
     );
 }

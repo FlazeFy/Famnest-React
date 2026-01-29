@@ -12,7 +12,7 @@ export interface MealItem {
     meal_scoring?: number
 }
 export const getAllMeal = async (): Promise<MealItem[]> => {
-    const { data } = await apiCall.get(`${MODULE_URL}/`)
+    const res = await apiCall.get(`${MODULE_URL}/`)
 
-    return data.data
+    return res.data
 }

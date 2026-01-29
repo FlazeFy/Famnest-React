@@ -14,16 +14,6 @@ export interface TaskParticipant {
     role: string
 }
 
-export interface TaskItem {
-    title: string
-    description: string
-    startDate: string
-    dueDate: string
-    isFinished: boolean
-    tags?: string[]
-    participant: TaskParticipant[]
-}
-
 export interface TaskScheduleItem {
     title: string
     description: string

@@ -13,6 +13,6 @@ export interface LoginResponsePayload {
     token: string
 }
 export const loginRepo = async (payload: LoginPayload): Promise<LoginResponsePayload> => {
-    const { data } = await apiCall.post(`${MODULE_URL}/login`, payload)
-    return data.data
+    const res = await apiCall.post(`${MODULE_URL}/login`, payload)
+    return res.data
 }

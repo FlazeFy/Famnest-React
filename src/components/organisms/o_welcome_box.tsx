@@ -15,7 +15,7 @@ interface PinnedChartData {
 
 interface IWelcomeBoxProps {
     isSignedIn: boolean
-    pinnedChartData?: PinnedChartData[]
+    pinnedChartData: PinnedChartData[]
 }
 
 const menuItem = [

@@ -1,15 +1,19 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import AtomButton from '../atoms/a_button'
 import AtomText from '../atoms/a_text'
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { TaskItem } from '@/helpers/variable';
+import { TaskItem } from '@/repositories/r_task';
 
 interface IMoleculesTaskBoxProps {
     deleteItemComponent?: any
 }
 
-const MoleculesTaskBox: React.FC<TaskItem & IMoleculesTaskBoxProps> = ({ title, description, dueDate, participant, isFinished, deleteItemComponent }) => {
+const MoleculesTaskBox: React.FC<TaskItem & IMoleculesTaskBoxProps> = ({ task_title, task_desc, due_date, status, deleteItemComponent }) => {
+    const [day, setDay] = useState<string | null>(null)
+    const [hour, setHour] = useState<string | null>(null)
+    
     const formatDate = (dateString: string, typeReturn: "day" | "hour"): string => {
         const date = new Date(dateString);
     
@@ -32,8 +36,10 @@ const MoleculesTaskBox: React.FC<TaskItem & IMoleculesTaskBoxProps> = ({ title, 
         throw new Error("Invalid typeReturn. Use 'day' or 'hour'")
     }
 
-    const day = formatDate(dueDate, "day")
-    const hour = formatDate(dueDate, "hour")
+    if (due_date) {
+        setDay(formatDate(due_date, "day"))
+        setHour(formatDate(due_date, "hour"))
+    }
     
     return (
         <div className="taskbox">
@@ -43,13 +49,13 @@ const MoleculesTaskBox: React.FC<TaskItem & IMoleculesTaskBoxProps> = ({ title, 
                     <AtomText type="content" text={hour} />
                 </div>
                 <div>
-                    <AtomText type="content-title" text={title} />
-                    <AtomText type="content" text={description} />
+                    <AtomText type="content-title" text={task_title} />
+                    <AtomText type="content" text={task_desc} />
                 </div>
             </div>
             <div className="flex items-center gap-2 mt-2 md:mt-0">
-                { deleteItemComponent && deleteItemComponent(title) }
-                { !isFinished ? <AtomButton type="btn-success" text={<FontAwesomeIcon icon={faCheck} height={15} width={15} />}/> : <></> }
+                { deleteItemComponent && deleteItemComponent(task_title) }
+                { status !== 'completed' ? <AtomButton type="btn-success" text={<FontAwesomeIcon icon={faCheck} height={15} width={15} />}/> : <></> }
             </div>
         </div>
     )

@@ -108,7 +108,7 @@ export default function Home() {
     <div className="flex flex-col bg-white min-h[100vh] p-5 lg:p-10">
       <OrganismsWelcomeBox isSignedIn={email ? true : false} pinnedChartData={pinnedChart}/>
       <AtomSeparator/>
-      <OrganismsUpcomingTask taskItem={taskItem} totalMember={3}/>
+      <OrganismsUpcomingTask totalMember={3}/>
       <AtomSeparator/>
       <OrganismsFeatureBox feature={featureList}/>
       <AtomSeparator/>

@@ -62,13 +62,21 @@ const MoleculesNavbar: React.FC<MoleculesNavbarProps> = ({ menuItem, isSignedIn,
                 isOpen && (
                     <div className="mobile-menu md:hidden shadow-2xl p-5 flex flex-col items-start animate-slideDown rounded-b-2xl">
                         {
-                            menuItem.map((dt, idx) => <a key={idx} className="w-full text-left transition-all nav-link" href={dt.target}>{dt.title}</a>)
+                            menuItem.map((dt, idx) => (
+                                <Link key={idx} href={dt.target}>
+                                    <AtomButton extraClass='w-full text-left transition-all nav-link' type='btn-primary' text={dt.title}/>
+                                </Link>
+                            ))
                         }
                         {
                             isLanding ?
-                                <a className="w-full text-left transition-all nav-link bg-success" href={ isSignedIn ? '/family' : '/register' }>{ isSignedIn ? 'Manage Family' : 'Register My Family' }</a>
+                                <Link href={ isSignedIn ? '/family' : '/register' }>
+                                    <AtomButton type='btn-success' extraClass="w-full text-left transition-all nav-link" text={ isSignedIn ? 'Manage Family' : 'Register My Family' }/>
+                                </Link>
                             :
-                                <a className="nav-link rounded-full px-3 py-2 mr-2 font-bold" href='/'>Famnest</a>
+                                <Link href='/'>
+                                    <AtomButton type='btn-success' extraClass="nav-link rounded-full px-3 py-2 mr-2 font-bold" text='Famnest'/>
+                                </Link>
                         }
                     </div>
                 )

@@ -4,15 +4,14 @@ import { faUsers, faCloud, faCalendar, faArrowRight } from '@fortawesome/free-so
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Input } from "@/components/ui/input"
 import MoleculesTaskBox from "../molecules/m_task_box";
-import { TaskItem } from "@/helpers/variable";
 import Link from "next/link";
+import { TaskItem } from "@/repositories/r_task";
 
 interface OrganismsUpcomingTaskProps {
-    taskItem: TaskItem[]
     totalMember: number
 }
 
-const OrganismsUpcomingTask: React.FC<OrganismsUpcomingTaskProps> = ({ taskItem, totalMember }) => {
+const OrganismsUpcomingTask: React.FC<OrganismsUpcomingTaskProps> = ({ totalMember }) => {
     return (
         <div className="min-h-[90vh] flex-wrap text-center lg:text-start w-full rounded-2xl text-white bg-cover items-start p-5 pt-10 lg:p-10 lg:pt-20" style={{backgroundImage:"url('/background/background-2.jpg')"}}>
             <div className="flex mb-5 gap-2">
@@ -41,11 +40,11 @@ const OrganismsUpcomingTask: React.FC<OrganismsUpcomingTaskProps> = ({ taskItem,
                     </div>
                 </div>
                 <div className='mt-20 items-end text-start'>
-                    {
+                    {/* {
                         taskItem.map((dt, idx) => (
-                            <MoleculesTaskBox key={idx} title={dt.title} description={dt.description} dueDate={dt.dueDate} participant={dt.participant} isFinished={dt.isFinished} startDate={""}/>
+                            <MoleculesTaskBox key={idx} task_title={dt.task_title} task_desc={dt.task_desc} due_date={dt.due_date} task_assigns={dt.task_assigns} status={dt.status} start_date={""} id={dt.id} tags={[]} created_at={null} updated_at={null}/>
                         ))
-                    }
+                    } */}
                 </div>
             </div>
         </div>

@@ -1,19 +1,46 @@
-import * as React from 'react';
+"use client"
+import React, { useEffect, useState } from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
-import { TaskItem } from '@/helpers/variable';
 import AtomText from '../atoms/a_text';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import OrganismsConfirmationDeleteDialog from './o_confirmation_delete_dialog';
 import AtomButton from '../atoms/a_button';
 import OrganismsEditTaskDialog from './o_edit_task_dialog';
+import { getAllTaskRepo, TaskItem } from '@/repositories/r_task';
+import { PaginationMeta } from '@/repositories/template';
+import Skeleton from 'react-loading-skeleton';
+import MoleculesNotFoundBox from '../molecules/m_not_found_box';
 
-interface IOrganismsListTaskTableProps {
-    listTask: TaskItem[]
-}
+interface IOrganismsListTaskTableProps {}
 
-const OrganismsListTaskTable: React.FunctionComponent<IOrganismsListTaskTableProps> = ({listTask}) => {
+const OrganismsListTaskTable: React.FunctionComponent<IOrganismsListTaskTableProps> = () => {
+    const [taskItem, setTaskItem] = useState<TaskItem[]>([])
+    const [error, setError] = useState<string | null>(null)
+    const [loading, setLoading] = useState(true)
+    const [meta, setMeta] = useState<PaginationMeta>()
+
+    useEffect(() => {
+        const fetchTask = async () => {
+            try {
+                const page = 1
+                const { data, meta } = await getAllTaskRepo(page)
+                setTaskItem(data)
+                setMeta(meta)
+            } catch (err: any) {
+                setError(err?.response?.data?.message || "Something went wrong")
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        fetchTask()
+    }, [])
+
+    if (loading) return <Skeleton style={{height:"400px"}}/>
+    if (error) return <MoleculesNotFoundBox title="No enough data to show" style={{height:"400px"}}/>
+
     return (
         <Table>
             <TableHeader>
@@ -27,45 +54,43 @@ const OrganismsListTaskTable: React.FunctionComponent<IOrganismsListTaskTablePro
             </TableHeader>
             <TableBody className='text-start'>
                 {
-                    listTask.map((dt, index) => (
+                    taskItem.map((dt, index) => (
                         <TableRow key={index}>
                             <TableCell>
-                                <AtomText text={`<b>${dt.title}</b>`} type='content'/>
-                                <AtomText text={dt.description} type='content'/>
+                                <AtomText text={`<b>${dt.task_title}</b>`} type='content'/>
+                                <AtomText text={dt.task_desc} type='content'/>
                             </TableCell>
                             <TableCell>
                                 <AtomText text={`<b>Start Date</b>`} type='content'/>
                                 {
-                                    new Date(dt.startDate).toLocaleString("en-US", {
+                                    dt.start_date ? new Date(dt.start_date).toLocaleString("en-US", {
                                         day: "2-digit",
                                         month: "short",
                                         year: "numeric",
                                         hour: "2-digit",
                                         minute: "2-digit",
-                                    })
+                                    }) : <AtomText text='<i>- Start date has not been set yet -</i>' type='content'/>
                                 }
                                 <AtomText text={`<b>Due Date</b>`} type='content'/>
                                 {
-                                    new Date(dt.dueDate).toLocaleString("en-US", {
+                                    dt.due_date ? new Date(dt.due_date).toLocaleString("en-US", {
                                         day: "2-digit",
                                         month: "short",
                                         year: "numeric",
                                         hour: "2-digit",
                                         minute: "2-digit",
-                                    })
+                                    }) : <AtomText text='<i>- Due date has not been set yet -</i>' type='content'/>
                                 }
                             </TableCell>
                             <TableCell>
-                                <Badge className={dt.isFinished ? 'bg-success':'bg-danger'}>
-                                    {dt.isFinished ? "Finished" : "Pending"}
-                                </Badge>
+                                <Badge className={dt.status === 'in_progress' ? 'bg-warning' : dt.status === 'completed' ? 'bg-success' :'bg-danger'}>{dt.status}</Badge>
                             </TableCell>
                             <TableCell>
                                 <AtomText text='<b>Participant</b>' type='content'/>
                                 <div className="flex flex-wrap gap-2 my-1">
                                     {
-                                        dt.participant.map((p, i) => (
-                                            <Badge key={i} variant="outline">{p.nickname} ({p.role})</Badge>
+                                        dt.task_assigns.map((ta, i) => (
+                                            <Badge key={i} variant="outline">{ta.assignee.username} ({ta.assignee.role})</Badge>
                                         ))
                                     }
                                 </div>
@@ -81,8 +106,8 @@ const OrganismsListTaskTable: React.FunctionComponent<IOrganismsListTaskTablePro
                                 </div>
                             </TableCell>
                             <TableCell className='flex gap-2'>
-                                <OrganismsEditTaskDialog title={dt.title} description={dt.description} startDate={dt.startDate} dueDate={dt.dueDate} isFinished={dt.isFinished} participant={dt.participant} tags={dt.tags}/>
-                                <OrganismsConfirmationDeleteDialog context={`${dt.title} Task`} buttonTrigger={<AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash} height={15}/>}/>} url='/'/>
+                                <OrganismsEditTaskDialog task_title={dt.task_title} task_desc={dt.task_desc} start_date={dt.start_date} due_date={dt.due_date} status={dt.status} task_assigns={dt.task_assigns} tags={dt.tags} id={dt.id} created_at={dt.created_at} updated_at={dt.updated_at}/>
+                                <OrganismsConfirmationDeleteDialog context={`${dt.task_title} Task`} buttonTrigger={<AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash} height={15}/>}/>} url='/'/>
                             </TableCell>
                         </TableRow>
                     ))
