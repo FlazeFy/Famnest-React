@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import "react-loading-skeleton/dist/skeleton.css"
+import { AuthProvider } from "@/providers/auth.provider";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -18,8 +19,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${poppins.className} antialiased`}>
-        {children}
-        <MoleculeFooter/>
+        <AuthProvider>
+          {children}
+          <MoleculeFooter/>
+        </AuthProvider>
       </body>
     </html>
   );

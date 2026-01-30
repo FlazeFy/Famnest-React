@@ -14,5 +14,10 @@ export interface LoginResponsePayload {
 }
 export const loginRepo = async (payload: LoginPayload): Promise<LoginResponsePayload> => {
     const res = await apiCall.post(`${MODULE_URL}/login`, payload)
-    return res.data
+    return res.data.data
+}
+
+export const refreshAuthToken = async (): Promise<LoginResponsePayload> => {
+    const res = await apiCall.get(`${MODULE_URL}/refresh`)
+    return res.data.data
 }

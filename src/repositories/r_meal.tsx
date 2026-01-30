@@ -14,5 +14,5 @@ export interface MealItem {
 export const getAllMeal = async (): Promise<MealItem[]> => {
     const res = await apiCall.get(`${MODULE_URL}/`)
 
-    return res.data
+    return res.data.data
 }

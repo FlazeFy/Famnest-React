@@ -13,5 +13,5 @@ export interface FeedbackItem {
 export const getFeedbackRandomRepo = async (): Promise<FeedbackItem[]> => {
     const res = await apiCall.get(`${MODULE_URL}/random`)
 
-    return res.data
+    return res.data.data
 }

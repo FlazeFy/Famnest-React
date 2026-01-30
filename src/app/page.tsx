@@ -10,7 +10,6 @@ import { faLinkedin, faGithub, faInstagram } from '@fortawesome/free-brands-svg-
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import OrganismsFAQBox from "@/components/organisms/o_faq_box";
-import { taskItem } from "@/helpers/dummy";
 import useAuthStore from "@/store/s_auth";
 
 export default function Home() {
@@ -108,7 +107,7 @@ export default function Home() {
     <div className="flex flex-col bg-white min-h[100vh] p-5 lg:p-10">
       <OrganismsWelcomeBox isSignedIn={email ? true : false} pinnedChartData={pinnedChart}/>
       <AtomSeparator/>
-      <OrganismsUpcomingTask totalMember={3}/>
+      <OrganismsUpcomingTask isSignedIn={email ? true : false} totalMember={3}/>
       <AtomSeparator/>
       <OrganismsFeatureBox feature={featureList}/>
       <AtomSeparator/>

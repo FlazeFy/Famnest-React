@@ -18,5 +18,5 @@ export interface FAQBoxItem {
 export const getQuestionRandomRepo = async (): Promise<FAQBoxItem[]> => {
     const res = await apiCall.get(`${MODULE_URL}/random`)
 
-    return res.data
+    return res.data.data
 }
