@@ -10,6 +10,7 @@ import Swal from "sweetalert2"
 import { useRouter } from "next/navigation"
 import { loginRepo } from '@/repositories/r_auth';
 import useAuthStore from '@/store/s_auth';
+import useFamilyStore from '@/store/s_family';
 
 // Validation
 const loginSchema = Yup.object({
@@ -28,6 +29,7 @@ interface IOrganismsLoginFormProps {}
 const OrganismsLoginForm: React.FunctionComponent<IOrganismsLoginFormProps> = (props) => {
     const router = useRouter()
     const { onLoginStore } = useAuthStore()
+    const { onFamilyStore } = useFamilyStore()
     const form = useForm<LoginFormValues>({ resolver: yupResolver(loginSchema), defaultValues: { email: "", password: "" }})
 
     const onSubmit = async (values: LoginFormValues) => {
@@ -48,11 +50,8 @@ const OrganismsLoginForm: React.FunctionComponent<IOrganismsLoginFormProps> = (p
             }).then((result:any) => {
                 // Store local data
                 localStorage.setItem('token_key', res.token)
-                onLoginStore({
-                    email: res.email,
-                    name: res.name,
-                    role: res.role,
-                })
+                onLoginStore({ email: res.email, name: res.name, role: res.role })
+                onFamilyStore({ family_name: res.family.family_name, family_member: res.family.family_member })
 
                 // Navigate
                 router.push("/")

@@ -1,4 +1,5 @@
 import apiCall from "@/configs/axios"
+import { FamilyProps } from "./template"
 
 const MODULE_URL = "/api/v1/auths"
 
@@ -11,6 +12,7 @@ export interface LoginResponsePayload {
     email: string
     role: string
     token: string
+    family: FamilyProps
 }
 export const loginRepo = async (payload: LoginPayload): Promise<LoginResponsePayload> => {
     const res = await apiCall.post(`${MODULE_URL}/login`, payload)

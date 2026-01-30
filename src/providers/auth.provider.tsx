@@ -2,6 +2,7 @@
 import { useEffect } from "react"
 import { LoginResponsePayload, refreshAuthToken } from "@/repositories/r_auth"
 import useAuthStore from "@/store/s_auth"
+import useFamilyStore from "@/store/s_family"
 
 type AuthProviderProps = {
   children: React.ReactNode
@@ -9,11 +10,17 @@ type AuthProviderProps = {
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }: AuthProviderProps) => {
   const { onLoginStore, onLogOutStore } = useAuthStore()
+  const { onFamilyStore } = useFamilyStore()
 
   useEffect(() => {
     refreshAuthToken()
       .then((res: LoginResponsePayload) => {
-        onLoginStore({ name: res.name.trim(), email: res.email, role: res.role })
+        // Store local data
+        localStorage.setItem('token_key', res.token)
+
+        // Store global state data
+        onLoginStore({ name: res.name, email: res.email, role: res.role })
+        onFamilyStore({ family_name: res.family.family_name, family_member: res.family.family_member })
       })
       .catch(() => {
         onLogOutStore()
