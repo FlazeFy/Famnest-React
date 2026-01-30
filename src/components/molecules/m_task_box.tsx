@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AtomButton from '../atoms/a_button'
 import AtomText from '../atoms/a_text'
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
@@ -36,10 +36,12 @@ const MoleculesTaskBox: React.FC<TaskItem & IMoleculesTaskBoxProps> = ({ task_ti
         throw new Error("Invalid typeReturn. Use 'day' or 'hour'")
     }
 
-    if (due_date) {
-        setDay(formatDate(due_date, "day"))
-        setHour(formatDate(due_date, "hour"))
-    }
+    useEffect(() => {
+        if (due_date) {
+            setDay(formatDate(due_date, 'day'))
+            setHour(formatDate(due_date, 'hour'))
+        }
+    }, [due_date])
     
     return (
         <div className="taskbox">

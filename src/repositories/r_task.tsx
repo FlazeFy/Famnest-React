@@ -33,3 +33,10 @@ export const getAllTaskRepo = async (page: number): Promise<TaskItemWithMeta> =>
 
     return { data, meta }
 }
+
+export const getIncomingTaskRepo = async (page: number): Promise<TaskItemWithMeta> => {
+    const res = await apiCall.get(`${MODULE_URL}/incoming?page=${page}`)
+    const { data, meta } = res.data
+
+    return { data, meta }
+}

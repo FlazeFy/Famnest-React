@@ -1,9 +1,15 @@
+"use client"
 import AtomButton from "../atoms/a_button"
 import AtomText from "../atoms/a_text"
 import { faUsers, faCloud, faCalendar, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Input } from "@/components/ui/input"
 import Link from "next/link";
+import MoleculesTaskBox from "../molecules/m_task_box";
+import { getIncomingTaskRepo, TaskItem } from "@/repositories/r_task";
+import { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton";
+import MoleculesNotFoundBox from "../molecules/m_not_found_box";
 
 interface OrganismsUpcomingTaskProps {
     totalMember: number
@@ -11,6 +17,29 @@ interface OrganismsUpcomingTaskProps {
 }
 
 const OrganismsUpcomingTask: React.FC<OrganismsUpcomingTaskProps> = ({ totalMember, isSignedIn }) => {
+    const [taskItem, setTaskItem] = useState<TaskItem[]>([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
+    const [page, setPage] = useState(1)
+
+    useEffect(() => {
+        const fetchTask = async (page: number) => {
+            try {
+                const data = await getIncomingTaskRepo(page)
+                setTaskItem(data.data)
+            } catch (err: any) {
+                setError(err?.response?.data?.message || "Something went wrong")
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        fetchTask(page)
+    }, [page])
+
+    if (loading) return <Skeleton style={{height:"400px"}}/>
+    if (error) return <MoleculesNotFoundBox title="No enough data to show" style={{height:"400px"}}/>
+
     if (isSignedIn) {
         return (
             <div className="min-h-[90vh] flex-wrap text-center lg:text-start w-full rounded-2xl text-white bg-cover items-start p-5 pt-10 lg:p-10 lg:pt-20" style={{backgroundImage:"url('/background/background-2.jpg')"}}>
@@ -40,11 +69,13 @@ const OrganismsUpcomingTask: React.FC<OrganismsUpcomingTaskProps> = ({ totalMemb
                         </div>
                     </div>
                     <div className='mt-20 items-end text-start'>
-                        {/* {
-                            taskItem.map((dt, idx) => (
+                        {
+                            taskItem.length > 0 ? taskItem.map((dt, idx) => (
                                 <MoleculesTaskBox key={idx} task_title={dt.task_title} task_desc={dt.task_desc} due_date={dt.due_date} task_assigns={dt.task_assigns} status={dt.status} start_date={""} id={dt.id} tags={[]} created_at={null} updated_at={null}/>
                             ))
-                        } */}
+                            :
+                                <></>
+                        }
                     </div>
                 </div>
             </div>
