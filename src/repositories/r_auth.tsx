@@ -1,5 +1,4 @@
 import apiCall from "@/configs/axios"
-import { FamilyProps } from "./template"
 
 const MODULE_URL = "/api/v1/auths"
 
@@ -12,7 +11,7 @@ export interface LoginResponsePayload {
     email: string
     role: string
     token: string
-    family: FamilyProps
+    family: FamilyProfileProps
 }
 export const loginRepo = async (payload: LoginPayload): Promise<LoginResponsePayload> => {
     const res = await apiCall.post(`${MODULE_URL}/login`, payload)
@@ -21,5 +20,37 @@ export const loginRepo = async (payload: LoginPayload): Promise<LoginResponsePay
 
 export const refreshAuthToken = async (): Promise<LoginResponsePayload> => {
     const res = await apiCall.get(`${MODULE_URL}/refresh`)
+    return res.data.data
+}
+
+export interface FamilyMemberProps {
+    id: string
+    family_relation: string
+    user_id: string
+}
+export interface FamilyProfileProps {
+    id: string
+    family_name: string
+    family_desc: string
+    created_by: string
+    created_at: string
+    updated_at: string
+    familyMember: FamilyMemberProps[]
+}
+export interface MyProfileResponse extends LoginResponsePayload {
+    id: string
+    username: string
+    fullname: string
+    bio: string
+    profile_image: string | null
+    born_at: string
+    created_at: string
+    updated_at: string
+    deleted_at: string | null
+    family: FamilyProfileProps
+}
+
+export const getMyProfile = async (): Promise<MyProfileResponse> => {
+    const res = await apiCall.get(`${MODULE_URL}/profile`)
     return res.data.data
 }

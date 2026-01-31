@@ -1,12 +1,11 @@
 import OrganismsMyProfileForm from "@/components/organisms/o_my_profile_form";
-import { myProfile } from "@/helpers/dummy";
 
 export default function ProfilePage() {
     return (
         <div className='flex min-h-[90vh] flex-wrap text-center lg:text-start w-full'>
             <div className="grid grid-cols-12 gap-4 w-full h-full py-5">
                 <div className="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-6">
-                    <OrganismsMyProfileForm myProfile={myProfile}/>
+                    <OrganismsMyProfileForm/>
                 </div>
             </div>
         </div>

@@ -31,5 +31,25 @@ export const getAgeFromBornDate = (bornDate: string | Date): number => {
     }
   
     return age
-  }
+}
+
+export const calculateAgeYearsMonths = (utcISOString: string): string => {
+    const birthDate = new Date(utcISOString)
+    const today = new Date()
+
+    let years = today.getFullYear() - birthDate.getFullYear()
+    let months = today.getMonth() - birthDate.getMonth()
+
+    if (today.getDate() < birthDate.getDate()) {
+        months -= 1
+    }
+
+    if (months < 0) {
+        years -= 1
+        months += 12
+    }
+
+    return `${years} yr ${months} mo`
+}
+
   
