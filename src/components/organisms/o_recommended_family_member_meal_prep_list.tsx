@@ -1,7 +1,7 @@
-import { FamilyRecommendedMealPrepared } from '@/helpers/variable';
-import * as React from 'react';
-import AtomText from '../atoms/a_text';
-import MoleculesRecommendedFamilyMemberMealPrepBox from '../molecules/m_recommended_family_member_meal_prep_box';
+import { FamilyRecommendedMealPrepared } from '@/helpers/variable'
+import * as React from 'react'
+import AtomText from '../atoms/a_text'
+import MoleculesRecommendedFamilyMemberMealPrepBox from '../molecules/m_recommended_family_member_meal_prep_box'
 
 interface IOrganismsRecommendedFamilyMemberMealPrepListProps {
     familyRecommendedMealPrep: FamilyRecommendedMealPrepared[]
@@ -19,7 +19,7 @@ const OrganismsRecommendedFamilyMemberMealPrepList: React.FunctionComponent<IOrg
                 }
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default OrganismsRecommendedFamilyMemberMealPrepList;

@@ -1,10 +1,10 @@
-import { getAgeFromBornDate } from '@/helpers/math';
-import { FamilyRecommendedMealPrepared } from '@/helpers/variable';
-import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as React from 'react';
-import AtomText from '../atoms/a_text';
-import { Badge } from '../ui/badge';
+import { getAgeFromBornDate } from '@/helpers/math'
+import { FamilyRecommendedMealPrepared } from '@/helpers/variable'
+import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import * as React from 'react'
+import AtomText from '../atoms/a_text'
+import { Badge } from '../ui/badge'
 
 
 const MoleculesRecommendedFamilyMemberMealPrepBox: React.FunctionComponent<FamilyRecommendedMealPrepared> = ({fullname, gender, role, listAssignedMeal, listAssignedDayTime, averageScore, bornAt, totalMealPrep}) => {
@@ -60,7 +60,7 @@ const MoleculesRecommendedFamilyMemberMealPrepBox: React.FunctionComponent<Famil
                     <AtomText type='content' text='This person never serve a meal' extraClass='text-secondary italic'/>
             }
         </div>
-    );
-};
+    )
+}
 
 export default MoleculesRecommendedFamilyMemberMealPrepBox;

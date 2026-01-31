@@ -1,11 +1,11 @@
 'use client'
-import { FamilyMemberItem, getAllFamilyMember } from '@/repositories/r_family_member';
+import { FamilyMemberItem, getAllFamilyMember } from '@/repositories/r_family_member'
 import React, { useEffect, useState } from 'react'
-import Skeleton from 'react-loading-skeleton';
-import AtomText from '../atoms/a_text';
-import MoleculesFamilyMemberBox from '../molecules/m_family_member_box';
-import MoleculesNotFoundBox from '../molecules/m_not_found_box';
-import { Input } from '../ui/input';
+import Skeleton from 'react-loading-skeleton'
+import AtomText from '../atoms/a_text'
+import MoleculesFamilyMemberBox from '../molecules/m_family_member_box'
+import MoleculesNotFoundBox from '../molecules/m_not_found_box'
+import { Input } from '../ui/input'
 
 interface IOrganismsMemberListProps {}
 
@@ -71,6 +71,6 @@ const OrganismsMemberList: React.FunctionComponent<IOrganismsMemberListProps> = 
             </div>
         </div>
     )
-};
+}
 
 export default OrganismsMemberList;

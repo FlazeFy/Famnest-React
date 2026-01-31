@@ -1,9 +1,9 @@
 import React from 'react'
 import AtomButton from '../atoms/a_button'
 import AtomText from '../atoms/a_text'
-import { faHashtag } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { numberFormat } from '@/helpers/math';
+import { faHashtag } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { numberFormat } from '@/helpers/math'
 
 interface MoleculesMoneyFlowBoxProps {
     title: string
@@ -17,7 +17,7 @@ interface MoleculesMoneyFlowBoxProps {
 
 const MoleculesMoneyFlowBox: React.FC<MoleculesMoneyFlowBoxProps> = ({ title, description, category, amount, tags, createdAt, createdBy }) => {
     const formatDate = (dateString: string, typeReturn: "day" | "hour"): string => {
-        const date = new Date(dateString);
+        const date = new Date(dateString)
     
         if (isNaN(date.getTime())) {
             throw new Error("Invalid date string")
@@ -32,7 +32,7 @@ const MoleculesMoneyFlowBox: React.FC<MoleculesMoneyFlowBoxProps> = ({ title, de
                 hour: "numeric",
                 minute: "numeric",
                 hour12: true,
-            });
+            })
         }
     
         throw new Error("Invalid typeReturn. Use 'day' or 'hour'")

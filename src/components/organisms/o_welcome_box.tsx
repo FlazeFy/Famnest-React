@@ -1,11 +1,11 @@
 "use client"
-import * as React from 'react';
-import AtomButton from '../atoms/a_button';
-import AtomText from '../atoms/a_text';
-import MoleculesNavbar from '../molecules/m_navbar';
-import OrganismsDashboard from './o_dashboard';
-import OrganismsLoginForm from './o_login_form';
-import OrganismsPinnedChartBox from './o_pinned_chart_box';
+import * as React from 'react'
+import AtomButton from '../atoms/a_button'
+import AtomText from '../atoms/a_text'
+import MoleculesNavbar from '../molecules/m_navbar'
+import OrganismsDashboard from './o_dashboard'
+import OrganismsLoginForm from './o_login_form'
+import OrganismsPinnedChartBox from './o_pinned_chart_box'
 
 interface PinnedChartData {
     title: string
@@ -61,6 +61,6 @@ const OrganismsWelcomeBox: React.FunctionComponent<IWelcomeBoxProps> = ({isSigne
             </div>
         </div>
     )
-};
+}
 
 export default OrganismsWelcomeBox;

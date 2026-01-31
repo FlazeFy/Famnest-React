@@ -1,6 +1,6 @@
-import { MealItem } from '@/repositories/r_meal';
-import * as React from 'react';
-import AtomText from '../atoms/a_text';
+import { MealItem } from '@/repositories/r_meal'
+import * as React from 'react'
+import AtomText from '../atoms/a_text'
 
 interface IMoleculesLastMealBoxProps {
     mealScoring: React.ReactNode
@@ -16,7 +16,7 @@ const MoleculesLastMealBox: React.FunctionComponent<MealItem & IMoleculesLastMea
                 {meal_scoring}
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default MoleculesLastMealBox;

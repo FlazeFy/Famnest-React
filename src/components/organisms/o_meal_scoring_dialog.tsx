@@ -1,11 +1,11 @@
-import * as React from 'react';
+import * as React from 'react'
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label"
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Textarea } from '../ui/textarea';
-import MoleculesStarRatingInput from '../molecules/m_star_rating_input';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Textarea } from '../ui/textarea'
+import MoleculesStarRatingInput from '../molecules/m_star_rating_input'
 
 interface IOrganismsMealScoringProps {
 }
@@ -41,7 +41,7 @@ const OrganismsMealScoring: React.FunctionComponent<IOrganismsMealScoringProps> 
                 </DialogContent>
             </form>
         </Dialog>
-    );
-};
+    )
+}
 
 export default OrganismsMealScoring;

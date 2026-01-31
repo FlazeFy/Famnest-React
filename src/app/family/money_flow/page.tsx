@@ -1,8 +1,8 @@
-import AtomText from "@/components/atoms/a_text";
-import OrganismsAddMoneyFlowDialog from "@/components/organisms/o_add_money_flow_dialog";
-import OrganismsListMoneyFlowTable from "@/components/organisms/o_list_money_flow_table";
-import { lastMoneyItem } from "@/helpers/dummy";
-import Link from "next/link";
+import AtomText from "@/components/atoms/a_text"
+import OrganismsAddMoneyFlowDialog from "@/components/organisms/o_add_money_flow_dialog"
+import OrganismsListMoneyFlowTable from "@/components/organisms/o_list_money_flow_table"
+import { lastMoneyItem } from "@/helpers/dummy"
+import Link from "next/link"
 
 export default function MoneyFlowPage() {
     return (
@@ -19,5 +19,5 @@ export default function MoneyFlowPage() {
             </div>
             <OrganismsListMoneyFlowTable listMoneyFlow={lastMoneyItem}/>
         </div>
-    );
+    )
 }

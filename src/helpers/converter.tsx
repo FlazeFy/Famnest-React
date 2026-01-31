@@ -9,8 +9,8 @@ export const isInclude = ( arr: (string | Record<string, any>)[], target: string
             return item[key] === target
         }
         return false
-    });
-};
+    })
+}
 
 export const convertUTCToLocal = (utcISOString: string): string => {
     const date = new Date(utcISOString)

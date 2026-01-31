@@ -5,8 +5,8 @@ import { Label } from "@/components/ui/label"
 import { familyRecommendedMealPrepared } from "@/helpers/dummy"
 import { faPlus } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import * as React from 'react';
-import AtomBreakline from "../atoms/a_breakline";
+import * as React from 'react'
+import { AtomBreakline } from "../atoms/a_breakline"
 import MoleculesMultipleComboxBox from "../molecules/m_multiple_combobox"
 import { Textarea } from "../ui/textarea"
 import OrganismsRecommendedFamilyMemberMealPrepList from "./o_recommended_family_member_meal_prep_list"
@@ -65,7 +65,7 @@ const OrganismsAddMealDialog: React.FunctionComponent<IOrganismsAddMealDialogPro
                 </DialogFooter>
             </DialogContent>
         </Dialog>
-    );
-};
+    )
+}
 
 export default OrganismsAddMealDialog;

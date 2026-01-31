@@ -2,15 +2,15 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { isInclude } from "@/helpers/converter";
-import { familyRecommendedTaskParticipant, sampleTags } from "@/helpers/dummy";
-import { TaskItem } from "@/repositories/r_task";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import * as React from 'react';
+import { isInclude } from "@/helpers/converter"
+import { familyRecommendedTaskParticipant, sampleTags } from "@/helpers/dummy"
+import { TaskItem } from "@/repositories/r_task"
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import * as React from 'react'
 import MoleculesMultipleComboxBox from "../molecules/m_multiple_combobox"
 import { Textarea } from "../ui/textarea"
-import OrganismsRecommendedFamilyMemberList from "./o_recommended_family_member_list";
+import OrganismsRecommendedFamilyMemberList from "./o_recommended_family_member_list"
 
 const OrganismsEditTaskDialog: React.FunctionComponent<TaskItem> = ({task_title, task_desc, start_date, due_date, status, task_assigns, tags}) => {
     return (
@@ -62,7 +62,7 @@ const OrganismsEditTaskDialog: React.FunctionComponent<TaskItem> = ({task_title,
                 </DialogFooter>
             </DialogContent>
         </Dialog>
-    );
-};
+    )
+}
 
 export default OrganismsEditTaskDialog;

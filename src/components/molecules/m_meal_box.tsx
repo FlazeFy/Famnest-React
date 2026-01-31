@@ -1,6 +1,6 @@
-import { MealItem } from '@/repositories/r_meal';
-import * as React from 'react';
-import AtomText from '../atoms/a_text';
+import { MealItem } from '@/repositories/r_meal'
+import * as React from 'react'
+import AtomText from '../atoms/a_text'
 
 interface IMoleculesMealBoxProps {
     isReadOnly?: boolean
@@ -25,8 +25,8 @@ const MoleculesMealBox: React.FunctionComponent<MealItem & IMoleculesMealBoxProp
                 ) : <></>
             }
         </div>
-    );
-};
+    )
+}
 
 export default MoleculesMealBox;
 

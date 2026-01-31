@@ -1,8 +1,8 @@
 'use client'
-import * as React from 'react';
-import dynamic from 'next/dynamic';
-import AtomText from '../atoms/a_text';
-import MoleculesNoDataBox from '../molecules/m_no_data_box';
+import * as React from 'react'
+import dynamic from 'next/dynamic'
+import AtomText from '../atoms/a_text'
+import MoleculesNoDataBox from '../molecules/m_no_data_box'
 const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
 const colorPalleteChart = ['#46dca2', '#f55d86', '#FFC352', '#00b8ff']
@@ -50,6 +50,6 @@ const OrganismsLineChart: React.FunctionComponent<IOrganismsLineChartProps> = ({
             <ApexChart options={options} series={series} type="area" height={300} />
         </div>
     )
-};
+}
 
 export default OrganismsLineChart;

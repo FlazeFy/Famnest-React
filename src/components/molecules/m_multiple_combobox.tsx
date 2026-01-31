@@ -27,8 +27,8 @@ const MoleculesMultipleComboxBox: React.FunctionComponent<IMoleculesMultipleComb
     const toggleSelect = (value: string) => {
         setSelected((prev) =>
             prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
-        );
-    };
+        )
+    }
 
     const selectedHtml = selected.map((v) => options.find((opt) => opt.value === v)?.title).join(", ")
 
@@ -58,7 +58,7 @@ const MoleculesMultipleComboxBox: React.FunctionComponent<IMoleculesMultipleComb
                 </Command>
             </PopoverContent>
         </Popover>
-    );
-};
+    )
+}
 
 export default MoleculesMultipleComboxBox;

@@ -1,12 +1,12 @@
-import * as React from 'react';
-import AtomButton from '../atoms/a_button';
-import AtomText from '../atoms/a_text';
-import { Input } from '../ui/input';
-import { faCheck, faHourglassStart, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import MoleculesTaskBox from '../molecules/m_task_box';
-import { TaskItem } from '@/helpers/variable';
-import OrganismsConfirmationDeleteDialog from './o_confirmation_delete_dialog';
+import * as React from 'react'
+import AtomButton from '../atoms/a_button'
+import AtomText from '../atoms/a_text'
+import { Input } from '../ui/input'
+import { faCheck, faHourglassStart, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import MoleculesTaskBox from '../molecules/m_task_box'
+import { TaskItem } from '@/helpers/variable'
+import OrganismsConfirmationDeleteDialog from './o_confirmation_delete_dialog'
 
 interface IOrganismsTaskListProps {
     taskItem: TaskItem[]
@@ -39,6 +39,6 @@ const OrganismsTaskList: React.FunctionComponent<IOrganismsTaskListProps> = ({ t
             </div>
         </>
     )
-};
+}
 
 export default OrganismsTaskList;

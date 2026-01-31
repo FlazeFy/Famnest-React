@@ -1,15 +1,15 @@
 'use client'
-import React, { useEffect, useState } from 'react';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from '@/components/ui/carousel';
-import Autoplay from 'embla-carousel-autoplay';
-import { CardContent } from '@/components/ui/card';
-import MoleculesDayMealBox from '../molecules/m_day_meal_box';
-import AtomText from '../atoms/a_text';
-import OrganismsManageMealByTimeDayDialog from './o_manage_meal_dialog';
-import OrganismsLastMealBox from './o_last_meal_box';
-import { getAllMeal, MealItem } from '@/repositories/r_meal';
-import Skeleton from 'react-loading-skeleton';
-import MoleculesNotFoundBox from '../molecules/m_not_found_box';
+import React, { useEffect, useState } from 'react'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from '@/components/ui/carousel'
+import Autoplay from 'embla-carousel-autoplay'
+import { CardContent } from '@/components/ui/card'
+import MoleculesDayMealBox from '../molecules/m_day_meal_box'
+import AtomText from '../atoms/a_text'
+import OrganismsManageMealByTimeDayDialog from './o_manage_meal_dialog'
+import OrganismsLastMealBox from './o_last_meal_box'
+import { getAllMeal, MealItem } from '@/repositories/r_meal'
+import Skeleton from 'react-loading-skeleton'
+import MoleculesNotFoundBox from '../molecules/m_not_found_box'
 
 const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
 
@@ -122,7 +122,7 @@ const OrganismsMealScheduleCarousel: React.FunctionComponent<IOrganismsMealSched
                 </div>
             </Carousel>
         </div>
-    );
+    )
 }
 
 export default OrganismsMealScheduleCarousel;

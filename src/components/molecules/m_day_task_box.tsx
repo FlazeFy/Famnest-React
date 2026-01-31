@@ -1,9 +1,9 @@
-import { TaskScheduleItem } from '@/helpers/variable';
-import * as React from 'react';
-import AtomText from '../atoms/a_text';
-import { Badge } from '../ui/badge';
-import MoleculesNotFoundBox from './m_not_found_box';
-import MoleculesTaskScheduleBox from './m_task_schedule_box';
+import { TaskScheduleItem } from '@/helpers/variable'
+import * as React from 'react'
+import AtomText from '../atoms/a_text'
+import { Badge } from '../ui/badge'
+import MoleculesNotFoundBox from './m_not_found_box'
+import MoleculesTaskScheduleBox from './m_task_schedule_box'
 
 interface IMoleculesDayTaskBoxProps {
     dayName: string
@@ -51,7 +51,7 @@ const MoleculesDayTaskBox: React.FunctionComponent<IMoleculesDayTaskBoxProps> = 
             }
             <div className='mt-3'>{addTaskScheduleDialog}</div>
         </div>
-    );
-};
+    )
+}
 
 export default MoleculesDayTaskBox;

@@ -1,12 +1,12 @@
 "use client"
-import * as React from 'react';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from '@/components/ui/carousel';
-import Autoplay from 'embla-carousel-autoplay';
-import { CardContent } from '@/components/ui/card';
-import AtomText from '../atoms/a_text';
-import OrganismsMultiLineChart from './o_multi_line_chart';
-import { dayName, listIncomeMonthly, listSpendingWeekly, moneyFlowComparison, monthName } from '@/helpers/dummy';
-import OrganismsPieChart from './o_pie_chart';
+import * as React from 'react'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from '@/components/ui/carousel'
+import Autoplay from 'embla-carousel-autoplay'
+import { CardContent } from '@/components/ui/card'
+import AtomText from '../atoms/a_text'
+import OrganismsMultiLineChart from './o_multi_line_chart'
+import { dayName, listIncomeMonthly, listSpendingWeekly, moneyFlowComparison, monthName } from '@/helpers/dummy'
+import OrganismsPieChart from './o_pie_chart'
 
 interface IOrganismsPeriodicFamilyMemberMoneyFlowCarouselProps {
 }
@@ -65,7 +65,7 @@ const OrganismsPeriodicFamilyMemberMoneyFlowCarousel: React.FunctionComponent<IO
                 </div>
             </Carousel>
         </div>
-    );
-};
+    )
+}
 
 export default OrganismsPeriodicFamilyMemberMoneyFlowCarousel;

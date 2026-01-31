@@ -1,8 +1,8 @@
-import * as React from 'react';
+import * as React from 'react'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import AtomText from '../atoms/a_text';
-import { MoneyFlowTag } from '@/helpers/variable';
-import { numberFormat } from '@/helpers/math';
+import AtomText from '../atoms/a_text'
+import { MoneyFlowTag } from '@/helpers/variable'
+import { numberFormat } from '@/helpers/math'
 
 interface IOrganismsMoneyFlowTagTableProps {
     listMoneyFlowTag: MoneyFlowTag[]
@@ -46,6 +46,6 @@ const OrganismsMoneyFlowTagTable: React.FunctionComponent<IOrganismsMoneyFlowTag
             </Table>
         </div>
     )
-};
+}
 
 export default OrganismsMoneyFlowTagTable;

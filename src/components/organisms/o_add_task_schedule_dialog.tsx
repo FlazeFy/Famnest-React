@@ -2,15 +2,15 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { familyRecommendedTaskParticipant, sampleTags } from "@/helpers/dummy";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import * as React from 'react';
-import AtomBreakline from "../atoms/a_breakline";
+import { familyRecommendedTaskParticipant, sampleTags } from "@/helpers/dummy"
+import { faPlus } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import * as React from 'react'
+import { AtomBreakline } from "../atoms/a_breakline"
 import MoleculesMultipleComboxBox from "../molecules/m_multiple_combobox"
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "../ui/select";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "../ui/select"
 import { Textarea } from "../ui/textarea"
-import OrganismsRecommendedFamilyMemberList from "./o_recommended_family_member_list";
+import OrganismsRecommendedFamilyMemberList from "./o_recommended_family_member_list"
 
 interface IOrganismsAddTaskScheduleDialogProps {
 }
@@ -86,7 +86,7 @@ const OrganismsAddTaskScheduleDialog: React.FunctionComponent<IOrganismsAddTaskS
                 </DialogFooter>
             </DialogContent>
         </Dialog>
-    );
-};
+    )
+}
 
 export default OrganismsAddTaskScheduleDialog;

@@ -1,10 +1,10 @@
-import { calculateAgeYearsMonths } from '@/helpers/math';
-import * as React from 'react';
-import AtomText from '../atoms/a_text';
-import { faVenus, faMars } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FamilyMemberItem } from '@/repositories/r_family_member';
-import { convertUTCToLocalDateInput } from '@/helpers/converter';
+import { calculateAgeYearsMonths } from '@/helpers/math'
+import * as React from 'react'
+import AtomText from '../atoms/a_text'
+import { faVenus, faMars } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FamilyMemberItem } from '@/repositories/r_family_member'
+import { convertUTCToLocalDateInput } from '@/helpers/converter'
 
 const MoleculesFamilyMemberBox: React.FunctionComponent<FamilyMemberItem> = ({ id, family_relation, user }) => {
     return (
@@ -24,7 +24,7 @@ const MoleculesFamilyMemberBox: React.FunctionComponent<FamilyMemberItem> = ({ i
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default MoleculesFamilyMemberBox;

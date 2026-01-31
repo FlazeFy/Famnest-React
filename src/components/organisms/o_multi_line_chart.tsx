@@ -34,14 +34,14 @@ const OrganismsMultiLineChart: React.FunctionComponent<IOrganismsMultiLineChartP
         grid: {
             borderColor: "#e5e7eb"
         }
-    };
+    }
 
     return (
         <div className="text-dark w-full text-center">
             <AtomText type='sub-title' text={title}/>
             <ReactApexChart options={options} series={series} type="line"/>
         </div>
-    );
-};
+    )
+}
 
 export default OrganismsMultiLineChart;

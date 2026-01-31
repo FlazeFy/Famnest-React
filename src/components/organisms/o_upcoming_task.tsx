@@ -1,16 +1,16 @@
 "use client"
 import AtomButton from "../atoms/a_button"
 import AtomText from "../atoms/a_text"
-import { faUsers, faCloud, faCalendar, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUsers, faCloud, faCalendar, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Input } from "@/components/ui/input"
-import Link from "next/link";
-import MoleculesTaskBox from "../molecules/m_task_box";
-import { getIncomingTaskRepo, TaskItem } from "@/repositories/r_task";
-import { useEffect, useState } from "react";
-import Skeleton from "react-loading-skeleton";
-import MoleculesNotFoundBox from "../molecules/m_not_found_box";
-import AtomSeparator from "../atoms/a_separator";
+import Link from "next/link"
+import MoleculesTaskBox from "../molecules/m_task_box"
+import { getIncomingTaskRepo, TaskItem } from "@/repositories/r_task"
+import { useEffect, useState } from "react"
+import Skeleton from "react-loading-skeleton"
+import MoleculesNotFoundBox from "../molecules/m_not_found_box"
+import { AtomSeparator } from "../atoms/a_separator"
 
 interface OrganismsUpcomingTaskProps {
     totalMember: number

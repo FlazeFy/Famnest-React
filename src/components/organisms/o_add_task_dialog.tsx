@@ -2,12 +2,12 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { familyRecommendedTaskParticipant, sampleTags } from "@/helpers/dummy";
-import * as React from 'react';
+import { familyRecommendedTaskParticipant, sampleTags } from "@/helpers/dummy"
+import * as React from 'react'
 import AtomText from "../atoms/a_text"
 import MoleculesMultipleComboxBox from "../molecules/m_multiple_combobox"
 import { Textarea } from "../ui/textarea"
-import OrganismsRecommendedFamilyMemberList from "./o_recommended_family_member_list";
+import OrganismsRecommendedFamilyMemberList from "./o_recommended_family_member_list"
 
 interface IOrganismsAddTaskDialogProps {
 }
@@ -65,7 +65,7 @@ const OrganismsAddTaskDialog: React.FunctionComponent<IOrganismsAddTaskDialogPro
                 </DialogFooter>
             </DialogContent>
         </Dialog>
-    );
-};
+    )
+}
 
 export default OrganismsAddTaskDialog;

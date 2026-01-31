@@ -1,17 +1,17 @@
 'use client'
-import { convertUTCToLocal, convertUTCToLocalDateInput } from '@/helpers/converter';
-import { calculateAgeYearsMonths } from '@/helpers/math';
-import { getMyProfile, MyProfileResponse } from '@/repositories/r_auth';
-import { faFloppyDisk } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { convertUTCToLocal, convertUTCToLocalDateInput } from '@/helpers/converter'
+import { calculateAgeYearsMonths } from '@/helpers/math'
+import { getMyProfile, MyProfileResponse } from '@/repositories/r_auth'
+import { faFloppyDisk } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useEffect, useState } from 'react'
-import Skeleton from 'react-loading-skeleton';
-import AtomText from '../atoms/a_text';
-import MoleculesNotFoundBox from '../molecules/m_not_found_box';
-import { Button } from '../ui/button';
-import { Input } from '../ui/input';
-import { Label } from '../ui/label';
-import { Textarea } from '../ui/textarea';
+import Skeleton from 'react-loading-skeleton'
+import AtomText from '../atoms/a_text'
+import MoleculesNotFoundBox from '../molecules/m_not_found_box'
+import { Button } from '../ui/button'
+import { Input } from '../ui/input'
+import { Label } from '../ui/label'
+import { Textarea } from '../ui/textarea'
 
 interface IOrganismsMyProfileFormProps {}
 
@@ -73,7 +73,7 @@ const OrganismsMyProfileForm: React.FunctionComponent<IOrganismsMyProfileFormPro
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default OrganismsMyProfileForm;

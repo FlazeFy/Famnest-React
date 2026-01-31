@@ -1,10 +1,10 @@
-import { FamilyRecommendedTaskParticipant } from '@/helpers/variable';
-import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as React from 'react';
-import AtomText from '../atoms/a_text';
-import { Badge } from '../ui/badge';
-import { getAgeFromBornDate } from '@/helpers/math';
+import { FamilyRecommendedTaskParticipant } from '@/helpers/variable'
+import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import * as React from 'react'
+import AtomText from '../atoms/a_text'
+import { Badge } from '../ui/badge'
+import { getAgeFromBornDate } from '@/helpers/math'
 
 const MoleculesRecommendedFamilyMemberBox: React.FunctionComponent<FamilyRecommendedTaskParticipant> = ({fullname, gender, role, bornAt, taskTagHistory, matchedScore, averageTaskPerWeek, averageSleepTimePerWeek, averageEventPerWeek}) => {
     const age = getAgeFromBornDate(bornAt)
@@ -47,7 +47,7 @@ const MoleculesRecommendedFamilyMemberBox: React.FunctionComponent<FamilyRecomme
                     <AtomText type='content' text='Please select a tag first' extraClass='text-secondary italic'/>
             }
         </div>
-    );
-};
+    )
+}
 
 export default MoleculesRecommendedFamilyMemberBox;

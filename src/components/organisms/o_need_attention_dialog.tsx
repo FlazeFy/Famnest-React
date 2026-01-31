@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { FamilyNeededAttention } from "@/helpers/variable";
-import * as React from 'react';
-import AtomText from "../atoms/a_text";
-import MoleculesFamilyNeedAttentionBox from "../molecules/m_family_need_attention_box";
+import { FamilyNeededAttention } from "@/helpers/variable"
+import * as React from 'react'
+import AtomText from "../atoms/a_text"
+import MoleculesFamilyNeedAttentionBox from "../molecules/m_family_need_attention_box"
 
 interface IOrganismsNeedAttentionDialogProps {
     familyNeededAttentionList: FamilyNeededAttention[]
@@ -40,7 +40,7 @@ const OrganismsNeedAttentionDialog: React.FunctionComponent<IOrganismsNeedAttent
                 </DialogContent>
             </form>
         </Dialog>
-    );
-};
+    )
+}
 
 export default OrganismsNeedAttentionDialog;

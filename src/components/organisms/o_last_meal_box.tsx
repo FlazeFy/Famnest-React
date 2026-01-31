@@ -1,8 +1,8 @@
-import { MealItem } from '@/helpers/variable';
-import * as React from 'react';
-import AtomText from '../atoms/a_text';
-import MoleculesLastMealBox from '../molecules/m_last_meal_box';
-import OrganismsMealScoring from './o_meal_scoring_dialog';
+import { MealItem } from '@/helpers/variable'
+import * as React from 'react'
+import AtomText from '../atoms/a_text'
+import MoleculesLastMealBox from '../molecules/m_last_meal_box'
+import OrganismsMealScoring from './o_meal_scoring_dialog'
 
 interface IOrganismsLastMealBoxProps {
     mealItem: MealItem[]
@@ -22,8 +22,8 @@ const OrganismsLastMealBox: React.FunctionComponent<IOrganismsLastMealBoxProps> 
             }
             </div>
         </div>
-    );                        
+    )                        
 
-};
+}
 
 export default OrganismsLastMealBox;

@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from 'react'
 import AtomButton from '../atoms/a_button'
 import AtomText from '../atoms/a_text'
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { TaskItem } from '@/repositories/r_task';
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { TaskItem } from '@/repositories/r_task'
 
 interface IMoleculesTaskBoxProps {
     deleteItemComponent?: any
@@ -15,7 +15,7 @@ const MoleculesTaskBox: React.FC<TaskItem & IMoleculesTaskBoxProps> = ({ task_ti
     const [hour, setHour] = useState<string | null>(null)
     
     const formatDate = (dateString: string, typeReturn: "day" | "hour"): string => {
-        const date = new Date(dateString);
+        const date = new Date(dateString)
     
         if (isNaN(date.getTime())) {
             throw new Error("Invalid date string")
@@ -30,7 +30,7 @@ const MoleculesTaskBox: React.FC<TaskItem & IMoleculesTaskBoxProps> = ({ task_ti
                 hour: "numeric",
                 minute: "numeric",
                 hour12: true,
-            });
+            })
         }
     
         throw new Error("Invalid typeReturn. Use 'day' or 'hour'")

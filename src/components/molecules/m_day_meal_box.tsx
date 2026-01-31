@@ -1,8 +1,8 @@
-import { MealItem } from '@/repositories/r_meal';
-import * as React from 'react';
-import AtomText from '../atoms/a_text';
-import MoleculesMealBox from './m_meal_box';
-import MoleculesNotFoundBox from './m_not_found_box';
+import { MealItem } from '@/repositories/r_meal'
+import * as React from 'react'
+import AtomText from '../atoms/a_text'
+import MoleculesMealBox from './m_meal_box'
+import MoleculesNotFoundBox from './m_not_found_box'
 
 interface IMoleculesDayMealBoxProps {
     dayName: string
@@ -41,7 +41,7 @@ const MoleculesDayMealBox: React.FunctionComponent<IMoleculesDayMealBoxProps> = 
                 })
             }
         </div>
-    );
-};
+    )
+}
 
 export default MoleculesDayMealBox;

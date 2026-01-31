@@ -1,16 +1,16 @@
 "use client"
-import * as React from 'react';
-import AtomText from '../atoms/a_text';
+import * as React from 'react'
+import AtomText from '../atoms/a_text'
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as Yup from "yup"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Textarea } from '@/components/ui/textarea';
+import { Textarea } from '@/components/ui/textarea'
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
 import Swal from "sweetalert2"
-import { createQuestionRepo } from '@/repositories/r_question';
-import { consumeErrorAPI } from '@/helpers/message';
+import { createQuestionRepo } from '@/repositories/r_question'
+import { consumeErrorAPI } from '@/helpers/message'
 
 // Validation
 const questionSchema = Yup.object({
@@ -93,7 +93,7 @@ const OrganismsQuestionBox: React.FunctionComponent<IOrganismsQuestionBoxProps> 
                 <AtomText type="content" text="Confused with how application works? or maybe need assistance to do something in our apps? Feel free to ask" />
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default OrganismsQuestionBox;

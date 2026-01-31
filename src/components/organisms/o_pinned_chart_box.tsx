@@ -1,10 +1,10 @@
 "use client"
-import * as React from 'react';
+import * as React from 'react'
 import { CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
-import OrganismsLineChart from './o_line_chart';
-import OrganismsPieChart from './o_pie_chart';
+import OrganismsLineChart from './o_line_chart'
+import OrganismsPieChart from './o_pie_chart'
 
 interface PinnedChartData {
     title: string
@@ -60,7 +60,7 @@ const OrganismsPinnedChartBox: React.FunctionComponent<IOrganismsPinnedChartBoxP
                 Pinned Chart {current} of {count}
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default OrganismsPinnedChartBox;

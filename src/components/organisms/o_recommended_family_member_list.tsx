@@ -1,7 +1,7 @@
-import { FamilyRecommendedTaskParticipant } from '@/helpers/variable';
-import * as React from 'react';
-import AtomText from '../atoms/a_text';
-import MoleculesRecommendedFamilyMemberBox from '../molecules/m_recommended_family_member_box';
+import { FamilyRecommendedTaskParticipant } from '@/helpers/variable'
+import * as React from 'react'
+import AtomText from '../atoms/a_text'
+import MoleculesRecommendedFamilyMemberBox from '../molecules/m_recommended_family_member_box'
 
 interface IOrganismsRecommendedFamilyMemberListProps {
     familyRecommendedTaskParticipant: FamilyRecommendedTaskParticipant[]
@@ -17,7 +17,7 @@ const OrganismsRecommendedFamilyMemberList: React.FunctionComponent<IOrganismsRe
                 ))
             }
         </div>
-    );
-};
+    )
+}
 
 export default OrganismsRecommendedFamilyMemberList;

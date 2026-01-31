@@ -1,6 +1,6 @@
 "use client"
-import * as React from 'react';
-import AtomText from '../atoms/a_text';
+import * as React from 'react'
+import AtomText from '../atoms/a_text'
 import { CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
@@ -65,7 +65,7 @@ const OrganismsFeatureBox: React.FunctionComponent<IOrganismsFeatureBoxProps> = 
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default OrganismsFeatureBox;

@@ -1,14 +1,14 @@
-import * as React from 'react';
+import * as React from 'react'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
-import { MoneyFlowItem } from '@/helpers/variable';
-import AtomText from '../atoms/a_text';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { numberFormat } from '@/helpers/math';
-import MoleculesNotFoundBox from '../molecules/m_not_found_box';
-import OrganismsConfirmationDeleteDialog from './o_confirmation_delete_dialog';
-import AtomButton from '../atoms/a_button';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { MoneyFlowItem } from '@/helpers/variable'
+import AtomText from '../atoms/a_text'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { numberFormat } from '@/helpers/math'
+import MoleculesNotFoundBox from '../molecules/m_not_found_box'
+import OrganismsConfirmationDeleteDialog from './o_confirmation_delete_dialog'
+import AtomButton from '../atoms/a_button'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 interface IOrganismsListMoneyFlowTableProps {
     listMoneyFlow: MoneyFlowItem[]
@@ -66,7 +66,7 @@ const OrganismsListMoneyFlowTable: React.FunctionComponent<IOrganismsListMoneyFl
             </TableBody>
         </Table>
     )
-};
+}
 
 export default OrganismsListMoneyFlowTable;
 

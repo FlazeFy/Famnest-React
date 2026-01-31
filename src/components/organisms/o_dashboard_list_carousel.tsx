@@ -1,11 +1,11 @@
 "use client"
-import * as React from 'react';
+import * as React from 'react'
 import { CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
-import OrganismsLastMoneyFlow from './o_last_money_flow';
-import { MoneyFlowItem, TaskItem } from '@/helpers/variable';
-import OrganismsTaskList from './o_task_list';
+import OrganismsLastMoneyFlow from './o_last_money_flow'
+import { MoneyFlowItem, TaskItem } from '@/helpers/variable'
+import OrganismsTaskList from './o_task_list'
 
 interface IDashboardListCarouselProps {
     lastMoneyItem: MoneyFlowItem[]
@@ -52,7 +52,7 @@ const OrganismsDashboardListCarousel: React.FunctionComponent<IDashboardListCaro
                 </div>
             </Carousel>
         </div>
-    );
-};
+    )
+}
 
 export default OrganismsDashboardListCarousel;

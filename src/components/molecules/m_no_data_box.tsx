@@ -1,7 +1,7 @@
-import * as React from 'react';
-import AtomText from '../atoms/a_text';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
+import * as React from 'react'
+import AtomText from '../atoms/a_text'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons'
 
 interface IMoleculesNoDataBoxProps {
 }
@@ -13,6 +13,6 @@ const MoleculesNoDataBox: React.FunctionComponent<IMoleculesNoDataBoxProps> = (p
             <AtomText type='content' text="No enough data to visualize"/>
         </div>
     )
-};
+}
 
 export default MoleculesNoDataBox;

@@ -1,9 +1,9 @@
-import { getAgeFromBornDate } from '@/helpers/math';
-import { FamilyNeededAttention } from '@/helpers/variable';
-import * as React from 'react';
-import AtomText from '../atoms/a_text';
-import { faVenus, faMars } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { getAgeFromBornDate } from '@/helpers/math'
+import { FamilyNeededAttention } from '@/helpers/variable'
+import * as React from 'react'
+import AtomText from '../atoms/a_text'
+import { faVenus, faMars } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const MoleculesFamilyNeedAttentionBox: React.FunctionComponent<FamilyNeededAttention> = ({ fullname, gender, nickname, profilePic, bornAt, reason_category, reason_description, priority }) => {
     return (
@@ -37,7 +37,7 @@ const MoleculesFamilyNeedAttentionBox: React.FunctionComponent<FamilyNeededAtten
                 }
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default MoleculesFamilyNeedAttentionBox;

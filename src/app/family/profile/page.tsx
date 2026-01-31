@@ -1,5 +1,5 @@
-import { OrganismsManageAccount } from "@/components/organisms/o_manage_account";
-import OrganismsMyProfileForm from "@/components/organisms/o_my_profile_form";
+import { OrganismsManageAccount } from "@/components/organisms/o_manage_account"
+import OrganismsMyProfileForm from "@/components/organisms/o_my_profile_form"
 
 export default function ProfilePage() {
     return (
@@ -13,5 +13,5 @@ export default function ProfilePage() {
                 </div>
             </div>
         </div>
-    );
+    )
 }

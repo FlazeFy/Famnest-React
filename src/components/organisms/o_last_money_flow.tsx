@@ -1,12 +1,12 @@
-import * as React from 'react';
-import AtomButton from '../atoms/a_button';
-import AtomText from '../atoms/a_text';
-import { Input } from '../ui/input';
-import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import MoleculesMoneyFlowBox from '../molecules/m_money_flow_box';
-import { numberFormat } from '@/helpers/math';
-import { MoneyFlowItem } from '@/helpers/variable';
+import * as React from 'react'
+import AtomButton from '../atoms/a_button'
+import AtomText from '../atoms/a_text'
+import { Input } from '../ui/input'
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import MoleculesMoneyFlowBox from '../molecules/m_money_flow_box'
+import { numberFormat } from '@/helpers/math'
+import { MoneyFlowItem } from '@/helpers/variable'
 
 interface IOrganismsLastMoneyFlowProps {
     lastMoneyItem: MoneyFlowItem[]
@@ -37,6 +37,6 @@ const OrganismsLastMoneyFlow: React.FunctionComponent<IOrganismsLastMoneyFlowPro
             </div>
         </div>
     )
-};
+}
 
 export default OrganismsLastMoneyFlow;

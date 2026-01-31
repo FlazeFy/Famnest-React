@@ -3,9 +3,9 @@ import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, Di
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import * as React from 'react';
-import AtomBreakline from "../atoms/a_breakline";
-import AtomText from "../atoms/a_text";
+import * as React from 'react'
+import { AtomBreakline } from "../atoms/a_breakline"
+import AtomText from "../atoms/a_text"
 
 interface IOrganismsEditSleepTimeDialogProps {
 }
@@ -60,6 +60,6 @@ const OrganismsEditSleepTimeDialog: React.FunctionComponent<IOrganismsEditSleepT
             </form>
         </Dialog>
     )
-};
+}
 
 export default OrganismsEditSleepTimeDialog;

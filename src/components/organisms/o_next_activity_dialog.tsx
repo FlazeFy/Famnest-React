@@ -1,9 +1,8 @@
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { TaskItem } from "@/helpers/variable";
-import Link from "next/link";
-import * as React from 'react';
-import AtomText from "../atoms/a_text";
+import Link from "next/link"
+import * as React from 'react'
+import AtomText from "../atoms/a_text"
 import MoleculesTaskBox from "../molecules/m_task_box"
 
 const OrganismsNextActivityDialog: React.FunctionComponent<TaskItem> = ({title, description, dueDate, participant,isFinished}) => {
@@ -35,6 +34,6 @@ const OrganismsNextActivityDialog: React.FunctionComponent<TaskItem> = ({title, 
             </form>
         </Dialog>
     )
-};
+}
 
 export default OrganismsNextActivityDialog;

@@ -1,16 +1,16 @@
 "use client"
-import AtomSeparator from "@/components/atoms/a_separator";
-import OrganismsContact from "@/components/organisms/o_contact";
-import OrganismsQuestionBox from "@/components/organisms/o_question_form";
-import OrganismsFeatureBox from "@/components/organisms/o_feature_box";
-import OrganismsFeedback from "@/components/organisms/o_feedback";
-import OrganismsUpcomingTask from "@/components/organisms/o_upcoming_task";
-import OrganismsWelcomeBox from "@/components/organisms/o_welcome_box";
-import { faLinkedin, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { faGlobe } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import OrganismsFAQBox from "@/components/organisms/o_faq_box";
-import useAuthStore from "@/store/s_auth";
+import AtomSeparator from "@/components/atoms/a_separator"
+import OrganismsContact from "@/components/organisms/o_contact"
+import OrganismsQuestionBox from "@/components/organisms/o_question_form"
+import OrganismsFeatureBox from "@/components/organisms/o_feature_box"
+import OrganismsFeedback from "@/components/organisms/o_feedback"
+import OrganismsUpcomingTask from "@/components/organisms/o_upcoming_task"
+import OrganismsWelcomeBox from "@/components/organisms/o_welcome_box"
+import { faLinkedin, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faGlobe } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import OrganismsFAQBox from "@/components/organisms/o_faq_box"
+import useAuthStore from "@/store/s_auth"
 
 export default function Home() {
   const featureList = [
@@ -118,5 +118,5 @@ export default function Home() {
       <AtomSeparator/>
       <OrganismsContact contactItem={contactItem} email="flazen.edu@gmail.com" bodyEmail="Hii, Richard. I'm ..."/>
     </div>
-  );
+  )
 }

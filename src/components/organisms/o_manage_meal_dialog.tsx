@@ -1,15 +1,15 @@
-import * as React from 'react';
+import * as React from 'react'
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import AtomBreakline from '../atoms/a_breakline';
-import MoleculesNotFoundBox from '../molecules/m_not_found_box';
-import MoleculesMealBox from '../molecules/m_meal_box';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import OrganismsConfirmationDeleteDialog from './o_confirmation_delete_dialog';
-import AtomButton from '../atoms/a_button';
-import OrganismsAddMealDialog from './o_add_meal_dialog';
-import OrganismsEditMealDialog from './o_edit_meal_dialog';
-import { MealItem } from '@/repositories/r_meal';
+import AtomBreakline from '../atoms/a_breakline'
+import MoleculesNotFoundBox from '../molecules/m_not_found_box'
+import MoleculesMealBox from '../molecules/m_meal_box'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import OrganismsConfirmationDeleteDialog from './o_confirmation_delete_dialog'
+import AtomButton from '../atoms/a_button'
+import OrganismsAddMealDialog from './o_add_meal_dialog'
+import OrganismsEditMealDialog from './o_edit_meal_dialog'
+import { MealItem } from '@/repositories/r_meal'
 
 interface IOrganismsManageMealByTimeDayDialogProps {
     time: string
@@ -55,7 +55,7 @@ const OrganismsManageMealByTimeDayDialog: React.FunctionComponent<IOrganismsMana
                 </DialogFooter>
             </DialogContent>
         </Dialog>
-    );
-};
+    )
+}
 
 export default OrganismsManageMealByTimeDayDialog;

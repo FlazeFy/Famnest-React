@@ -1,5 +1,5 @@
 "use client"
-import * as React from 'react';
+import * as React from 'react'
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as Yup from "yup"
@@ -8,9 +8,9 @@ import { Input } from "@/components/ui/input"
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
 import Swal from "sweetalert2"
 import { useRouter } from "next/navigation"
-import { loginRepo } from '@/repositories/r_auth';
-import useAuthStore from '@/store/s_auth';
-import useFamilyStore from '@/store/s_family';
+import { loginRepo } from '@/repositories/r_auth'
+import useAuthStore from '@/store/s_auth'
+import useFamilyStore from '@/store/s_family'
 
 // Validation
 const loginSchema = Yup.object({
@@ -99,7 +99,7 @@ const OrganismsLoginForm: React.FunctionComponent<IOrganismsLoginFormProps> = (p
                 </form>
             </Form>
         </div>
-    );
-};
+    )
+}
 
 export default OrganismsLoginForm;

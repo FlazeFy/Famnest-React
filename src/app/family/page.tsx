@@ -1,7 +1,7 @@
-import OrganismsDashboard from "@/components/organisms/o_dashboard";
-import OrganismsDashboardListCarousel from "@/components/organisms/o_dashboard_list_carousel";
-import OrganismsPinnedChartBox from "@/components/organisms/o_pinned_chart_box";
-import { lastMoneyItem, taskItem } from "@/helpers/dummy";
+import OrganismsDashboard from "@/components/organisms/o_dashboard"
+import OrganismsDashboardListCarousel from "@/components/organisms/o_dashboard_list_carousel"
+import OrganismsPinnedChartBox from "@/components/organisms/o_pinned_chart_box"
+import { lastMoneyItem, taskItem } from "@/helpers/dummy"
 
 export default function FamilyPage() {
     const pinnedChartData = [
@@ -52,5 +52,5 @@ export default function FamilyPage() {
                 <OrganismsDashboardListCarousel taskItem={taskItem} lastMoneyItem={lastMoneyItem}/>
             </div>
         </div>
-    );
+    )
 }

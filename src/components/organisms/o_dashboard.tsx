@@ -1,10 +1,10 @@
-import { memberNeedAttentionItem, taskItem } from '@/helpers/dummy';
-import Link from 'next/link';
-import * as React from 'react';
-import AtomText from '../atoms/a_text';
-import OrganismsEditSleepTimeDialog from './o_edit_sleep_time_dialog';
-import OrganismsNeedAttentionDialog from './o_need_attention_dialog';
-import OrganismsNextActivityDialog from './o_next_activity_dialog';
+import { memberNeedAttentionItem, taskItem } from '@/helpers/dummy'
+import Link from 'next/link'
+import * as React from 'react'
+import AtomText from '../atoms/a_text'
+import OrganismsEditSleepTimeDialog from './o_edit_sleep_time_dialog'
+import OrganismsNeedAttentionDialog from './o_need_attention_dialog'
+import OrganismsNextActivityDialog from './o_next_activity_dialog'
 
 interface IOrganismsDashboardProps {
 }
@@ -64,7 +64,7 @@ const OrganismsDashboard: React.FunctionComponent<IOrganismsDashboardProps> = (p
                 </Link>
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default OrganismsDashboard;

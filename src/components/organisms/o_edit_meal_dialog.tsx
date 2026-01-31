@@ -4,12 +4,12 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import * as React from 'react';
-import AtomBreakline from "../atoms/a_breakline";
+import * as React from 'react'
 import MoleculesMultipleComboxBox from "../molecules/m_multiple_combobox"
 import { Textarea } from "../ui/textarea"
 import { MealItem } from "@/helpers/variable"
 import { isInclude } from "@/helpers/converter"
+import { AtomBreakline } from "../atoms/a_breakline"
 
 const OrganismsEditMealDialog: React.FunctionComponent<MealItem> = ({ mealTime, mealDay, mealName, mealPrepareBy, mealDesc }) => {
     return (
@@ -53,7 +53,7 @@ const OrganismsEditMealDialog: React.FunctionComponent<MealItem> = ({ mealTime, 
                 </DialogFooter>
             </DialogContent>
         </Dialog>
-    );
-};
+    )
+}
 
 export default OrganismsEditMealDialog;

@@ -1,7 +1,7 @@
-import * as React from 'react';
-import AtomText from '../atoms/a_text';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
+import * as React from 'react'
+import AtomText from '../atoms/a_text'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons'
 
 interface IMoleculesNotFoundBoxProps {
     title: string

@@ -2,16 +2,15 @@ import { Button } from "@/components/ui/button"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import * as React from 'react';
+import * as React from 'react'
 import AtomText from "../atoms/a_text"
 import MoleculesMultipleComboxBox from "../molecules/m_multiple_combobox"
 import { Textarea } from "../ui/textarea"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { listMoneyFlowTag, sampleTags } from "@/helpers/dummy";
-import OrganismsMoneyFlowTagTable from "./o_money_flow_tag_table";
+import { listMoneyFlowTag, sampleTags } from "@/helpers/dummy"
+import OrganismsMoneyFlowTagTable from "./o_money_flow_tag_table"
 
-interface IOrganismsAddMoneyFlowDialogProps {
-}
+interface IOrganismsAddMoneyFlowDialogProps {}
 
 const OrganismsAddMoneyFlowDialog: React.FunctionComponent<IOrganismsAddMoneyFlowDialogProps> = (props) => {
     return (
@@ -70,7 +69,7 @@ const OrganismsAddMoneyFlowDialog: React.FunctionComponent<IOrganismsAddMoneyFlo
                 </DialogFooter>
             </DialogContent>
         </Dialog>
-    );
-};
+    )
+}
 
 export default OrganismsAddMoneyFlowDialog;

@@ -1,13 +1,13 @@
 'use client'
-import * as React from 'react';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from '@/components/ui/carousel';
-import Autoplay from 'embla-carousel-autoplay';
-import { CardContent } from '@/components/ui/card';
-import MoleculesDayTaskBox from '../molecules/m_day_task_box';
-import { TaskItem, TaskScheduleItem } from '@/helpers/variable';
-import AtomText from '../atoms/a_text';
-import OrganismsAddTaskScheduleDialog from './o_add_task_schedule_dialog';
-import OrganismsEditTaskScheduleDialog from './o_edit_task_schedule_dialog';
+import * as React from 'react'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from '@/components/ui/carousel'
+import Autoplay from 'embla-carousel-autoplay'
+import { CardContent } from '@/components/ui/card'
+import MoleculesDayTaskBox from '../molecules/m_day_task_box'
+import { TaskItem, TaskScheduleItem } from '@/helpers/variable'
+import AtomText from '../atoms/a_text'
+import OrganismsAddTaskScheduleDialog from './o_add_task_schedule_dialog'
+import OrganismsEditTaskScheduleDialog from './o_edit_task_schedule_dialog'
 
 const days = [
   'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
@@ -86,7 +86,7 @@ const OrganismsTaskScheduleCarousel: React.FunctionComponent<IOrganismsTaskSched
                 </div>
             </Carousel>
         </div>
-    );
+    )
 }
 
 export default OrganismsTaskScheduleCarousel;
