@@ -1,14 +1,41 @@
-import { FamilyMemberShortInfo } from '@/helpers/variable';
-import * as React from 'react';
+'use client'
+import { FamilyMemberItem, getAllFamilyMember } from '@/repositories/r_family_member';
+import React, { useEffect, useState } from 'react'
+import Skeleton from 'react-loading-skeleton';
 import AtomText from '../atoms/a_text';
 import MoleculesFamilyMemberBox from '../molecules/m_family_member_box';
+import MoleculesNotFoundBox from '../molecules/m_not_found_box';
 import { Input } from '../ui/input';
 
-interface IOrganismsMemberListProps {
-    memberItem: FamilyMemberShortInfo[]
-}
+interface IOrganismsMemberListProps {}
 
-const OrganismsMemberList: React.FunctionComponent<IOrganismsMemberListProps> = ({ memberItem }) => {
+const OrganismsMemberList: React.FunctionComponent<IOrganismsMemberListProps> = () => {
+    const [familyMemberItem, setFamilyMemberItem] = useState<FamilyMemberItem[]>([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
+
+    useEffect(() => {
+        const fetchFamilyMember = async () => {
+            try {
+                const data = await getAllFamilyMember()
+                setFamilyMemberItem(data)
+            } catch (err: any) {
+                if (err.response?.status === 404 && err.response?.data?.message) {
+                    return []
+                }
+                
+                setError(err?.response?.data?.message || "Something went wrong")
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        fetchFamilyMember()
+    }, [])
+
+    if (loading) return <Skeleton style={{height:"400px"}}/>
+    if (error) return <MoleculesNotFoundBox title="No enough data to show" style={{height:"400px"}}/>
+
     return (
         <div className="min-h-[90vh] flex-wrap text-center lg:text-start w-full rounded-2xl text-white bg-cover items-start p-5 pt-10 lg:p-10 lg:pt-20" style={{backgroundImage:"url('/background/background-3.jpg')"}}>
             <div className="flex flex-wrap">
@@ -28,13 +55,17 @@ const OrganismsMemberList: React.FunctionComponent<IOrganismsMemberListProps> = 
                         <Input type="text" placeholder="Search family member..." />
                     </div>
                 </div>
-                <div className='mt-20 flex flex-wrap'>
+                <div className='mt-15 flex flex-wrap'>
                     {
-                        memberItem.map((dt, idx) => (
-                            <div className='w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 p-2 pb-10' key={idx}>
-                                <MoleculesFamilyMemberBox fullname={dt.fullname} gender={dt.gender} nickname={dt.nickname} profilePic={dt.profilePic} bornAt={dt.bornAt}/>
-                            </div>
-                        ))
+                        familyMemberItem.length === 0 ? (
+                            <MoleculesNotFoundBox title="No family member found" />
+                        ) : (
+                            familyMemberItem.map((dt, idx) => (
+                                <div key={idx} className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 p-2 pb-10">
+                                    <MoleculesFamilyMemberBox {...dt}/>
+                                </div>
+                            ))
+                        )
                     }
                 </div>
             </div>
