@@ -1,11 +1,11 @@
 "use client"
 import { FeedbackItem, getFeedbackRandomRepo} from "@/repositories/r_feedback"
 import { useEffect, useState } from "react"
-import AtomBreakline from "../atoms/a_breakline"
 import AtomText from "../atoms/a_text"
 import MoleculesFeedbackBox from "../molecules/m_feedback_box"
 import Skeleton from "react-loading-skeleton"
 import MoleculesNotFoundBox from "../molecules/m_not_found_box"
+import { AtomBreakline } from "../atoms/a_breakline"
 
 interface OrganismsFeedbackProps {}
 

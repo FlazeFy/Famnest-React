@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import AtomBreakline from '../atoms/a_breakline'
+import { AtomBreakline } from "../atoms/a_breakline"
 import MoleculesNotFoundBox from '../molecules/m_not_found_box'
 import MoleculesMealBox from '../molecules/m_meal_box'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'

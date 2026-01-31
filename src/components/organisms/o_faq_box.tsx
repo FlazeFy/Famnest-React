@@ -2,7 +2,7 @@
 import { FAQBoxItem, getQuestionRandomRepo } from '@/repositories/r_question'
 import React, { useEffect, useState } from 'react'
 import Skeleton from 'react-loading-skeleton'
-import AtomBreakline from '../atoms/a_breakline'
+import { AtomBreakline } from "../atoms/a_breakline"
 import AtomText from '../atoms/a_text'
 import MoleculesCollapseButton from '../molecules/m_collapse_button'
 import MoleculesNotFoundBox from '../molecules/m_not_found_box'

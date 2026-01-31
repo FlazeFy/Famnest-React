@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import AtomBreakline from '../atoms/a_breakline'
+import { AtomBreakline } from '../atoms/a_breakline'
 import AtomButton from '../atoms/a_button'
 import AtomText from '../atoms/a_text'
 

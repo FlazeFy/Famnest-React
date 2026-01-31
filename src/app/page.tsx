@@ -1,5 +1,4 @@
 "use client"
-import AtomSeparator from "@/components/atoms/a_separator"
 import OrganismsContact from "@/components/organisms/o_contact"
 import OrganismsQuestionBox from "@/components/organisms/o_question_form"
 import OrganismsFeatureBox from "@/components/organisms/o_feature_box"
@@ -11,6 +10,7 @@ import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import OrganismsFAQBox from "@/components/organisms/o_faq_box"
 import useAuthStore from "@/store/s_auth"
+import { AtomSeparator } from "@/components/atoms/a_separator"
 
 export default function Home() {
   const featureList = [
