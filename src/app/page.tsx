@@ -108,7 +108,6 @@ export default function Home() {
       <OrganismsWelcomeBox isSignedIn={email ? true : false} pinnedChartData={pinnedChart}/>
       <AtomSeparator/>
       <OrganismsUpcomingTask isSignedIn={email ? true : false} totalMember={3}/>
-      <AtomSeparator/>
       <OrganismsFeatureBox feature={featureList}/>
       <AtomSeparator/>
       <OrganismsFeedback/>

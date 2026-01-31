@@ -65,7 +65,6 @@ const OrganismsMyProfileForm: React.FunctionComponent<IOrganismsMyProfileFormPro
                     <Textarea id='bio' className='mb-2' name='bio' defaultValue={profileItem?.bio} style={{minHeight:"140px"}}></Textarea>
                 </div>
                 <div className="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-6">
-                    
                     <AtomText type='content' text='<b>Joined At</b>'/>
                     <AtomText type='content' text={profileItem? convertUTCToLocal(profileItem?.created_at) : ''} extraClass='mb-2'/>
                     <AtomText type='content' text='<b>Last Updated</b>'/>

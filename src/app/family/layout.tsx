@@ -17,7 +17,6 @@ export default function FamilyLayout({ children }: Readonly<{ children: React.Re
         { title: "Meal", target: "/family/meal" },
         { title: "Inventory", target: "/family/inventory" },
         { title: "Vehicle", target: "/family/vehicle" },
-        { title: "My Profile", target: "/family/profile" },
     ]
 
     return (

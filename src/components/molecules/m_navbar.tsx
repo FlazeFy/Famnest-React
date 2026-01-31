@@ -40,7 +40,7 @@ const MoleculesNavbar: React.FC<MoleculesNavbarProps> = ({ menuItem, isSignedIn,
                     </Link>
                 :
                     <div className='inline-flex gap-2'>
-                        <Link href={'/profile'}>
+                        <Link href={'/family/profile'}>
                             <AtomButton type='btn-primary' text={
                                 <span className="inline-flex items-center gap-2">
                                     <FontAwesomeIcon icon={faUser}/><span className='hidden md:flex'> {email}</span>
