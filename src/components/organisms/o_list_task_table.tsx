@@ -55,9 +55,7 @@ const OrganismsListTaskTable: React.FunctionComponent<IOrganismsListTaskTablePro
                 allowEscapeKey: false,
             })
     
-            if (result.isConfirmed) {
-                fetchTask()
-            }
+            if (result.isConfirmed) fetchTask()
         } catch (err: any) {
             await consumeErrorAPI(err)
         } finally {

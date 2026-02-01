@@ -16,3 +16,9 @@ export const getAllMeal = async (): Promise<MealItem[]> => {
 
     return res.data.data
 }
+
+export const hardDeleteMealRepo = async (id: string): Promise<string> => {
+    const res = await apiCall.delete(`${MODULE_URL}/${id}`)
+
+    return res.data.message
+}

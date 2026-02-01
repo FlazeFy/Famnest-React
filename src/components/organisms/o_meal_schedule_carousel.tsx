@@ -24,17 +24,6 @@ const OrganismsMealScheduleCarousel: React.FunctionComponent<IOrganismsMealSched
     const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
-        const fetchMeal = async () => {
-            try {
-                const data = await getAllMeal()
-                setMealItem(data)
-            } catch (err: any) {
-                setError(err?.response?.data?.message || "Something went wrong")
-            } finally {
-                setLoading(false)
-            }
-        }
-
         fetchMeal()
 
         if (!api) return
@@ -42,6 +31,17 @@ const OrganismsMealScheduleCarousel: React.FunctionComponent<IOrganismsMealSched
         setCurrent(api.selectedScrollSnap() + 1)
         api.on('select', () => setCurrent(api.selectedScrollSnap() + 1))
     }, [api])
+
+    const fetchMeal = async () => {
+        try {
+            const data = await getAllMeal()
+            setMealItem(data)
+        } catch (err: any) {
+            setError(err?.response?.data?.message || "Something went wrong")
+        } finally {
+            setLoading(false)
+        }
+    }
 
     if (loading) return <Skeleton style={{height:"400px"}}/>
     if (error) return <MoleculesNotFoundBox title="No enough data to show" style={{height:"400px"}}/>
@@ -70,7 +70,7 @@ const OrganismsMealScheduleCarousel: React.FunctionComponent<IOrganismsMealSched
                                         <div key={day} className="flex-1 min-w-[12%] h-full">
                                             <MoleculesDayMealBox dayName={day} mealItem={mealItem} dayLabelAndManageButton={
                                                 (dayName, time) => (
-                                                    <OrganismsManageMealByTimeDayDialog dayName={dayName} time={time} mealItem={mealItem}/>
+                                                    <OrganismsManageMealByTimeDayDialog dayName={dayName} time={time} mealItem={mealItem} fetchMeal={fetchMeal}/>
                                                 )
                                             }/>
                                         </div>
@@ -89,7 +89,7 @@ const OrganismsMealScheduleCarousel: React.FunctionComponent<IOrganismsMealSched
                                         <div key={day} className="flex-1 min-w-[28%] h-full">
                                             <MoleculesDayMealBox dayName={day} mealItem={mealItem} dayLabelAndManageButton={
                                                 (dayName, time) => (
-                                                    <OrganismsManageMealByTimeDayDialog dayName={dayName} time={time} mealItem={mealItem}/>
+                                                    <OrganismsManageMealByTimeDayDialog dayName={dayName} time={time} mealItem={mealItem} fetchMeal={fetchMeal}/>
                                                 )
                                             }/>
                                         </div>
@@ -107,7 +107,7 @@ const OrganismsMealScheduleCarousel: React.FunctionComponent<IOrganismsMealSched
                                     <div className="flex justify-center">
                                         <MoleculesDayMealBox dayName={day} mealItem={mealItem} dayLabelAndManageButton={
                                             (dayName, time) => (
-                                                <OrganismsManageMealByTimeDayDialog dayName={dayName} time={time} mealItem={mealItem}/>
+                                                <OrganismsManageMealByTimeDayDialog dayName={dayName} time={time} mealItem={mealItem} fetchMeal={fetchMeal}/>
                                             )
                                         }/>
                                     </div>
