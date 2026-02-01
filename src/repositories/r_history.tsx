@@ -19,3 +19,9 @@ export const getAllHistory = async (page: number): Promise<HistoryItemWithMeta> 
 
     return { data, meta }
 }
+
+export const hardDeleteHistoryRepo = async (id: string): Promise<string> => {
+    const res = await apiCall.delete(`${MODULE_URL}/${id}`)
+
+    return res.data.message
+}

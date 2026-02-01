@@ -53,7 +53,6 @@ export const OrganismsManageAccount: React.FunctionComponent<IOrganismsManageAcc
         <div className='shadow-lg rounded-2xl p-10'>
             <AtomText type='sub-title' text='Manage Account'/>
             <hr className='my-5'/>
-
             <div className='flex gap-2'>
                 <Button className='bg-danger' onClick={handleLogout}><FontAwesomeIcon icon={faArrowRightFromBracket} /> Sign Out</Button>
             </div>

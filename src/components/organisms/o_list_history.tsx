@@ -1,11 +1,17 @@
 'use client'
-import { getAllHistory, HistoryItem } from '@/repositories/r_history'
+import { consumeErrorAPI, loadingDialog } from '@/helpers/message'
+import { getAllHistory, hardDeleteHistoryRepo, HistoryItem } from '@/repositories/r_history'
 import { PaginationMeta } from '@/repositories/template'
 import React, { useEffect, useState } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import AtomText from '../atoms/a_text'
 import MoleculesHistoryBox from '../molecules/m_history_box'
 import MoleculesNotFoundBox from '../molecules/m_not_found_box'
+import Swal from "sweetalert2"
+import OrganismsConfirmationDeleteDialog from './o_confirmation_delete_dialog'
+import AtomButton from '../atoms/a_button'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 interface IOrganismsHistoryProps {}
 
@@ -33,6 +39,28 @@ export const OrganismsHistory: React.FunctionComponent<IOrganismsHistoryProps> =
         }
     }
 
+    const handleDeleteHistory = async (id: string) => {
+        loadingDialog("Deleting history")
+
+        try {
+            const message = await hardDeleteHistoryRepo(id)
+    
+            const result = await Swal.fire({
+                title: "Success",
+                text: message,
+                icon: "success",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+            })
+    
+            if (result.isConfirmed) fetchHistory()
+        } catch (err: any) {
+            await consumeErrorAPI(err)
+        } finally {
+            Swal.close()
+        }
+    }
+
     if (loading) return <Skeleton style={{height:"400px"}}/>
     if (error) return <MoleculesNotFoundBox title="No enough data to show" style={{height:"400px"}}/>
 
@@ -41,7 +69,13 @@ export const OrganismsHistory: React.FunctionComponent<IOrganismsHistoryProps> =
             <AtomText type='sub-title' text='History'/>
             <hr className='my-5'/>
             {
-                historyItem.map((dt, idx) => <MoleculesHistoryBox key={idx} id={dt.id} history_context={dt.history_context} history_type={dt.history_type} created_at={dt.created_at}/>)
+                historyItem.map((dt, idx) => 
+                    <MoleculesHistoryBox key={idx} id={dt.id} history_context={dt.history_context} history_type={dt.history_type} created_at={dt.created_at} deleteButton={
+                        <OrganismsConfirmationDeleteDialog context='History' buttonTrigger={
+                            <AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash} height={15}/>}/>
+                        } action={() => handleDeleteHistory(dt.id)}/>
+                    }/>
+                )
             }
         </div>
     )
