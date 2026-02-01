@@ -8,6 +8,7 @@ export interface CreateQuestionPayload {
 }
 export const createQuestionRepo = async (payload: CreateQuestionPayload): Promise<string> => {
     const { data } = await apiCall.post(MODULE_URL, payload)
+    
     return data.message
 }
 

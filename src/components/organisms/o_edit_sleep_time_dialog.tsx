@@ -4,11 +4,14 @@ import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, Di
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { FamilySleepTimeItem, getFamilySleepTimeRepo } from "@/repositories/r_family_sleep_time"
+import { convertUTCToLocal } from "@/helpers/converter"
+import { FamilySleepTimeItem, getFamilySleepTimeRepo, hardDeleteSleepTimeRepo } from "@/repositories/r_family_sleep_time"
 import React, { useEffect, useState } from 'react'
 import Skeleton from "react-loading-skeleton"
 import { AtomBreakline } from "../atoms/a_breakline"
 import AtomText from "../atoms/a_text"
+import Swal from "sweetalert2"
+import { consumeErrorAPI, loadingDialog } from "@/helpers/message"
 
 interface IOrganismsEditSleepTimeDialogProps {}
 
@@ -38,6 +41,32 @@ const OrganismsEditSleepTimeDialog: React.FunctionComponent<IOrganismsEditSleepT
 
         fetchFamilySleepTime()
     }, [open])
+
+    const removeSleepTime = async () => {
+        const confirm = await Swal.fire({
+            title: "Are you sure?",
+            text: "Do you want to remove your family sleep time?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Yes, remove it",
+            cancelButtonText: "Cancel",
+        })
+      
+        if (!confirm.isConfirmed) return
+        loadingDialog('Removing sleep time')
+      
+        try {
+            const message = await hardDeleteSleepTimeRepo()
+        
+            await Swal.fire("Success", message, "success")
+            setOpen(false)
+            setFamilyMemberItem(undefined)
+        } catch (err: any) {
+            await consumeErrorAPI(err)
+        } finally {
+            Swal.close()
+        }
+    }      
     
     return (
         <Dialog open={open} onOpenChange={setOpen}>
@@ -81,12 +110,15 @@ const OrganismsEditSleepTimeDialog: React.FunctionComponent<IOrganismsEditSleepT
                                         <Input id="end-time" type="time" name="end_time" defaultValue={familySleepTimeItem?.hour_end ?? ''}/>
                                     </div>
                                 </div>
+                                {
+                                    familySleepTimeItem && <AtomText type="content" text={`<span class="font-semibold">Set on</span> : ${familySleepTimeItem?.updated_at ? convertUTCToLocal(familySleepTimeItem?.updated_at) : convertUTCToLocal(familySleepTimeItem?.created_at ?? '')}`}/>
+                                }
                             </div>
                         )
                     }
                     <DialogFooter>
                         <DialogClose asChild>
-                            <Button variant="outline" className="bg-danger">Cancel</Button>
+                            <Button variant="outline" className="bg-danger" onClick={removeSleepTime}>Remove</Button>
                         </DialogClose>
                             <Button type="submit" className="bg-success">Save changes</Button>
                     </DialogFooter>

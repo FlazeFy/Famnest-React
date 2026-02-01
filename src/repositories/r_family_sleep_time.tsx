@@ -17,3 +17,9 @@ export const getFamilySleepTimeRepo = async (): Promise<FamilySleepTimeItem> => 
 
     return res.data.data
 }
+
+export const hardDeleteSleepTimeRepo = async (): Promise<string> => {
+    const res = await apiCall.delete(`${MODULE_URL}/`)
+
+    return res.data.message
+}

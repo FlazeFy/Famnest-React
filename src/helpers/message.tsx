@@ -7,3 +7,14 @@ export const consumeErrorAPI = (err: any) => {
         text: err?.response?.data?.message ?? "Something went wrong",
     })
 }
+
+export const loadingDialog = (context: string) => {
+    Swal.fire({
+        title: `${context}...`,
+        text: "Please wait",
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading()
+        }
+    })
+}
