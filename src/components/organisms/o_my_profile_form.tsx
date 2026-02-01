@@ -33,16 +33,14 @@ const OrganismsMyProfileForm: React.FunctionComponent<IOrganismsMyProfileFormPro
         }
 
         fetchMyProfile()
-    })
+    }, [])
 
     if (loading) return <Skeleton style={{height:"400px"}}/>
     if (error) return <MoleculesNotFoundBox title="No enough data to show" style={{height:"400px"}}/>
 
     let age: string = ''
 
-    if (profileItem?.born_at) {
-        age = calculateAgeYearsMonths(profileItem?.born_at)
-    }
+    if (profileItem?.born_at) age = calculateAgeYearsMonths(profileItem?.born_at)
     
     return (
         <div className='shadow-lg rounded-2xl p-10'>
