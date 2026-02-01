@@ -1,17 +1,24 @@
-import * as React from 'react'
+'use client'
+import React, { useState } from "react"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Button } from '../ui/button'
 
 interface IOrganismsConfirmationDeleteDialogProps {
     context: string
-    url: string
-    action?: any 
+    action: () => Promise<void>
     buttonTrigger: any
 }
 
-const OrganismsConfirmationDeleteDialog: React.FunctionComponent<IOrganismsConfirmationDeleteDialogProps> = ({context, url, action, buttonTrigger}) => {
+const OrganismsConfirmationDeleteDialog: React.FunctionComponent<IOrganismsConfirmationDeleteDialogProps> = ({context, action, buttonTrigger}) => {
+    const [open, setOpen] = useState(false)
+
+    const handleConfirm = async () => {
+        await action()
+        setOpen(false)
+    }
+
     return (
-        <Dialog>
+        <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>{buttonTrigger}</DialogTrigger>
             <DialogContent className="sm:max-w-[420px]">
                 <DialogHeader>
@@ -22,7 +29,7 @@ const OrganismsConfirmationDeleteDialog: React.FunctionComponent<IOrganismsConfi
                     <DialogClose asChild>
                         <Button variant="outline" className="bg-danger">Cancel</Button>
                     </DialogClose>
-                    <Button variant="outline" className="bg-success">Yes, Proceed</Button>
+                    <Button variant="outline" className="bg-success" onClick={handleConfirm}>Yes, Proceed</Button>
                 </DialogFooter>
             </DialogContent>
         </Dialog>

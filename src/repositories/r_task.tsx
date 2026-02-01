@@ -40,3 +40,9 @@ export const getIncomingTaskRepo = async (page: number): Promise<TaskItemWithMet
 
     return { data, meta }
 }
+
+export const hardDeleteTaskRepo = async (id: string): Promise<string> => {
+    const res = await apiCall.delete(`${MODULE_URL}/${id}`)
+
+    return res.data.message
+}
