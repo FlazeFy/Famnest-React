@@ -18,6 +18,16 @@ export const getFamilySleepTimeRepo = async (): Promise<FamilySleepTimeItem> => 
     return res.data.data
 }
 
+export interface FamilySleepTimePayload {
+    hour_start: string
+    hour_end: string
+}
+export const postFamilySleepTimeRepo = async (payload: FamilySleepTimePayload): Promise<string> => {
+    const res = await apiCall.post(`${MODULE_URL}/`, payload)
+    
+    return res.data.message
+}
+
 export const hardDeleteSleepTimeRepo = async (): Promise<string> => {
     const res = await apiCall.delete(`${MODULE_URL}/`)
 
