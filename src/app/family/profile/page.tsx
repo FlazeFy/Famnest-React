@@ -1,3 +1,4 @@
+import OrganismsFeedbackBox from "@/components/organisms/o_feedback_form"
 import { OrganismsHistory } from "@/components/organisms/o_list_history"
 import { OrganismsManageAccount } from "@/components/organisms/o_manage_account"
 import OrganismsMyProfileForm from "@/components/organisms/o_my_profile_form"
@@ -12,6 +13,7 @@ export default function ProfilePage() {
                 <div className="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-6">
                     <OrganismsManageAccount/>
                     <OrganismsHistory/>
+                    <OrganismsFeedbackBox/>
                 </div>
             </div>
         </div>

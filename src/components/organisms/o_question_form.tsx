@@ -80,9 +80,7 @@ const OrganismsQuestionBox: React.FunctionComponent<IOrganismsQuestionBoxProps> 
                                 )}
                             />
                             <Button type="submit" disabled={form.formState.isSubmitting}>
-                                {
-                                    form.formState.isSubmitting ? "Sending..." : "Send the Question"
-                                }
+                                { form.formState.isSubmitting ? "Sending..." : "Send the Question" }
                             </Button>
                         </form>
                     </Form>
