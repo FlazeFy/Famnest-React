@@ -4,15 +4,17 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge"
 import AtomText from '../atoms/a_text'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { numberFormat } from '@/helpers/math'
 import MoleculesNotFoundBox from '../molecules/m_not_found_box'
 import OrganismsConfirmationDeleteDialog from './o_confirmation_delete_dialog'
 import AtomButton from '../atoms/a_button'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import Skeleton from 'react-loading-skeleton'
-import { CashFlowItem, getAllCashFlowRepo } from '@/repositories/r_cash_flow'
+import { CashFlowItem, getAllCashFlowRepo, hardDeleteCashFlowRepo } from '@/repositories/r_cash_flow'
 import { PaginationMeta } from '@/repositories/template'
 import { convertUTCToLocal } from '@/helpers/converter'
+import { consumeErrorAPI, loadingDialog } from '@/helpers/message'
+import Swal from "sweetalert2"
+import useAuthStore from '@/store/s_auth'
 
 interface IOrganismsListMoneyFlowTableProps {}
 
@@ -22,6 +24,8 @@ const OrganismsListMoneyFlowTable: React.FunctionComponent<IOrganismsListMoneyFl
     const [error, setError] = useState<string | null>(null)
     const [loading, setLoading] = useState(true)
     const [meta, setMeta] = useState<PaginationMeta>()
+    // For checking the owner
+    const { name } = useAuthStore()
 
     useEffect(() => {
         fetchCashFlow()
@@ -39,6 +43,28 @@ const OrganismsListMoneyFlowTable: React.FunctionComponent<IOrganismsListMoneyFl
             setLoading(false)
         }
     }
+
+    const handleDeleteCashFlow = async (id: string) => {
+        loadingDialog("Deleting cash flow")
+
+        try {
+            const message = await hardDeleteCashFlowRepo(id)
+    
+            const result = await Swal.fire({
+                title: "Success",
+                text: message,
+                icon: "success",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+            })
+    
+            if (result.isConfirmed) fetchCashFlow()
+        } catch (err: any) {
+            await consumeErrorAPI(err)
+        } finally {
+            Swal.close()
+        }
+    }    
 
     if (loading) return <Skeleton style={{height:"400px"}}/>
     if (error) return <MoleculesNotFoundBox title="No enough data to show" style={{height:"400px"}}/>
@@ -86,7 +112,9 @@ const OrganismsListMoneyFlowTable: React.FunctionComponent<IOrganismsListMoneyFl
                                 <AtomText text={convertUTCToLocal(dt.created_at)} type='content'/>
                             </TableCell>
                             <TableCell>
-                                <OrganismsConfirmationDeleteDialog context={`${dt.flow_context} Cash Flow`} buttonTrigger={<AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash} height={15}/>}/>}/>
+                                {
+                                    dt.user.username === name && <OrganismsConfirmationDeleteDialog context={`${dt.flow_context} Cash Flow`} buttonTrigger={<AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash} height={15}/>}/>} action={() => handleDeleteCashFlow(dt.id)}/>
+                                }
                             </TableCell>
                         </TableRow>
                     ))

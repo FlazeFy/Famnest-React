@@ -44,3 +44,9 @@ export const getAllCashFlowRepo = async (page: number): Promise<CashFlowItemWith
 
     return { data, meta }
 }
+
+export const hardDeleteCashFlowRepo = async (id: string): Promise<string> => {
+    const res = await apiCall.delete(`${MODULE_URL}/${id}`)
+
+    return res.data.message
+}
