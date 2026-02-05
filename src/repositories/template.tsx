@@ -5,10 +5,9 @@ export interface PaginationMeta {
     total_page: number
 }
 
-interface FamilyMember {
-    family_relation: string 
-    user_id: string
-    user: UserSelectProps
+export interface StatsContextTotalProps {
+    context: string
+    total: number
 }
 
 export interface UserSelectProps {

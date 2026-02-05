@@ -1,5 +1,5 @@
 import apiCall from "@/configs/axios"
-import { PaginationMeta } from "./template"
+import { PaginationMeta, StatsContextTotalProps } from "./template"
 
 const MODULE_URL = "/api/v1/tasks"
 
@@ -39,6 +39,18 @@ export const getIncomingTaskRepo = async (page: number): Promise<TaskItemWithMet
     const { data, meta } = res.data
 
     return { data, meta }
+}
+
+export interface TotalDailyTask {
+    total: number
+    average: number
+    data: StatsContextTotalProps[]
+}
+export const getTotalDailyTask = async (date: string): Promise<TotalDailyTask> => {
+    const res = await apiCall.get(`${MODULE_URL}/total?current_date=${date}`)
+    const { data, total, average } = res.data
+
+    return { data, total, average }
 }
 
 export const hardDeleteTaskRepo = async (id: string): Promise<string> => {

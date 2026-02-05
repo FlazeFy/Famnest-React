@@ -63,49 +63,11 @@ export default function Home() {
     }
   ]
 
-  const pinnedChart = [
-    {
-      title : 'Total Daily Task For Last Week',
-      type : 'line',
-      data : [
-        { context: 'Monday', total: 12 },
-        { context: 'Tuesday', total: 18 },
-        { context: 'Wednesday', total: 11 },
-        { context: 'Thursday', total: 22 },
-        { context: 'Friday', total: 16 },
-        { context: 'Saturday', total: 25 },
-        { context: 'Sunday', total: 20 },
-      ] 
-    },
-    {
-      title : 'Total Daily Spend For Last Week',
-      type : 'line',
-      data : [
-        { context: 'Monday', total: 12 },
-        { context: 'Tuesday', total: 18 },
-        { context: 'Wednesday', total: 11 },
-        { context: 'Thursday', total: 22 },
-        { context: 'Friday', total: 16 },
-        { context: 'Saturday', total: 25 },
-        { context: 'Sunday', total: 20 },
-      ] 
-    },
-    {
-      title : 'Task Contribution',
-      type : 'pie',
-      data : [
-        { context: 'Robert', total: 12 },
-        { context: 'Leo', total: 18 },
-        { context: 'Budi', total: 11 },
-      ] 
-    }
-  ]
-
   const { email } = useAuthStore()
 
   return (
     <div className="flex flex-col bg-white min-h[100vh] p-5 lg:p-10">
-      <OrganismsWelcomeBox isSignedIn={email ? true : false} pinnedChartData={pinnedChart}/>
+      <OrganismsWelcomeBox isSignedIn={email ? true : false}/>
       <AtomSeparator/>
       <OrganismsUpcomingTask isSignedIn={email ? true : false} totalMember={3}/>
       <OrganismsFeatureBox feature={featureList}/>

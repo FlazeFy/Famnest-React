@@ -1,26 +1,78 @@
 "use client"
-import * as React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
 import OrganismsLineChart from './o_line_chart'
 import OrganismsPieChart from './o_pie_chart'
+import { getTotalDailyTask } from '@/repositories/r_task'
+
+interface IOrganismsPinnedChartBoxProps {}
 
 interface PinnedChartData {
     title: string
     data: any
-    type: string
+    type: 'line' | 'pie'
 }
 
-interface IOrganismsPinnedChartBoxProps {
-    pinnedChartData: PinnedChartData[]
-}
+const OrganismsPinnedChartBox: React.FunctionComponent<IOrganismsPinnedChartBoxProps> = () => {
+    const [api, setApi] = useState<CarouselApi>()
+    const [current, setCurrent] = useState(0)
+    const [count, setCount] = useState(0)
+    const [error, setError] = useState<string | null>(null)
+    const [pinnedChart, setPinnedChart] = useState<PinnedChartData[]>([
+        {
+            title: 'Total Daily Task For Last Week',
+            type: 'line',
+            data: []
+        },
+        {
+            title: 'Total Daily Spend For Last Week',
+            type: 'line',
+            data: [
+                { context: 'Monday', total: 12 },
+                { context: 'Tuesday', total: 18 },
+                { context: 'Wednesday', total: 11 },
+                { context: 'Thursday', total: 22 },
+                { context: 'Friday', total: 16 },
+                { context: 'Saturday', total: 25 },
+                { context: 'Sunday', total: 20 },
+            ]
+        },
+        {
+            title: 'Task Contribution',
+            type: 'pie',
+            data: [
+                { context: 'Robert', total: 12 },
+                { context: 'Leo', total: 18 },
+                { context: 'Budi', total: 11 },
+            ]
+        }
+    ])
 
-const OrganismsPinnedChartBox: React.FunctionComponent<IOrganismsPinnedChartBoxProps> = ({pinnedChartData}) => {
-    const [api, setApi] = React.useState<CarouselApi>()
-    const [current, setCurrent] = React.useState(0)
-    const [count, setCount] = React.useState(0)
-    React.useEffect(() => {
+    useEffect(() => {
+        fetchTotalDailyTask()
+    }, [])
+
+    const fetchTotalDailyTask = async () => {
+        try {
+            const today = new Date().toISOString().slice(0, 10)
+            const result = await getTotalDailyTask(today)
+        
+            setPinnedChart(prev => {
+                const updated = [...prev]
+                updated[0] = {
+                    ...updated[0],
+                    data: [...result.data].reverse()
+                }
+                return updated
+            })
+        } catch (err: any) {
+            setError(err?.response?.data?.message || "Something went wrong")
+        }
+    }
+
+    useEffect(() => {
         if (!api) {
             return
         }
@@ -40,7 +92,7 @@ const OrganismsPinnedChartBox: React.FunctionComponent<IOrganismsPinnedChartBoxP
                 ]} className="w-full rounded-2xl p-5 pb-10 bg-primary text-white">
                 <CarouselContent className="w-full">
                     {
-                        pinnedChartData.map((dt: any, idx: number) => (
+                        pinnedChart.map((dt: any, idx: number) => (
                             <CarouselItem className="w-full h-85" key={idx}>
                                 <div className="w-full h-full">
                                     <CardContent>
