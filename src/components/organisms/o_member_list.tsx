@@ -3,9 +3,9 @@ import { FamilyMemberItem, getAllFamilyMember } from '@/repositories/r_family_me
 import React, { useEffect, useState } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import AtomText from '../atoms/a_text'
-import MoleculesFamilyMemberBox from '../molecules/m_family_member_box'
 import MoleculesNotFoundBox from '../molecules/m_not_found_box'
 import { Input } from '../ui/input'
+import OrganismsFamilyMemberDetaillDialog from './o_family_member_detail_dialog'
 
 interface IOrganismsMemberListProps {}
 
@@ -62,7 +62,7 @@ const OrganismsMemberList: React.FunctionComponent<IOrganismsMemberListProps> = 
                         ) : (
                             familyMemberItem.map((dt, idx) => (
                                 <div key={idx} className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 p-2 pb-10">
-                                    <MoleculesFamilyMemberBox {...dt}/>
+                                    <OrganismsFamilyMemberDetaillDialog member={dt}/>
                                 </div>
                             ))
                         )

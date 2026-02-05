@@ -5,10 +5,14 @@ const MODULE_URL = "/api/v1/family_members"
 interface UserFamilyMemberProps {
     id: string 
     username: string 
+    email: string
     fullname: string 
     born_at: string 
     gender: string
     profile_image: string | null
+    bio: string | null
+    created_at: string 
+    updated_at: string | null
 }
 export interface FamilyMemberItem {
     id: string
