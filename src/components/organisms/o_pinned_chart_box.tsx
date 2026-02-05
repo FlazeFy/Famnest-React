@@ -6,6 +6,8 @@ import Autoplay from "embla-carousel-autoplay"
 import OrganismsLineChart from './o_line_chart'
 import OrganismsPieChart from './o_pie_chart'
 import { getTotalDailyTask } from '@/repositories/r_task'
+import { getTotalDailyCashFlow } from '@/repositories/r_cash_flow'
+import { runWithDelayQueue } from '@/helpers/execution'
 
 interface IOrganismsPinnedChartBoxProps {}
 
@@ -29,15 +31,7 @@ const OrganismsPinnedChartBox: React.FunctionComponent<IOrganismsPinnedChartBoxP
         {
             title: 'Total Daily Spend For Last Week',
             type: 'line',
-            data: [
-                { context: 'Monday', total: 12 },
-                { context: 'Tuesday', total: 18 },
-                { context: 'Wednesday', total: 11 },
-                { context: 'Thursday', total: 22 },
-                { context: 'Friday', total: 16 },
-                { context: 'Saturday', total: 25 },
-                { context: 'Sunday', total: 20 },
-            ]
+            data: []
         },
         {
             title: 'Task Contribution',
@@ -51,7 +45,10 @@ const OrganismsPinnedChartBox: React.FunctionComponent<IOrganismsPinnedChartBoxP
     ])
 
     useEffect(() => {
-        fetchTotalDailyTask()
+        runWithDelayQueue(1500, [
+            fetchTotalDailyTask,
+            fetchTotalDailyCashFlow
+        ])
     }, [])
 
     const fetchTotalDailyTask = async () => {
@@ -72,14 +69,30 @@ const OrganismsPinnedChartBox: React.FunctionComponent<IOrganismsPinnedChartBoxP
         }
     }
 
-    useEffect(() => {
-        if (!api) {
-            return
+    const fetchTotalDailyCashFlow = async () => {
+        try {
+            const today = new Date().toISOString().slice(0, 10)
+            const result = await getTotalDailyCashFlow(today)
+        
+            setPinnedChart(prev => {
+                const updated = [...prev]
+                updated[1] = {
+                    ...updated[1],
+                    data: [...result.data].reverse()
+                }
+                return updated
+            })
+        } catch (err: any) {
+            setError(err?.response?.data?.message || "Something went wrong")
         }
+    }
+
+    useEffect(() => {
+        if (!api) return
         setCount(api.scrollSnapList().length)
         setCurrent(api.selectedScrollSnap() + 1)
         api.on("select", () => {
-        setCurrent(api.selectedScrollSnap() + 1)
+            setCurrent(api.selectedScrollSnap() + 1)
         })
     }, [api])
     

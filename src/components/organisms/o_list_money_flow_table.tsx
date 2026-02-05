@@ -58,7 +58,7 @@ const OrganismsListMoneyFlowTable: React.FunctionComponent<IOrganismsListMoneyFl
                                 <AtomText text={dt.createdAt} type='content'/>
                             </TableCell>
                             <TableCell>
-                                <OrganismsConfirmationDeleteDialog context={`${dt.title} Money Flow`} buttonTrigger={<AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash} height={15}/>}/>} url='/'/>
+                                <OrganismsConfirmationDeleteDialog context={`${dt.title} Cash Flow`} buttonTrigger={<AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash} height={15}/>}/>} url='/'/>
                             </TableCell>
                         </TableRow>
                     ))

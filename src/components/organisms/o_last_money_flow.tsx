@@ -18,14 +18,14 @@ const OrganismsLastMoneyFlow: React.FunctionComponent<IOrganismsLastMoneyFlowPro
 
     return (
         <div>
-            <AtomText type="sub-title" text="Here's some list of you and your family money flow" />
+            <AtomText type="sub-title" text="Here's some list of you and your family cash flow" />
             <div className="flex flex-wrap w-full mt-5">
                 <div className="w-full md:w-1/2 flex mb-5 gap-2">
                     <AtomButton type='btn-primary' extraClass='border-2 border-white' text={<span className="flex gap-2"><FontAwesomeIcon icon={faMinus} height={20} width={20}/> {totalSpending}</span>}/>
                     <AtomButton type='btn-primary' extraClass='border-2 border-white' text={<span className="flex gap-2"><FontAwesomeIcon icon={faPlus} height={20} width={20}/> {totalIncome}</span>}/>
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col">
-                    <Input type="text" placeholder="Search money flow..." />
+                    <Input type="text" placeholder="Search cash flow..." />
                 </div>
             </div>
             <div className='mt-5 items-end text-start'>

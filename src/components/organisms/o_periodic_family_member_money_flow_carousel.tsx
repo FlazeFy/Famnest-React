@@ -30,7 +30,7 @@ const OrganismsPeriodicFamilyMemberMoneyFlowCarousel: React.FunctionComponent<IO
                     Autoplay({ delay: 7500 }),
                 ]}
                 className="w-full min-h-[85vh]">
-                <AtomText type="sub-title" text="Here's the data visualization from your money flow" extraClass='mb-5'/>
+                <AtomText type="sub-title" text="Here's the data visualization from your cash flow" extraClass='mb-5'/>
                 <CarouselContent>
                     <CarouselItem>
                         <CardContent>

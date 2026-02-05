@@ -135,7 +135,7 @@ export const memberNeedAttentionItem = [
     },
 ]
 
-// Money Flow
+// Cash Flow
 export const lastMoneyItem = [
     {
         title: 'Grocery Shopping',

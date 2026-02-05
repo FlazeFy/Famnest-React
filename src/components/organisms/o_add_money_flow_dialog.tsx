@@ -17,14 +17,14 @@ const OrganismsAddMoneyFlowDialog: React.FunctionComponent<IOrganismsAddMoneyFlo
         <Dialog>
             <DialogTrigger asChild>
                 <div className='flex flex-col justify-center text-center bg-cover rounded-b-4xl md:rounded-r-4xl md:rounded-none p-10 lg:p-15 cursor-pointer btn-image' style={{backgroundImage:"linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/background/background-5.jpg')"}}>
-                    <AtomText type='sub-title' text='Add Money Flow' />
+                    <AtomText type='sub-title' text='Add Cash Flow' />
                     <hr className='my-5'/>
                     <AtomText type='content-title' text='Set your daily spending and income' />
                 </div>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[1080px]">
                 <DialogHeader>
-                    <DialogTitle>Add A Money Flow</DialogTitle>
+                    <DialogTitle>Add A Cash Flow</DialogTitle>
                     <DialogDescription>This feature can also guide you when it comes to defining your spending priorities.</DialogDescription>
                 </DialogHeader>
                 <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4">
