@@ -11,6 +11,7 @@ export interface StatsContextTotalProps {
 }
 
 export interface UserSelectProps {
+    id: string
     username: string 
     fullname: string
 }

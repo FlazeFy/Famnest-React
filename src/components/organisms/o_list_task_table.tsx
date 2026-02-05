@@ -14,6 +14,7 @@ import Skeleton from 'react-loading-skeleton'
 import MoleculesNotFoundBox from '../molecules/m_not_found_box'
 import { consumeErrorAPI, loadingDialog } from '@/helpers/message'
 import Swal from "sweetalert2"
+import { convertUTCToLocal } from '@/helpers/converter'
 
 interface IOrganismsListTaskTableProps {}
 
@@ -88,23 +89,11 @@ const OrganismsListTaskTable: React.FunctionComponent<IOrganismsListTaskTablePro
                             <TableCell>
                                 <AtomText text={`<b>Start Date</b>`} type='content'/>
                                 {
-                                    dt.start_date ? new Date(dt.start_date).toLocaleString("en-US", {
-                                        day: "2-digit",
-                                        month: "short",
-                                        year: "numeric",
-                                        hour: "2-digit",
-                                        minute: "2-digit",
-                                    }) : <AtomText text='<i>- Start date has not been set yet -</i>' type='content'/>
+                                    dt.start_date ? convertUTCToLocal(dt.start_date) : <AtomText text='<i>- Start date has not been set yet -</i>' type='content'/>
                                 }
                                 <AtomText text={`<b>Due Date</b>`} type='content'/>
                                 {
-                                    dt.due_date ? new Date(dt.due_date).toLocaleString("en-US", {
-                                        day: "2-digit",
-                                        month: "short",
-                                        year: "numeric",
-                                        hour: "2-digit",
-                                        minute: "2-digit",
-                                    }) : <AtomText text='<i>- Due date has not been set yet -</i>' type='content'/>
+                                    dt.due_date ? convertUTCToLocal(dt.due_date) : <AtomText text='<i>- Due date has not been set yet -</i>' type='content'/>
                                 }
                             </TableCell>
                             <TableCell>
