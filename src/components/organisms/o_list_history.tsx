@@ -12,6 +12,7 @@ import OrganismsConfirmationDeleteDialog from './o_confirmation_delete_dialog'
 import AtomButton from '../atoms/a_button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { OrganismsExportDataset } from './o_export_dataset'
 
 interface IOrganismsHistoryProps {}
 
@@ -66,7 +67,10 @@ export const OrganismsHistory: React.FunctionComponent<IOrganismsHistoryProps> =
 
     return (
         <div className='shadow-lg rounded-2xl p-10'>
-            <AtomText type='sub-title' text='History'/>
+            <div className='flex flex-wrap gap-2 justify-between'>
+                <AtomText type='sub-title' text='History'/>
+                <OrganismsExportDataset context='histories'/>
+            </div>
             <hr className='my-5'/>
             {
                 historyItem.map((dt, idx) => 
