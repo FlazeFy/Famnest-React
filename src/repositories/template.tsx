@@ -15,3 +15,8 @@ export interface UserSelectProps {
     username: string 
     fullname: string
 }
+
+export interface SeriesData {
+    name: string
+    data: number[]
+}

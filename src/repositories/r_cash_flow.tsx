@@ -1,5 +1,5 @@
 import apiCall from "@/configs/axios"
-import { PaginationMeta, StatsContextTotalProps, UserSelectProps } from "./template"
+import { PaginationMeta, SeriesData, StatsContextTotalProps, UserSelectProps } from "./template"
 
 const MODULE_URL = "/api/v1/cash_flows"
 
@@ -15,13 +15,6 @@ export const getTotalDailyCashFlow = async (date: string): Promise<TotalDailyCas
     return { data, total, average }
 }
 
-export interface CashFlowAssign {
-    assign_desc: string | null 
-    assignee: {
-        username: string
-        role: string
-    }
-}
 export interface CashFlowItem {
     id: string
     flow_type: string
@@ -49,4 +42,24 @@ export const hardDeleteCashFlowRepo = async (id: string): Promise<string> => {
     const res = await apiCall.delete(`${MODULE_URL}/${id}`)
 
     return res.data.message
+}
+
+export interface CashFlowChartData {
+    categories: string[]
+    series: SeriesData[]
+}
+export interface CashFlowComparisonItem {
+    context: 'income' | 'spending'
+    total: number
+}
+export interface CashFlowByCategoryResponse {
+    spending: CashFlowChartData
+    income: CashFlowChartData
+    comparison: CashFlowComparisonItem[]
+}
+export const getTotalCashFlowPerCategoryRepo = async (): Promise<CashFlowByCategoryResponse> => {
+    const res = await apiCall.get(`${MODULE_URL}/by_category`)
+    const { data } = res.data
+
+    return data
 }

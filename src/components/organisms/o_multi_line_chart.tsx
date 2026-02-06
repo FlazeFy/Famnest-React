@@ -2,12 +2,8 @@
 import * as React from 'react'
 import dynamic from "next/dynamic"
 import AtomText from '../atoms/a_text'
+import { SeriesData } from '@/repositories/template'
 const ReactApexChart = dynamic(() => import("react-apexcharts"), { ssr: false })
-
-interface SeriesData {
-    name: string
-    data: number[]
-}
 
 interface IOrganismsMultiLineChartProps {
     categories: string[]
