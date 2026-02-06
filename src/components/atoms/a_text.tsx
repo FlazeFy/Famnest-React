@@ -16,7 +16,7 @@ const AtomText: React.FC<AtomText> = ({ type, text, extraClass }) => {
     } else if (type === 'content-title') {
         return <h4 className={extraClass}>{text}</h4>
     } else if (type === 'content') {
-        return <p className={extraClass} dangerouslySetInnerHTML={{ __html: text }}/>
+        return typeof text === "string" ? <p className={extraClass} dangerouslySetInnerHTML={{ __html: text }} /> : <p className={extraClass}>{text}</p>
     } else if (type === 'no-content') {
         return <p className={`italic text-secondary ${extraClass}`} style={{fontSize:"var(--textSM)"}} dangerouslySetInnerHTML={{ __html: text }}/>
     } else if (type === 'sub-content') {

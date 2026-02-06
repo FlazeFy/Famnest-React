@@ -16,12 +16,14 @@ const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
 interface IOrganismsMealScheduleCarouselProps { }
 
 const OrganismsMealScheduleCarousel: React.FunctionComponent<IOrganismsMealScheduleCarouselProps> = () => {
-    const [api, setApi] = useState<CarouselApi>()
-    const [current, setCurrent] = useState(0)
-    const [count, setCount] = useState(0)
+    // For retrive value from repo
     const [mealItem, setMealItem] = useState<MealItem[]>([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
+    // For carousel
+    const [api, setApi] = useState<CarouselApi>()
+    const [current, setCurrent] = useState(0)
+    const [count, setCount] = useState(0)
 
     useEffect(() => {
         fetchMeal()

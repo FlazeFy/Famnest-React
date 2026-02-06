@@ -6,6 +6,7 @@ import MoleculesFamilyMemberBox from "../molecules/m_family_member_box"
 import AtomText from "../atoms/a_text"
 import { convertUTCToLocal } from "@/helpers/converter"
 import AtomButton from "../atoms/a_button"
+import OrganismsFamilyMemberDashboard from "./o_family_member_dashboard"
 
 interface IOrganismsFamilyMemberDetailDialogProps {
     member: FamilyMemberItem
@@ -30,7 +31,7 @@ const OrganismsFamilyMemberDetaillDialog: React.FunctionComponent<IOrganismsFami
                     <div className="col-span-12 md:col-span-4 lg:col-span-3 flex justify-center items-center">
                         <img src={member.user.profile_image ?? '/mock/no_pic.png'} alt={member.user.fullname} className="w-50 h-50 rounded-full object-cover -mt-15 border-4 border-white shadow-md mx-auto bg-white"/>
                     </div>
-                    <div className="col-span-12 md:col-span-3 lg:col-span-4">
+                    <div className="col-span-12 md:col-span-3 lg:col-span-3">
                         <AtomText text="Fullname" type="content-title"/>
                         <AtomText text={member.user.fullname} type="content" extraClass="mb-2"/>
                         <AtomText text="Email" type="content-title"/>
@@ -44,8 +45,8 @@ const OrganismsFamilyMemberDetaillDialog: React.FunctionComponent<IOrganismsFami
                         <AtomText text="Updated At" type="content-title"/>
                         { member.user.updated_at && <AtomText text={convertUTCToLocal(member.user.updated_at)} type="content" extraClass="mb-2"/>}
                     </div>
-                    <div className="col-span-12 md:col-span-5 lg:col-span-5">
-                        
+                    <div className="col-span-12 md:col-span-5 lg:col-span-6">
+                        <OrganismsFamilyMemberDashboard/>
                     </div>
                 </div>
                 <DialogFooter>

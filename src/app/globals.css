@@ -156,6 +156,9 @@ p {
   padding: var(--spaceLG);
   background: var(--greyColor);
 }
+.dashbox.small {
+  padding: var(--spaceXMD);
+}
  
 .moneybox, .taskbox {
   position: relative;
