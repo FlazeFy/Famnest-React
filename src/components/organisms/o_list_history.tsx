@@ -16,7 +16,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons'
 interface IOrganismsHistoryProps {}
 
 export const OrganismsHistory: React.FunctionComponent<IOrganismsHistoryProps> = () => {
-    // For fetching repo
+    // For retrive value from repo
     const [historyItem, setHistoryItem] = useState<HistoryItem[]>([])
     const [error, setError] = useState<string | null>(null)
     const [loading, setLoading] = useState(true)

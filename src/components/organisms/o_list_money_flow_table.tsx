@@ -19,7 +19,7 @@ import useAuthStore from '@/store/s_auth'
 interface IOrganismsListMoneyFlowTableProps {}
 
 const OrganismsListMoneyFlowTable: React.FunctionComponent<IOrganismsListMoneyFlowTableProps> = () => {
-    // For fetching repo
+    // For retrive value from repo
     const [cashFlowItem, setCashFlowItem] = useState<CashFlowItem[]>([])
     const [error, setError] = useState<string | null>(null)
     const [loading, setLoading] = useState(true)

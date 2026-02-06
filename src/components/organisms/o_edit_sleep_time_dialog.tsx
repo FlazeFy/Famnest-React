@@ -16,7 +16,7 @@ import { consumeErrorAPI, loadingDialog } from "@/helpers/message"
 interface IOrganismsEditSleepTimeDialogProps {}
 
 const OrganismsEditSleepTimeDialog: React.FunctionComponent<IOrganismsEditSleepTimeDialogProps> = (props) => {
-    // For fetching repo
+    // For retrive value from repo
     const [open, setOpen] = useState(false)
     const [familySleepTimeItem, setFamilyMemberItem] = useState<FamilySleepTimeItem>()
     const [loading, setLoading] = useState(true)

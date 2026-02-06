@@ -19,7 +19,7 @@ import { convertUTCToLocal } from '@/helpers/converter'
 interface IOrganismsListTaskTableProps {}
 
 const OrganismsListTaskTable: React.FunctionComponent<IOrganismsListTaskTableProps> = () => {
-    // For fetching repo
+    // For retrive value from repo
     const [taskItem, setTaskItem] = useState<TaskItem[]>([])
     const [error, setError] = useState<string | null>(null)
     const [loading, setLoading] = useState(true)

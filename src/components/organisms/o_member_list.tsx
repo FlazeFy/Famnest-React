@@ -10,28 +10,37 @@ import OrganismsFamilyMemberDetaillDialog from './o_family_member_detail_dialog'
 interface IOrganismsMemberListProps {}
 
 const OrganismsMemberList: React.FunctionComponent<IOrganismsMemberListProps> = () => {
+    // For retrive value from repo
     const [familyMemberItem, setFamilyMemberItem] = useState<FamilyMemberItem[]>([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
+    // For state management
+    const [search, setSearch] = useState<string>("")
 
     useEffect(() => {
-        const fetchFamilyMember = async () => {
-            try {
-                const data = await getAllFamilyMember()
-                setFamilyMemberItem(data)
-            } catch (err: any) {
-                if (err.response?.status === 404 && err.response?.data?.message) {
-                    return []
-                }
-                
-                setError(err?.response?.data?.message || "Something went wrong")
-            } finally {
-                setLoading(false)
-            }
-        }
-
-        fetchFamilyMember()
+        fetchFamilyMember(null)
     }, [])
+
+    const fetchFamilyMember = async (search: string | null) => {
+        setLoading(true)
+        try {
+            const data = await getAllFamilyMember(search)
+            setFamilyMemberItem(data)
+        } catch (err: any) {
+            if (err.response?.status === 404 && err.response?.data?.message) {
+                setFamilyMemberItem([])
+                return []
+            }
+            
+            setError(err?.response?.data?.message || "Something went wrong")
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        fetchFamilyMember(search.length > 0 ? search : null)
+    }
 
     if (loading) return <Skeleton style={{height:"400px"}}/>
     if (error) return <MoleculesNotFoundBox title="No enough data to show" style={{height:"400px"}}/>
@@ -52,7 +61,7 @@ const OrganismsMemberList: React.FunctionComponent<IOrganismsMemberListProps> = 
 
                     </div>
                     <div className="w-full md:w-1/2 flex flex-col">
-                        <Input type="text" placeholder="Search family member..." />
+                        <Input type="text" placeholder="Search family member by username, fullname, email, or relation" value={search} onChange={(e) => setSearch(e.target.value)} onBlur={handleSearch}/>
                     </div>
                 </div>
                 <div className='mt-15 flex flex-wrap'>
