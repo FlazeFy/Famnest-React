@@ -5,11 +5,11 @@ import { Label } from "@/components/ui/label"
 import { familyRecommendedMealPrepared } from "@/helpers/dummy"
 import { faPlus } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import * as React from 'react'
+import { useState } from 'react'
 import { AtomBreakline } from "../atoms/a_breakline"
-import MoleculesMultipleComboxBox from "../molecules/m_multiple_combobox"
 import { Textarea } from "../ui/textarea"
 import OrganismsRecommendedFamilyMemberMealPrepList from "./o_recommended_family_member_meal_prep_list"
+import MoleculesSelectFamilyMember from "../molecules/m_select_family_member"
 
 interface IOrganismsAddMealDialogProps {
     time: string
@@ -17,6 +17,8 @@ interface IOrganismsAddMealDialogProps {
 }
 
 const OrganismsAddMealDialog: React.FunctionComponent<IOrganismsAddMealDialogProps> = ({ time, dayName }) => {
+    const [selectedFamilyIds, setSelectedFamilyIds] = useState<string[]>([])
+
     return (
         <Dialog>
             <DialogTrigger asChild>
@@ -44,13 +46,7 @@ const OrganismsAddMealDialog: React.FunctionComponent<IOrganismsAddMealDialogPro
                             <Input id="meal_name" type="text" name="meal_name" />
                             <Label htmlFor="meal_desc">Description</Label>
                             <Textarea id="meal_desc" name="meal_desc"></Textarea>
-                            <Label htmlFor="meal_prepare_by">Prepare By</Label>
-                            <MoleculesMultipleComboxBox context="Family Member" options={[
-                                { title: "Jhon <b>(Dad)</b>", value:"1" },
-                                { title: "You", value:"2" },
-                                { title: "Clarisa <b>(Mom)</b>", value:"3" },
-                                { title: "Bob <b>(Brother)</b>", value:"4" },
-                            ]}/>
+                            <MoleculesSelectFamilyMember selectedId={selectedFamilyIds} onChange={setSelectedFamilyIds} title={"Prepare By"}/>
                         </div>
                     </div>
                     <div className="col-span-12 sm:col-span-12 md:col-span-6 lg:col-span-6">

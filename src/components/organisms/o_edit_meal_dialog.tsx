@@ -4,14 +4,15 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import * as React from 'react'
-import MoleculesMultipleComboxBox from "../molecules/m_multiple_combobox"
+import { useState } from 'react'
 import { Textarea } from "../ui/textarea"
 import { MealItem } from "@/helpers/variable"
-import { isInclude } from "@/helpers/converter"
 import { AtomBreakline } from "../atoms/a_breakline"
+import MoleculesSelectFamilyMember from "../molecules/m_select_family_member"
 
 const OrganismsEditMealDialog: React.FunctionComponent<MealItem> = ({ mealTime, mealDay, mealName, mealPrepareBy, mealDesc }) => {
+    const [selectedFamilyIds, setSelectedFamilyIds] = useState<string[]>([])
+
     return (
         <Dialog>
             <DialogTrigger asChild>
@@ -37,13 +38,7 @@ const OrganismsEditMealDialog: React.FunctionComponent<MealItem> = ({ mealTime, 
                     <Input id="meal_name" type="text" name="meal_name" defaultValue={mealName}/>
                     <Label htmlFor="meal_desc">Description</Label>
                     <Textarea id="meal_desc" name="meal_desc" defaultValue={mealDesc}></Textarea>
-                    <Label htmlFor="meal_prepare_by">Prepare By</Label>
-                    <MoleculesMultipleComboxBox context="Family Member" options={[
-                        { title: "Jhon <b>(Dad)</b>", value:"1", checked: isInclude(mealPrepareBy, "Jhon")},
-                        { title: "You", value:"2", checked: isInclude(mealPrepareBy, "You")},
-                        { title: "Clarisa <b>(Mom)</b>", value:"3", checked: isInclude(mealPrepareBy, "Clarisa") },
-                        { title: "Bob <b>(Brother)</b>", value:"4", checked: isInclude(mealPrepareBy, "Bob") },
-                    ]}/>
+                    <MoleculesSelectFamilyMember selectedId={selectedFamilyIds} onChange={setSelectedFamilyIds} title={"Prepare By"}/>
                 </div>
                 <DialogFooter>
                     <DialogClose asChild>
