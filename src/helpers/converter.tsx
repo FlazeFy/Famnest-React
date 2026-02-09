@@ -12,16 +12,19 @@ export const isInclude = ( arr: (string | Record<string, any>)[], target: string
     })
 }
 
-export const convertUTCToLocal = (utcISOString: string): string => {
+export const convertUTCToLocal = (utcISOString: string, isWithHour: boolean = true): string => {
     const date = new Date(utcISOString)
-
     const day = String(date.getDate()).padStart(2, "0")
     const month = date.toLocaleString("en-US", { month: "short" })
     const year = date.getFullYear()
-    const hours = String(date.getHours()).padStart(2, "0")
-    const minutes = String(date.getMinutes()).padStart(2, "0")
 
-    return `${day} ${month} ${year} ${hours}:${minutes}`
+    if (isWithHour) {
+        const hours = String(date.getHours()).padStart(2, "0")
+        const minutes = String(date.getMinutes()).padStart(2, "0")
+        return `${day} ${month} ${year} ${hours}:${minutes}`
+    }
+
+    return `${day} ${month} ${year}`
 }
 
 export const convertUTCToLocalDateInput = (utcISOString: string): string => {
