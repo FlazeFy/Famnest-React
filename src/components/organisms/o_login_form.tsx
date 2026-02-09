@@ -51,7 +51,7 @@ const OrganismsLoginForm: React.FunctionComponent<IOrganismsLoginFormProps> = (p
                 // Store local data
                 localStorage.setItem('token_key', res.token)
                 onLoginStore({ email: res.email, name: res.name, role: res.role })
-                onFamilyStore({ family_name: res.family.family_name, family_member: res.family.family_member })
+                onFamilyStore(res.family)
 
                 // Navigate
                 router.push("/")

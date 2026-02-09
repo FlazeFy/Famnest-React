@@ -20,7 +20,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }: AuthProv
 
         // Store global state data
         onLoginStore({ name: res.name, email: res.email, role: res.role })
-        onFamilyStore({ family_name: res.family.family_name, family_member: res.family.family_member })
+        onFamilyStore(res.family)
       })
       .catch(() => {
         onLogOutStore()

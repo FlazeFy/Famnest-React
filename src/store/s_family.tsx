@@ -1,23 +1,16 @@
-import { FamilyProps } from "@/repositories/template"
+import { FamilyEntity } from "@/repositories/template"
 import { create } from "zustand"
 
-interface IFamilyStore extends FamilyProps {
-    onFamilyStore: (data: Partial<IFamilyStore>) => void 
-    onLogOutStore: () => void
+interface IFamilyStore {
+    family: FamilyEntity | null
+    onFamilyStore: (family: FamilyEntity) => void
+    onFamilyClear: () => void
 }
 
 const useFamilyStore = create<IFamilyStore>((set) => ({
-    family_name: "", family_member: null,
-    onFamilyStore: (data) => {
-        set(() => ({
-            ...data,
-        }))
-    },
-    onLogOutStore: () => {
-        set(() => ({
-            family_name: "", family_member: null,
-        }))
-    },
+    family: null,
+    onFamilyStore: (family) => set({ family }),
+    onFamilyClear: () => set({ family: null }),
 }))
 
 export default useFamilyStore
