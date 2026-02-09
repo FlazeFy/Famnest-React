@@ -60,7 +60,7 @@ const OrganismsMealScheduleCarousel: React.FunctionComponent<IOrganismsMealSched
                         <AtomText type="sub-title" text="Here's the weekly schedule for your meal"/>
                     </div>
                     <div>
-                        <OrganismsLastMealBox mealItem={mealItem.slice(0,3)}/>
+                        <OrganismsLastMealBox/>
                     </div>
                 </div>
                 <CarouselContent>

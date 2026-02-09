@@ -10,17 +10,73 @@ import { AtomBreakline } from "../atoms/a_breakline"
 import { Textarea } from "../ui/textarea"
 import OrganismsRecommendedFamilyMemberMealPrepList from "./o_recommended_family_member_meal_prep_list"
 import MoleculesSelectFamilyMember from "../molecules/m_select_family_member"
+import { createMealRepo } from "@/repositories/r_meal"
+import * as Yup from "yup"
+import Swal from "sweetalert2"
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import { consumeErrorAPI, loadingDialog } from "@/helpers/message"
+
+const createMealSchema = Yup.object({
+    meal_name: Yup.string().required(),
+    meal_desc: Yup.string().nullable().defined(),
+})
+
+type CreateMealFormValues = Yup.InferType<typeof createMealSchema>
 
 interface IOrganismsAddMealDialogProps {
     time: string
     dayName: string
+    fetchMeal: () => Promise<void>
 }
 
-const OrganismsAddMealDialog: React.FunctionComponent<IOrganismsAddMealDialogProps> = ({ time, dayName }) => {
+const OrganismsAddMealDialog: React.FunctionComponent<IOrganismsAddMealDialogProps> = ({ time, dayName, fetchMeal }) => {
+    // For validator
+    const form = useForm<CreateMealFormValues>({
+        resolver: yupResolver(createMealSchema),
+        defaultValues: { meal_name: "", meal_desc: null },
+    })
+    // For sending data to repo
     const [selectedFamilyIds, setSelectedFamilyIds] = useState<string[]>([])
+    // For state management
+    const [open, setOpen] = useState(false)
+
+    const onSubmit = async (values: CreateMealFormValues) => {
+        loadingDialog("Creating meal")
+
+        try {            
+            const message = await createMealRepo({
+                meal_name: values.meal_name,
+                meal_desc: values.meal_desc,
+                meal_day: dayName,
+                meal_time: time,
+                meal_prepare_by: selectedFamilyIds,
+            })
+            setOpen(false)
+            Swal.close()
+        
+            const result = await Swal.fire({
+                title: "Success",
+                text: message,
+                icon: "success",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+            })
+    
+            if (result.isConfirmed) {
+                await fetchMeal()
+                form.reset()
+                setSelectedFamilyIds([])
+            }
+        } catch (err:any) {
+            setOpen(false)
+            Swal.close()
+            await consumeErrorAPI(err)
+        }
+    }
 
     return (
-        <Dialog>
+        <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
                 <Button variant="outline" className="bg-primary"><FontAwesomeIcon icon={faPlus}/> Add Meal</Button>
             </DialogTrigger>
@@ -43,9 +99,9 @@ const OrganismsAddMealDialog: React.FunctionComponent<IOrganismsAddMealDialogPro
                                 </div>
                             </div>
                             <Label htmlFor="meal_name">Meal Name</Label>
-                            <Input id="meal_name" type="text" name="meal_name" />
+                            <Input id="meal_name" type="text" {...form.register("meal_name")}/>
                             <Label htmlFor="meal_desc">Description</Label>
-                            <Textarea id="meal_desc" name="meal_desc"></Textarea>
+                            <Textarea id="meal_desc" {...form.register("meal_desc")}></Textarea>
                             <MoleculesSelectFamilyMember selectedId={selectedFamilyIds} onChange={setSelectedFamilyIds} title={"Prepare By"}/>
                         </div>
                     </div>
@@ -57,7 +113,7 @@ const OrganismsAddMealDialog: React.FunctionComponent<IOrganismsAddMealDialogPro
                     <DialogClose asChild>
                         <Button variant="outline" className="bg-danger">Cancel</Button>
                     </DialogClose>
-                        <Button type="submit" className="bg-success">Save</Button>
+                        <Button type="submit" className="bg-success" onClick={form.handleSubmit(onSubmit)}>Save</Button>
                 </DialogFooter>
             </DialogContent>
         </Dialog>

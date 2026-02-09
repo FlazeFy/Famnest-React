@@ -22,3 +22,16 @@ export const hardDeleteMealRepo = async (id: string): Promise<string> => {
 
     return res.data.message
 }
+
+export interface CreateMealRequestPayload {
+    meal_name: string
+    meal_desc?: string | null
+    meal_day: string
+    meal_time: string
+    meal_prepare_by: string[]
+}
+export const createMealRepo = async (payload: CreateMealRequestPayload): Promise<string> => {
+    const res = await apiCall.post(`${MODULE_URL}/`, payload)
+
+    return res.data.message
+}

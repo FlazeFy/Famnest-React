@@ -86,7 +86,7 @@ const OrganismsManageMealByTimeDayDialog: React.FunctionComponent<IOrganismsMana
                     }
                 </div>
                 <DialogFooter>
-                    <OrganismsAddMealDialog dayName={dayName} time={time}/>
+                    <OrganismsAddMealDialog dayName={dayName} time={time} fetchMeal={fetchMeal}/>
                 </DialogFooter>
             </DialogContent>
         </Dialog>
