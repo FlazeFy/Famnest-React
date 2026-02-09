@@ -19,9 +19,9 @@ export interface FamilyMemberItem {
     family_relation: string
     user: UserFamilyMemberProps
 }
-export const getAllFamilyMember = async (search: string | null): Promise<FamilyMemberItem[]> => {
+export const getAllFamilyMember = async (page: number, search: string | null): Promise<FamilyMemberItem[]> => {
     const searchArgs = search ? `&search=${search}` : ''
-    const res = await apiCall.get(`${MODULE_URL}?page=1${searchArgs}`)
+    const res = await apiCall.get(`${MODULE_URL}?page=${page}${searchArgs}`)
 
     return res.data.data
 }

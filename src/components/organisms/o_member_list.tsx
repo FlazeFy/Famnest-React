@@ -24,7 +24,8 @@ const OrganismsMemberList: React.FunctionComponent<IOrganismsMemberListProps> = 
     const fetchFamilyMember = async (search: string | null) => {
         setLoading(true)
         try {
-            const data = await getAllFamilyMember(search)
+            const page = 1
+            const data = await getAllFamilyMember(page, search)
             setFamilyMemberItem(data)
         } catch (err: any) {
             if (err.response?.status === 404 && err.response?.data?.message) {
@@ -38,9 +39,7 @@ const OrganismsMemberList: React.FunctionComponent<IOrganismsMemberListProps> = 
         }
     }
 
-    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-        fetchFamilyMember(search.length > 0 ? search : null)
-    }
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => fetchFamilyMember(search.length > 0 ? search : null)
 
     if (loading) return <Skeleton style={{height:"400px"}}/>
     if (error) return <MoleculesNotFoundBox title="No enough data to show" style={{height:"400px"}}/>

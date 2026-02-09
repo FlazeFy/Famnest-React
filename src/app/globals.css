@@ -261,6 +261,9 @@ button {
   font-weight: 500;
   font-size: var(--textMD) !important;
 }
+button[role="combobox"] {
+  color: var(--darkColor);
+}
 .btn-primary {
   background: var(--darkColor);
 }

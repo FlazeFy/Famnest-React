@@ -31,8 +31,11 @@ export interface CashFlowItemWithMeta {
     data: CashFlowItem[]
     meta: PaginationMeta
 }
-export const getAllCashFlowRepo = async (page: number): Promise<CashFlowItemWithMeta> => {
-    const res = await apiCall.get(`${MODULE_URL}?page=${page}`)
+export const getAllCashFlowRepo = async (page: number, search: string | null, category: string | null, type: string | null): Promise<CashFlowItemWithMeta> => {
+    const searchArgs = search ? `&search=${search}` : ''
+    const categoryArgs = category ? `&category=${category}` : ''
+    const typeArgs = type ? `&type=${type}` : ''
+    const res = await apiCall.get(`${MODULE_URL}?page=${page}${searchArgs}${categoryArgs}${typeArgs}`)
     const { data, meta } = res.data
 
     return { data, meta }
