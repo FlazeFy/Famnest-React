@@ -6,9 +6,10 @@ interface IMoleculesMealBoxProps {
     isReadOnly?: boolean
     deleteItemComponent: any
     updateItemComponent: any
+    seeFeedbackComponent: any
 }
 
-const MoleculesMealBox: React.FunctionComponent<MealItem & IMoleculesMealBoxProps> = ({meal_desc, meal_name, prepare_by, isReadOnly = true, deleteItemComponent, updateItemComponent}) => {
+const MoleculesMealBox: React.FunctionComponent<MealItem & IMoleculesMealBoxProps> = ({meal_desc, meal_name, prepare_by, isReadOnly = true, deleteItemComponent, updateItemComponent, seeFeedbackComponent}) => {
     return (
         <div className={`mealbox ${isReadOnly && 'readonly'}`}>
             <div>
@@ -21,6 +22,7 @@ const MoleculesMealBox: React.FunctionComponent<MealItem & IMoleculesMealBoxProp
                     <div className='flex gap-2'>
                         {updateItemComponent(meal_name, meal_desc, prepare_by)}
                         {deleteItemComponent(meal_name)}
+                        {seeFeedbackComponent(meal_name)}
                     </div>
                 ) : <></>
             }

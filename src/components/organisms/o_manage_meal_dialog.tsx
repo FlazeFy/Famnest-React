@@ -13,6 +13,7 @@ import OrganismsEditMealDialog from './o_edit_meal_dialog'
 import { hardDeleteMealRepo, MealItem } from '@/repositories/r_meal'
 import { consumeErrorAPI, loadingDialog } from '@/helpers/message'
 import Swal from "sweetalert2"
+import OrganismsMealFeedbackDialog from "./o_meal_feedback_dialog"
 
 interface IOrganismsManageMealByTimeDayDialogProps {
     time: string
@@ -65,13 +66,18 @@ const OrganismsManageMealByTimeDayDialog: React.FunctionComponent<IOrganismsMana
                         meals.length > 0 ? (
                             <div className='mt-2 space-y-3'>
                                 {
-                                    meals.map((dt, idx) => <MoleculesMealBox id={dt.id} key={idx} meal_day={dt.meal_day} meal_name={dt.meal_name} prepare_by={dt.prepare_by} meal_time={dt.meal_time} meal_desc={dt.meal_desc ?? '- No description -'} isReadOnly={false} deleteItemComponent={
-                                        (mealName: string) => <OrganismsConfirmationDeleteDialog context={`${mealName} Meal`} buttonTrigger={
-                                            <AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash}/>}/>
-                                        } action={() => handleDeleteMeal(dt.id)}/>
-                                    } updateItemComponent={
-                                        (mealName: string, mealDesc: string, mealPrepareBy: string[], mealTime: string, mealDay: string) => <OrganismsEditMealDialog mealName={mealName} mealDesc={mealDesc} mealPrepareBy={mealPrepareBy} mealTime={time} mealDay={dayName}/> 
-                                    }/>)
+                                    meals.map((dt, idx) => <MoleculesMealBox id={dt.id} key={idx} meal_day={dt.meal_day} meal_name={dt.meal_name} prepare_by={dt.prepare_by} meal_time={dt.meal_time} meal_desc={dt.meal_desc ?? '- No description -'} isReadOnly={false} 
+                                        deleteItemComponent={
+                                            (mealName: string) => <OrganismsConfirmationDeleteDialog context={`${mealName} Meal`} buttonTrigger={
+                                                <AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash}/>}/>
+                                            } action={() => handleDeleteMeal(dt.id)}/>
+                                        } updateItemComponent={
+                                            (mealName: string, mealDesc: string, mealPrepareBy: string[], mealTime: string, mealDay: string) => <OrganismsEditMealDialog mealName={mealName} mealDesc={mealDesc} mealPrepareBy={mealPrepareBy} mealTime={time} mealDay={dayName}/> 
+                                        } seeFeedbackComponent={
+                                            (mealName: string) => <OrganismsMealFeedbackDialog meal_name={mealName} id={dt.id} meal_day={""} meal_time={""} prepare_by={""}/> 
+                                        }
+                                        />
+                                    )
                                 }
                             </div>
                         ) : (
