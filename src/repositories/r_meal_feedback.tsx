@@ -20,3 +20,15 @@ export const getAllMealFeedbackByMealIdRepo = async (page: number, id: string): 
 
     return { data, meta }
 }
+
+export interface LastMealFeedbackItem {
+    meal_name: string
+    prepare_by: string 
+    avg_meal_rate: number
+}
+export const getLastMealFeedbackRepo = async (): Promise<LastMealFeedbackItem[]> => {
+    const res = await apiCall.get(`${MODULE_URL}/stats/last`)
+    const data = res.data.data
+
+    return data
+}
