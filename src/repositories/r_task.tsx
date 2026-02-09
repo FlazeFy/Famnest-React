@@ -27,8 +27,10 @@ export interface TaskItemWithMeta {
     meta: PaginationMeta
 }
 
-export const getAllTaskRepo = async (page: number): Promise<TaskItemWithMeta> => {
-    const res = await apiCall.get(`${MODULE_URL}?page=${page}`)
+export const getAllTaskRepo = async (page: number, search: string | null, status: string | null): Promise<TaskItemWithMeta> => {
+    const searchArgs = search ? `&search=${search}` : ''
+    const statusArgs = status ? `&status=${status}` : ''
+    const res = await apiCall.get(`${MODULE_URL}?page=${page}${searchArgs}${statusArgs}`)
     const { data, meta } = res.data
 
     return { data, meta }

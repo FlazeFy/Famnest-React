@@ -150,44 +150,42 @@ const OrganismsListMoneyFlowTable: React.FunctionComponent<IOrganismsListMoneyFl
                     }
                     {
                         !loading && !error && cashFlowItem.map((dt, index) => (
-                            cashFlowItem.map((dt, index) => (
-                                <TableRow key={index}>
-                                    <TableCell>
-                                        <div className='flex gap-2'>
-                                            { dt.flow_type === 'shared' ? <Badge variant='default'>Family</Badge> : <></> }
-                                            <AtomText text={`<b>${dt.flow_context}</b>`} type='content'/>
-                                        </div>
-                                        <AtomText text={dt.flow_desc} type='content'/>
-                                    </TableCell>
-                                    <TableCell>
-                                        <Badge className={dt.flow_category === 'spending' ? 'bg-danger':'bg-success'}>{dt.flow_category}</Badge>
-                                    </TableCell>
-                                    <TableCell>Rp. {dt.flow_amount.toLocaleString()}</TableCell>
-                                    <TableCell>
-                                        <div className="flex flex-wrap gap-2">
-                                            {
-                                                dt.tags && dt.tags.length > 0 ? 
-                                                    dt.tags.map((tg, i) => (
-                                                        <Badge key={i} variant="outline">{tg}</Badge>
-                                                    ))
-                                                :
-                                                    <AtomText text='- No tags attached -' type='no-content'/>
-                                            }
-                                        </div>
-                                    </TableCell>
-                                    <TableCell>
-                                        <AtomText text={`<b>Created By</b>`} type='content'/>
-                                        <AtomText text={dt.user.fullname} type='content'/>
-                                        <AtomText text={`<b>Created At</b>`} type='content'/>
-                                        <AtomText text={convertUTCToLocal(dt.created_at)} type='content'/>
-                                    </TableCell>
-                                    <TableCell>
+                            <TableRow key={index}>
+                                <TableCell>
+                                    <div className='flex gap-2'>
+                                        { dt.flow_type === 'shared' ? <Badge variant='default'>Family</Badge> : <></> }
+                                        <AtomText text={`<b>${dt.flow_context}</b>`} type='content'/>
+                                    </div>
+                                    <AtomText text={dt.flow_desc} type='content'/>
+                                </TableCell>
+                                <TableCell>
+                                    <Badge className={dt.flow_category === 'spending' ? 'bg-danger':'bg-success'}>{dt.flow_category}</Badge>
+                                </TableCell>
+                                <TableCell>Rp. {dt.flow_amount.toLocaleString()}</TableCell>
+                                <TableCell>
+                                    <div className="flex flex-wrap gap-2">
                                         {
-                                            dt.user.username === name && <OrganismsConfirmationDeleteDialog context={`${dt.flow_context} Cash Flow`} buttonTrigger={<AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash} height={15}/>}/>} action={() => handleDeleteCashFlow(dt.id)}/>
+                                            dt.tags && dt.tags.length > 0 ? 
+                                                dt.tags.map((tg, i) => (
+                                                    <Badge key={i} variant="outline">{tg}</Badge>
+                                                ))
+                                            :
+                                                <AtomText text='- No tags attached -' type='no-content'/>
                                         }
-                                    </TableCell>
-                                </TableRow>
-                            ))
+                                    </div>
+                                </TableCell>
+                                <TableCell>
+                                    <AtomText text={`<b>Created By</b>`} type='content'/>
+                                    <AtomText text={dt.user.fullname} type='content'/>
+                                    <AtomText text={`<b>Created At</b>`} type='content'/>
+                                    <AtomText text={convertUTCToLocal(dt.created_at)} type='content'/>
+                                </TableCell>
+                                <TableCell>
+                                    {
+                                        dt.user.username === name && <OrganismsConfirmationDeleteDialog context={`${dt.flow_context} Cash Flow`} buttonTrigger={<AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash} height={15}/>}/>} action={() => handleDeleteCashFlow(dt.id)}/>
+                                    }
+                                </TableCell>
+                            </TableRow>
                         ))
                     }
                 </TableBody>
