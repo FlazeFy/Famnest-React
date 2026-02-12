@@ -66,7 +66,7 @@ export const OrganismsHistory: React.FunctionComponent<IOrganismsHistoryProps> =
     if (error) return <MoleculesNotFoundBox title="No enough data to show" style={{height:"400px"}}/>
 
     return (
-        <div className='shadow-lg rounded-2xl p-10'>
+        <div className='shadow-lg rounded-2xl p-10 mt-5'>
             <div className='flex flex-wrap gap-2 justify-between'>
                 <AtomText type='sub-title' text='History'/>
                 <OrganismsExportDataset context='histories'/>

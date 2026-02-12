@@ -48,7 +48,7 @@ const OrganismsFeedbackBox: React.FunctionComponent<IOrganismsFeedbackBoxProps> 
     }
     
     return (
-        <div className='shadow-lg rounded-2xl p-10'>
+        <div className='shadow-lg rounded-2xl p-10 mt-5'>
             <AtomText type='sub-title' text='Give Us Feedback'/>
             <hr className='my-5'/>
             <Form {...form}>

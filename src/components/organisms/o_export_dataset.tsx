@@ -30,5 +30,5 @@ export const OrganismsExportDataset: React.FunctionComponent<IOrganismsExportDat
         }
     }
 
-    return <Button variant="outline" className="bg-primary" onClick={fetchExportDataset}><FontAwesomeIcon icon={faFileExport}/> Export {context}</Button>
+    return <Button variant="outline" className="bg-primary" onClick={fetchExportDataset}><FontAwesomeIcon icon={faFileExport}/> Export {context.replaceAll('_',' ')}</Button>
 }
