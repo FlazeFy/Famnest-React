@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import AtomButton from '../atoms/a_button'
 import AtomText from '../atoms/a_text'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faUsers } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { TaskItem } from '@/repositories/r_task'
 
@@ -10,21 +10,17 @@ interface IMoleculesTaskBoxProps {
     deleteItemComponent?: any
 }
 
-const MoleculesTaskBox: React.FC<TaskItem & IMoleculesTaskBoxProps> = ({ task_title, task_desc, due_date, status, deleteItemComponent }) => {
-    const [day, setDay] = useState<string | null>(null)
-    const [hour, setHour] = useState<string | null>(null)
+const MoleculesTaskBox: React.FC<TaskItem & IMoleculesTaskBoxProps> = ({ task_title, task_desc, due_date, status, deleteItemComponent, start_date, task_assigns }) => {
+    const [dueDay, setDueDay] = useState<string | null>(null)
+    const [dueHour, setDueHour] = useState<string | null>(null)
+    const [startDay, setStartDay] = useState<string | null>(null)
+    const [startHour, setStartHour] = useState<string | null>(null)
     
     const formatDate = (dateString: string, typeReturn: "day" | "hour"): string => {
         const date = new Date(dateString)
     
-        if (isNaN(date.getTime())) {
-            throw new Error("Invalid date string")
-        }
-    
-        if (typeReturn === "day") {
-            return date.toLocaleDateString("en-US", { weekday: "short" })
-        }
-    
+        if (isNaN(date.getTime())) throw new Error("Invalid date string")
+        if (typeReturn === "day") return date.toLocaleDateString("en-US", { weekday: "short" })
         if (typeReturn === "hour") {
             return date.toLocaleTimeString("en-US", {
                 hour: "numeric",
@@ -37,18 +33,26 @@ const MoleculesTaskBox: React.FC<TaskItem & IMoleculesTaskBoxProps> = ({ task_ti
     }
 
     useEffect(() => {
-        if (due_date) {
-            setDay(formatDate(due_date, 'day'))
-            setHour(formatDate(due_date, 'hour'))
+        if (due_date && start_date) {
+            setDueDay(formatDate(due_date, 'day'))
+            setDueHour(formatDate(due_date, 'hour'))
+            setStartDay(formatDate(start_date, 'day'))
+            setStartHour(formatDate(start_date, 'hour'))
         }
-    }, [due_date])
+    }, [due_date, start_date])
     
     return (
         <div className="taskbox">
             <div className="flex flex-wrap items-center gap-2">
-                <div className="flex flex-wrap items-center gap-x-2 text-center bg-primary px-2 py-1 rounded-xl min-w-[90px]">
-                    <AtomText type="content" text={day} extraClass='font-bold'/>
-                    <AtomText type="content" text={hour} />
+                <div className="flex flex-wrap items-center gap-x-4 text-center bg-primary px-3 py-2 rounded-xl min-w-[90px]">
+                    <div>
+                        <AtomText type="content" text={startDay} extraClass='font-bold'/>
+                        <AtomText type="content" text={startHour}/>
+                    </div>
+                    <div>
+                        <AtomText type="content" text={dueDay} extraClass='font-bold'/>
+                        <AtomText type="content" text={dueHour}/>
+                    </div>
                 </div>
                 <div>
                     <AtomText type="content-title" text={task_title} />
@@ -56,8 +60,9 @@ const MoleculesTaskBox: React.FC<TaskItem & IMoleculesTaskBoxProps> = ({ task_ti
                 </div>
             </div>
             <div className="flex items-center gap-2 mt-2 md:mt-0">
+                { task_assigns && task_assigns.length > 0 && <AtomButton type="btn-primary" text={<FontAwesomeIcon icon={faUsers} height={15} width={15} />}/> }
                 { deleteItemComponent && deleteItemComponent(task_title) }
-                { status !== 'completed' ? <AtomButton type="btn-success" text={<FontAwesomeIcon icon={faCheck} height={15} width={15} />}/> : <></> }
+                { status !== 'completed' && <AtomButton type="btn-success" text={<FontAwesomeIcon icon={faCheck} height={15} width={15} />}/> }
             </div>
         </div>
     )
