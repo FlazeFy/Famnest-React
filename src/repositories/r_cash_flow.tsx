@@ -66,3 +66,14 @@ export const getTotalCashFlowPerCategoryRepo = async (): Promise<CashFlowByCateg
 
     return data
 }
+
+export interface RecentlyCashFlowResponse {
+    summary: CashFlowComparisonItem[]
+    cash_flow: CashFlowItem[]
+}
+export const getRecentlyCashFlow = async (): Promise<RecentlyCashFlowResponse> => {
+    const res = await apiCall.get(`${MODULE_URL}/recently`)
+    const { data } = res.data
+
+    return data
+}

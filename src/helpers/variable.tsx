@@ -25,16 +25,6 @@ export interface TaskScheduleItem {
 }
 
 // Money
-export interface MoneyFlowItem {
-    title: string
-    description?: string
-    category: string
-    amount: number
-    tags?: string[]
-    createdAt: string
-    createdBy: string
-}
-
 export interface MoneyFlowTag {
     tagName: string
     totalUsed: number
