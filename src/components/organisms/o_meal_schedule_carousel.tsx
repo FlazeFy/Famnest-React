@@ -50,11 +50,7 @@ const OrganismsMealScheduleCarousel: React.FunctionComponent<IOrganismsMealSched
 
     return (
         <div className="w-full h-full flex flex-col justify-start text-center lg:text-left">
-            <Carousel setApi={setApi}
-                plugins={[
-                    Autoplay({ delay: 7500 }),
-                ]}
-                className="w-full rounded-2xl p-5 pb-10 bg-primary min-h-[85vh]">
+            <Carousel setApi={setApi} plugins={[ Autoplay({ delay: 7500 }) ]} className="w-full rounded-2xl p-5 pb-10 bg-primary min-h-[85vh]">
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-3'>
                     <div>
                         <AtomText type="sub-title" text="Here's the weekly schedule for your meal"/>
@@ -84,21 +80,21 @@ const OrganismsMealScheduleCarousel: React.FunctionComponent<IOrganismsMealSched
                     {
                         Array.from({ length: Math.ceil(days.length / 3) }).map((_, i) => (
                             <CarouselItem key={i} className="hidden md:block lg:hidden">
-                            <CardContent>
-                                <div className="flex flex-wrap justify-center gap-4">
-                                {
-                                    days.slice(i * 3, i * 3 + 3).map(day => (
-                                        <div key={day} className="flex-1 min-w-[28%] h-full">
-                                            <MoleculesDayMealBox dayName={day} mealItem={mealItem} dayLabelAndManageButton={
-                                                (dayName, time) => (
-                                                    <OrganismsManageMealByTimeDayDialog dayName={dayName} time={time} mealItem={mealItem} fetchMeal={fetchMeal}/>
-                                                )
-                                            }/>
-                                        </div>
-                                    ))
-                                }
-                                </div>
-                            </CardContent>
+                                <CardContent>
+                                    <div className="flex flex-wrap justify-center gap-4">
+                                    {
+                                        days.slice(i * 3, i * 3 + 3).map(day => (
+                                            <div key={day} className="flex-1 min-w-[28%] h-full">
+                                                <MoleculesDayMealBox dayName={day} mealItem={mealItem} dayLabelAndManageButton={
+                                                    (dayName, time) => (
+                                                        <OrganismsManageMealByTimeDayDialog dayName={dayName} time={time} mealItem={mealItem} fetchMeal={fetchMeal}/>
+                                                    )
+                                                }/>
+                                            </div>
+                                        ))
+                                    }
+                                    </div>
+                                </CardContent>
                             </CarouselItem>
                         ))
                     }

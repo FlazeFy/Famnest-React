@@ -126,9 +126,9 @@ const OrganismsEditSleepTimeDialog: React.FunctionComponent<IOrganismsEditSleepT
                         <DialogDescription>If you set this sleep time, all your family members will receive a notification when it's time to sleep. <AtomBreakline length={2}/><b>Note:</b> They can also disable the notification.</DialogDescription>
                     </DialogHeader>
                     {
-                        loading ? (
+                        loading ? 
                             <Skeleton className="h-[200px] w-full rounded-xl" />
-                        ) : (
+                        : 
                             <div className="grid gap-4">
                                 <div className="grid gap-3">
                                     <Label>Set Active</Label>
@@ -163,7 +163,6 @@ const OrganismsEditSleepTimeDialog: React.FunctionComponent<IOrganismsEditSleepT
                                     familySleepTimeItem && <AtomText type="content" text={`<span class="font-semibold">Set on</span> : ${familySleepTimeItem?.updated_at ? convertUTCToLocal(familySleepTimeItem?.updated_at) : convertUTCToLocal(familySleepTimeItem?.created_at ?? '')}`}/>
                                 }
                             </div>
-                        )
                     }
                     <DialogFooter>
                         {
@@ -172,9 +171,7 @@ const OrganismsEditSleepTimeDialog: React.FunctionComponent<IOrganismsEditSleepT
                                     <Button variant="outline" className="bg-danger" onClick={removeSleepTime}>Remove</Button>
                                 </DialogClose>
                         }
-                        {
-                            isShowHourInput && <Button type="submit" className="bg-success" onClick={addSleepTime}>Save changes</Button>
-                        }
+                        { isShowHourInput && <Button type="submit" className="bg-success" onClick={addSleepTime}>Save changes</Button> }
                     </DialogFooter>
                 </DialogContent>
             </form>

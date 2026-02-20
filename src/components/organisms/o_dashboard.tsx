@@ -6,8 +6,7 @@ import OrganismsEditSleepTimeDialog from './o_edit_sleep_time_dialog'
 import OrganismsNeedAttentionDialog from './o_need_attention_dialog'
 import OrganismsNextActivityDialog from './o_next_activity_dialog'
 
-interface IOrganismsDashboardProps {
-}
+interface IOrganismsDashboardProps {}
 
 const OrganismsDashboard: React.FunctionComponent<IOrganismsDashboardProps> = (props) => {
     return (

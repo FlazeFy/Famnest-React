@@ -46,15 +46,15 @@ const OrganismsLastMealBox: React.FunctionComponent<IOrganismsLastMealBoxProps> 
                         <MoleculesNotFoundBox title="No enough data to show" style={{ height: "120px" }}/>
                     </div>
                 ) : mealFeedback.length > 0 ? (
-                    mealFeedback.map((dt, idx) => (
-                        <div key={idx} className="col-span-12 md:col-span-6 lg:col-span-6 xl:col-span-4">
-                            <MoleculesLastMealBox meal_name={dt.meal_name} prepare_by={dt.prepare_by} mealScoring={<OrganismsMealScoring/>} avg_meal_rate={dt.avg_meal_rate}/>
+                        mealFeedback.map((dt, idx) => (
+                            <div key={idx} className="col-span-12 md:col-span-6 lg:col-span-6 xl:col-span-4">
+                                <MoleculesLastMealBox meal_name={dt.meal_name} prepare_by={dt.prepare_by} mealScoring={<OrganismsMealScoring/>} avg_meal_rate={dt.avg_meal_rate}/>
+                            </div>
+                        ))
+                    ) : (
+                        <div className="col-span-12">
+                            <MoleculesNotFoundBox title="No data available" />
                         </div>
-                    ))
-                ) : (
-                    <div className="col-span-12">
-                        <MoleculesNotFoundBox title="No data available" />
-                    </div>
                 )
             }
             </div>

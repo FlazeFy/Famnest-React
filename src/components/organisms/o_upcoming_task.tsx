@@ -72,13 +72,11 @@ const OrganismsUpcomingTask: React.FC<OrganismsUpcomingTaskProps> = ({ totalMemb
                         </div>
                         <div className='mt-20 items-end text-start'>
                             {
-                                taskItem.length > 0 ? taskItem.map((dt, idx) => (
+                                taskItem.length > 0 && taskItem.map((dt, idx) => (
                                     <MoleculesTaskBox key={idx} 
                                     task_title={dt.task_title} task_desc={dt.task_desc} due_date={dt.due_date} task_assigns={dt.task_assigns} status={dt.status} start_date={dt.start_date} id={dt.id} 
                                     tags={[]} created_at={null} updated_at={null}/>
                                 ))
-                                :
-                                    <></>
                             }
                         </div>
                     </div>

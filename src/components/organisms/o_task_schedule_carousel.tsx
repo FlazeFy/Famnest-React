@@ -31,11 +31,7 @@ const OrganismsTaskScheduleCarousel: React.FunctionComponent<IOrganismsTaskSched
 
     return (
         <div className="w-full h-full flex flex-col justify-start text-center lg:text-left">
-            <Carousel setApi={setApi}
-                plugins={[
-                    Autoplay({ delay: 7500 }),
-                ]}
-                className="w-full rounded-2xl p-5 pb-10 bg-primary min-h-[85vh]">
+            <Carousel setApi={setApi} plugins={[ Autoplay({ delay: 7500 }) ]} className="w-full rounded-2xl p-5 pb-10 bg-primary min-h-[85vh]">
                 <AtomText type="sub-title" text="Here's the weekly schedule for your task" extraClass='mb-5'/>
                 <CarouselContent>
                     <CarouselItem className="hidden lg:block">

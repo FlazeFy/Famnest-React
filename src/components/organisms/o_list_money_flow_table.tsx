@@ -166,9 +166,7 @@ const OrganismsListMoneyFlowTable: React.FunctionComponent<IOrganismsListMoneyFl
                                     <div className="flex flex-wrap gap-2">
                                         {
                                             dt.tags && dt.tags.length > 0 ? 
-                                                dt.tags.map((tg, i) => (
-                                                    <Badge key={i} variant="outline">{tg}</Badge>
-                                                ))
+                                                dt.tags.map((tg, i) => <Badge key={i} variant="outline">#{tg}</Badge> )
                                             :
                                                 <AtomText text='- No tags attached -' type='no-content'/>
                                         }
@@ -182,7 +180,9 @@ const OrganismsListMoneyFlowTable: React.FunctionComponent<IOrganismsListMoneyFl
                                 </TableCell>
                                 <TableCell>
                                     {
-                                        dt.user.username === name && <OrganismsConfirmationDeleteDialog context={`${dt.flow_context} Cash Flow`} buttonTrigger={<AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash} height={15}/>}/>} action={() => handleDeleteCashFlow(dt.id)}/>
+                                        dt.user.username === name && <OrganismsConfirmationDeleteDialog context={`${dt.flow_context} Cash Flow`} buttonTrigger={
+                                            <AtomButton type='btn-danger' text={<FontAwesomeIcon icon={faTrash} height={15}/>}/>
+                                        } action={() => handleDeleteCashFlow(dt.id)}/>
                                     }
                                 </TableCell>
                             </TableRow>

@@ -137,13 +137,9 @@ const OrganismsListTaskTable: React.FunctionComponent<IOrganismsListTaskTablePro
                                 </TableCell>
                                 <TableCell>
                                     <AtomText text={`<b>Start Date</b>`} type='content'/>
-                                    {
-                                        dt.start_date ? convertUTCToLocal(dt.start_date) : <AtomText text='<i>- Start date has not been set yet -</i>' type='content'/>
-                                    }
+                                    { dt.start_date ? convertUTCToLocal(dt.start_date) : <AtomText text='<i>- Start date has not been set yet -</i>' type='content'/> }
                                     <AtomText text={`<b>Due Date</b>`} type='content'/>
-                                    {
-                                        dt.due_date ? convertUTCToLocal(dt.due_date) : <AtomText text='<i>- Due date has not been set yet -</i>' type='content'/>
-                                    }
+                                    { dt.due_date ? convertUTCToLocal(dt.due_date) : <AtomText text='<i>- Due date has not been set yet -</i>' type='content'/> }
                                 </TableCell>
                                 <TableCell>
                                     <Badge className={dt.status === 'in_progress' ? 'bg-warning' : dt.status === 'completed' ? 'bg-success' :'bg-danger'}>{dt.status}</Badge>
@@ -152,19 +148,23 @@ const OrganismsListTaskTable: React.FunctionComponent<IOrganismsListTaskTablePro
                                     <AtomText text='<b>Participant</b>' type='content'/>
                                     <div className="flex flex-wrap gap-2 my-1">
                                         {
-                                            dt.task_assigns.map((ta, i) => (
-                                                <Badge key={i} variant="outline">{ta.assignee.username} ({ta.assignee.role})</Badge>
-                                            ))
+                                            dt.task_assigns && dt.task_assigns.length > 0 ? 
+                                                dt.task_assigns.map((ta, i) => (
+                                                    <Badge key={i} variant="outline">{ta.assignee.username} ({ta.assignee.role})</Badge>
+                                                ))
+                                            :
+                                                <AtomText text='<i>- No member assigned -</i>' type='no-content'/>
                                         }
                                     </div>
                                     <AtomText text='<b>Tags</b>' type='content'/>
                                     <div className="flex flex-wrap gap-2 mt-1">
                                         {
-                                            dt.tags ? dt.tags?.map((tag, i) => (
-                                                <Badge key={i} variant="outline">#{tag}</Badge>
-                                            )) 
+                                            dt.tags && dt.tags.length > 0 ? 
+                                                dt.tags?.map((tag, i) => (
+                                                    <Badge key={i} variant="outline">#{tag}</Badge>
+                                                )) 
                                             :
-                                            <AtomText text='<i>- No Tags Attached -</i>' type='content'/>
+                                                <AtomText text='<i>- No tags attached -</i>' type='no-content'/>
                                         }
                                     </div>
                                 </TableCell>

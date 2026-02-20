@@ -1,5 +1,4 @@
 import React from 'react'
-import AtomButton from '../atoms/a_button'
 import AtomText from '../atoms/a_text'
 import { faHashtag } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -28,22 +27,20 @@ const MoleculesMoneyFlowBox: React.FC<CashFlowItem> = ({ flow_context, flow_amou
     return (
         <div className="moneybox">
             <div className="flex flex-wrap items-center gap-2">
-                <div className='text-center'>
-                    <div className={`${flow_category === 'spending' ? 'bg-danger' : 'bg-success'} px-2 py-1 rounded-xl w-[110px]`}>
-                        <AtomText type="content" text={flow_category} extraClass='font-bold'/>
+                <div className='text-center space-y-1'>
+                    <div className={`${flow_category === 'spending' ? 'bg-danger' : 'bg-success'} rounded-xl capitalize`}>
+                        <AtomText type="content" text={flow_category} extraClass='font-semibold'/>
                     </div>
                     <AtomText type="content" text={`At ${day} ${hour}`}/>
                 </div>
                 <div>
-                    <AtomText type="content-title" text={flow_context}/>
+                    <AtomText type="content" extraClass='font-semibold' text={flow_context}/>
                     <AtomText type="content" text={flow_desc}/>
                 </div>
             </div>           
-            <div className="flex items-center gap-2 mt-2 md:mt-0">
-                {
-                    tags ? <AtomButton type='btn-primary' text={<span className="flex gap-2"><FontAwesomeIcon icon={faHashtag} height={12} width={12}/>{tags?.length}</span>}/> : <></>
-                }
-                <AtomText type="content-title" text={`Rp. ${flow_amount.toLocaleString()}`}/>
+            <div className="flex items-center gap-2 mt-2 space-x-3 md:mt-0">
+                { tags && tags.length > 0 && <AtomText type="content" extraClass='font-bold' text={<><FontAwesomeIcon icon={faHashtag}/>{tags?.length}</>}/> }
+                <AtomText type="content" extraClass='font-bold' text={`Rp. ${(flow_amount / 1000).toLocaleString()}K`}/>
             </div>
         </div>
     )

@@ -49,9 +49,7 @@ const OrganismsFAQBox: React.FC<OrganismsFAQBoxProps> = () => {
                 </div>
                 <div className="w-full md:w-1/2 px-4">
                     {
-                        faqItem.map((item, idx) => (
-                            <MoleculesCollapseButton key={idx} title={item.question} isActive={activeIndex === idx} onClick={() => setActiveIndex(idx)}/>
-                        ))
+                        faqItem.map((item, idx) => <MoleculesCollapseButton key={idx} title={item.question} isActive={activeIndex === idx} onClick={() => setActiveIndex(idx)}/> )
                     }
                 </div>
             </div>

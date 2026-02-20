@@ -48,7 +48,7 @@ const OrganismsPeriodicFamilyMemberMoneyFlowCarousel: React.FunctionComponent<IO
     return (
         <div className="w-full h-full flex flex-col justify-start text-center lg:text-left">
             {
-                statsItem ?
+                statsItem &&
                     <Carousel setApi={setApi}
                         plugins={[
                             Autoplay({ delay: 7500 }),
@@ -88,7 +88,6 @@ const OrganismsPeriodicFamilyMemberMoneyFlowCarousel: React.FunctionComponent<IO
                             <CarouselNext />
                         </div>
                     </Carousel>
-                :<></>
             }
         </div>
     )

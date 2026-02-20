@@ -65,15 +65,14 @@ const OrganismsMemberList: React.FunctionComponent<IOrganismsMemberListProps> = 
                 </div>
                 <div className='mt-15 flex flex-wrap'>
                     {
-                        familyMemberItem.length === 0 ? (
+                        familyMemberItem.length === 0 ? 
                             <MoleculesNotFoundBox title="No family member found" />
-                        ) : (
+                        : 
                             familyMemberItem.map((dt, idx) => (
                                 <div key={idx} className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 p-2 pb-10">
                                     <OrganismsFamilyMemberDetaillDialog member={dt}/>
                                 </div>
                             ))
-                        )
                     }
                 </div>
             </div>

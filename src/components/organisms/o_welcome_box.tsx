@@ -36,9 +36,7 @@ const OrganismsWelcomeBox: React.FunctionComponent<IWelcomeBoxProps> = ({isSigne
             <div className='w-full lg:w-1/2 mb-2 flex flex-col justify-between px-0 py-10 lg:px-10 lg:py-0'>
                 <div>
                     <MoleculesNavbar menuItem={menuItem} isSignedIn={isSignedIn} isLanding={true}/>
-                    {
-                        !isSignedIn && <AtomText type='sub-title' text='Redefining how families plan, share, and grow together'/>
-                    }
+                    { !isSignedIn && <AtomText type='sub-title' text='Redefining how families plan, share, and grow together'/> }
                 </div>
                 {
                     isSignedIn ? <>
@@ -47,7 +45,7 @@ const OrganismsWelcomeBox: React.FunctionComponent<IWelcomeBoxProps> = ({isSigne
                     </> : <OrganismsLoginForm/>
                 }
                 {
-                    !isSignedIn && (
+                    !isSignedIn && 
                         <div>
                             <div className='flex gap-2 mb-3'>
                                 <AtomButton type='btn-primary' text='Give me A Tour'/>
@@ -55,7 +53,6 @@ const OrganismsWelcomeBox: React.FunctionComponent<IWelcomeBoxProps> = ({isSigne
                             </div>
                             <AtomText type='content' text='Experience seamless coordination for every family member, from tasks and schedules to goals and memories. Discover how smart family management can bring balance, joy, and togetherness into everyday life.'/>
                         </div>
-                    )
                 }
             </div>
         </div>

@@ -18,13 +18,13 @@ const MoleculesMealBox: React.FunctionComponent<MealItem & IMoleculesMealBoxProp
                 <AtomText type='content' text={`Prepared by: ${prepare_by}`} extraClass="text-gray-400"/>
             </div>
             {
-                !isReadOnly ? (
+                !isReadOnly && (
                     <div className='flex gap-2'>
                         {updateItemComponent(meal_name, meal_desc, prepare_by)}
                         {deleteItemComponent(meal_name)}
                         {seeFeedbackComponent(meal_name)}
                     </div>
-                ) : <></>
+                )
             }
         </div>
     )

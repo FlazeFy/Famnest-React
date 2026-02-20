@@ -21,15 +21,9 @@ const OrganismsMultiLineChart: React.FunctionComponent<IOrganismsMultiLineChartP
             curve: "smooth",
             width: 3
         },
-        xaxis: {
-            categories: categories
-        },
-        legend: {
-            position: "top"
-        },
-        grid: {
-            borderColor: "#e5e7eb"
-        }
+        xaxis: { categories: categories },
+        legend: { position: "top" },
+        grid: { borderColor: "#e5e7eb" }
     }
 
     return (

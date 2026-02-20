@@ -33,7 +33,9 @@ const OrganismsPieChart: React.FunctionComponent<IOrganismsPieChartProps> = ({ t
         legend: { position: 'bottom' },
         responsive: [
             {
-                options: { legend: { position: 'bottom' } },
+                options: { 
+                    legend: { position: 'bottom' } 
+                },
             },
         ],
     }
@@ -41,7 +43,7 @@ const OrganismsPieChart: React.FunctionComponent<IOrganismsPieChartProps> = ({ t
     return (
         <div className="w-full text-center">
             <AtomText type='content-title' text={title} />
-            <ApexChart options={options} series={totals} type="pie" height={300} />
+            <ApexChart options={options} series={totals} type="pie" height={300}/>
         </div>
     )
 }

@@ -29,9 +29,7 @@ const OrganismsContact: React.FC<OrganismsContactProps> = ({ contactItem, email,
                 <AtomText type='sub-title-small' text='Information'/>
                 <AtomBreakline length={1}/>
                 {
-                    contactItem.map((dt,idx) => (
-                        <AtomButton key={idx} type='btn-link' text={dt.title} extraClass="mb-3 inline mr-5 md:block md:mr-0" url={dt.url}/>
-                    ))
+                    contactItem.map((dt,idx) => <AtomButton key={idx} type='btn-link' text={dt.title} extraClass="mb-3 inline mr-5 md:block md:mr-0" url={dt.url}/>)
                 }
             </div>
         </div>

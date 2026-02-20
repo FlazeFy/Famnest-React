@@ -46,17 +46,17 @@ const MoleculesTaskBox: React.FC<TaskItem & IMoleculesTaskBoxProps> = ({ task_ti
             <div className="flex flex-wrap items-center gap-2">
                 <div className="flex flex-wrap items-center gap-x-4 text-center bg-primary px-3 py-2 rounded-xl min-w-[90px]">
                     <div>
-                        <AtomText type="content" text={startDay} extraClass='font-bold'/>
+                        <AtomText type="content" text={startDay} extraClass='font-semibold'/>
                         <AtomText type="content" text={startHour}/>
                     </div>
                     <div>
-                        <AtomText type="content" text={dueDay} extraClass='font-bold'/>
+                        <AtomText type="content" text={dueDay} extraClass='font-semibold'/>
                         <AtomText type="content" text={dueHour}/>
                     </div>
                 </div>
                 <div>
-                    <AtomText type="content-title" text={task_title} />
-                    <AtomText type="content" text={task_desc} />
+                    <AtomText type="content" text={task_title} extraClass='font-semibold'/>
+                    <AtomText type="content" text={task_desc}/>
                 </div>
             </div>
             <div className="flex items-center gap-2 mt-2 md:mt-0">
