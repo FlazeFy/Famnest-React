@@ -77,3 +77,15 @@ export const getRecentlyCashFlow = async (): Promise<RecentlyCashFlowResponse> =
 
     return data
 }
+
+export interface CashFlowContributionItem {
+    user_id: string
+    context: string
+    total: number
+}
+export const getCashFlowContributionPerMemberRepo = async (category: string): Promise<CashFlowContributionItem[]> => {
+    const res = await apiCall.get(`${MODULE_URL}/contribution/${category}`)
+    const { data } = res.data
+
+    return data
+}

@@ -6,7 +6,7 @@ import Autoplay from "embla-carousel-autoplay"
 import OrganismsLineChart from './o_line_chart'
 import OrganismsPieChart from './o_pie_chart'
 import { getTotalDailyTask } from '@/repositories/r_task'
-import { getTotalDailyCashFlow } from '@/repositories/r_cash_flow'
+import { getCashFlowContributionPerMemberRepo, getTotalDailyCashFlow } from '@/repositories/r_cash_flow'
 import { runWithDelayQueue } from '@/helpers/execution'
 
 interface IOrganismsPinnedChartBoxProps {}
@@ -34,20 +34,17 @@ const OrganismsPinnedChartBox: React.FunctionComponent<IOrganismsPinnedChartBoxP
             data: []
         },
         {
-            title: 'Task Contribution',
+            title: 'Cash Flow Contribution',
             type: 'pie',
-            data: [
-                { context: 'Robert', total: 12 },
-                { context: 'Leo', total: 18 },
-                { context: 'Budi', total: 11 },
-            ]
+            data: []
         }
     ])
 
     useEffect(() => {
         runWithDelayQueue(1500, [
             fetchTotalDailyTask,
-            fetchTotalDailyCashFlow
+            fetchTotalDailyCashFlow,
+            fetchCashFlowContributionPerMember
         ])
     }, [])
 
@@ -87,6 +84,24 @@ const OrganismsPinnedChartBox: React.FunctionComponent<IOrganismsPinnedChartBoxP
         }
     }
 
+    const fetchCashFlowContributionPerMember = async () => {
+        try {
+            const result = await getCashFlowContributionPerMemberRepo('spending')
+            const finalRes = result.map(({ user_id, ...rest }: any) => rest)
+        
+            setPinnedChart(prev => {
+                const updated = [...prev]
+                updated[2] = {
+                    ...updated[2],
+                    data: [...finalRes]
+                }
+                return updated
+            })
+        } catch (err: any) {
+            setError(err?.response?.data?.message || "Something went wrong")
+        }
+    }
+
     useEffect(() => {
         if (!api) return
         setCount(api.scrollSnapList().length)
@@ -98,11 +113,7 @@ const OrganismsPinnedChartBox: React.FunctionComponent<IOrganismsPinnedChartBoxP
     
     return (
         <div className="w-full h-full flex flex-col justify-start text-center lg:text-left">
-            <Carousel setApi={setApi}  plugins={[
-                    Autoplay({
-                        delay: 7500,
-                    }),
-                ]} className="w-full rounded-2xl p-5 pb-10 bg-primary text-white">
+            <Carousel setApi={setApi}  plugins={[ Autoplay({delay: 7500 })]} className="w-full rounded-2xl p-5 pb-10 bg-primary text-white">
                 <CarouselContent className="w-full">
                     {
                         pinnedChart.map((dt: any, idx: number) => (
