@@ -4,7 +4,7 @@ import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, Di
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { convertUTCToLocal } from "@/helpers/converter"
+import { convert24To12Hour, convertUTCToLocal } from "@/helpers/converter"
 import { FamilySleepTimeItem, getFamilySleepTimeRepo, hardDeleteSleepTimeRepo, postFamilySleepTimeRepo } from "@/repositories/r_family_sleep_time"
 import React, { useEffect, useState } from 'react'
 import Skeleton from "react-loading-skeleton"
@@ -13,9 +13,12 @@ import AtomText from "../atoms/a_text"
 import Swal from "sweetalert2"
 import { consumeErrorAPI, loadingDialog } from "@/helpers/message"
 
-interface IOrganismsEditSleepTimeDialogProps {}
+interface IOrganismsEditSleepTimeDialogProps {
+    hour_start: string | null
+    hour_end: string | null
+}
 
-const OrganismsEditSleepTimeDialog: React.FunctionComponent<IOrganismsEditSleepTimeDialogProps> = (props) => {
+const OrganismsEditSleepTimeDialog: React.FunctionComponent<IOrganismsEditSleepTimeDialogProps> = ({ hour_start, hour_end }) => {
     // For retrive value from repo
     const [open, setOpen] = useState(false)
     const [familySleepTimeItem, setFamilyMemberItem] = useState<FamilySleepTimeItem>()
@@ -117,7 +120,7 @@ const OrganismsEditSleepTimeDialog: React.FunctionComponent<IOrganismsEditSleepT
                 <DialogTrigger asChild>
                     <div className='dashbox cursor-pointer'>
                         <AtomText type='content' text='Sleep Time'/>
-                        <AtomText type='content-title' text='11:00 PM - 04:00 AM'/>
+                        <AtomText type='content-title' text={`${hour_start && hour_end ? `${convert24To12Hour(hour_start)} - ${convert24To12Hour(hour_end)}`:'-'}`}/>
                     </div>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px]">

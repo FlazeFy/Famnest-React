@@ -161,12 +161,16 @@ p {
 }
  
 .moneybox, .taskbox {
+  justify-content: space-between;
+}
+
+.moneybox, .taskbox, .schedulebox {
   position: relative;
   margin-bottom: var(--spaceSM);
+  gap: var(--spaceMD);
   color: var(--darkColor); 
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
   cursor: pointer;
   padding: var(--spaceMD);
   background: var(--whiteColor);
@@ -180,7 +184,7 @@ p {
   cursor: pointer;
 }
 
-.dashbox, .moneybox, .taskbox, .familymemberbox, .familyattentionbox {
+.dashbox, .moneybox, .taskbox, .familymemberbox, .familyattentionbox, .schedulebox {
   width: 100%;
   border-radius: var(--roundedLG); 
   display: flex;

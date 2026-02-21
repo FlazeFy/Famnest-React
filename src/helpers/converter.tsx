@@ -36,3 +36,12 @@ export const convertUTCToLocalDateInput = (utcISOString: string): string => {
 
     return `${year}-${month}-${day}`
 }
+
+export const convert24To12Hour = (time24: string): string => {
+    const [hourStr, minute] = time24.split(":")
+    const hour = Number(hourStr)
+    const period = hour >= 12 ? "PM" : "AM"
+    const hour12 = hour % 12 === 0 ? 12 : hour % 12
+  
+    return `${hour12}:${minute} ${period}`
+}
